@@ -5,7 +5,7 @@ The Auction House System provides an interface for handling auction house functi
 # Setup
 Start the virtual environment by running the script appropriate for your shell
  * first run ```python3 -m venv /auctionhouse``` from the root folder to set up the appropriate files in that folder
- * https://docs.python.org/3/library/venv.html#creating-virtual-environments
+ * Run the appropriate startup script for your system - https://docs.python.org/3/library/venv.html#creating-virtual-environments for reference
  * After starting it, run pip install -r requirements.txt in the auctionhouse directory to install the prerequisites
 
 This is the backend and will be used for Flask, pymongo, etc.
