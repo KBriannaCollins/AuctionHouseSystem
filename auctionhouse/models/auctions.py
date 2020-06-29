@@ -7,6 +7,10 @@ class Product():
         self.description = description
         self.start_bid = start_bid
     
+    def get_id(self):
+        '''return the id of the product'''
+        return self._id
+        
     def get_name(self):
         '''returns the item name'''
         return self.name
@@ -49,12 +53,21 @@ class Product():
 class Auction():
     def __init__(self, item_id=''):
         self._id = -1
+        self.auct_id = -1
         self.item_id = item_id
         self.bids = []
         self.status = 'Listed'
         self.expiration_type = 'Manual'
         self.date_start = None
         self.date_end = None
+    
+    def get_id(self):
+        '''return the id of the auctio'''
+        return self._id
+        
+    def get_auct_id(self):
+        '''return the id of the auctio'''
+        return self.auct_id
     
     def get_item_id(self):
         '''returns the item id'''
@@ -79,10 +92,18 @@ class Auction():
     def get_date_end(self):
         '''returns the end date'''
         return self.end_date
+        
+    def set_id(self, new_id):
+        '''takes in a new ID'''
+        self._id = new_id
+
+    def set_auct_id(self, auct_id):
+        '''takes in a new auction new ID'''
+        self.auct_id = auct_id
     
-    def set_item_id(self, new_id):
+    def set_item_id(self, new_item_id):
         '''takes in a new item id and updates it'''
-        self.item_id = new_id
+        self.item_id = new_item_id
     
     def set_bids(self, new_bids):
         '''takes in a new bid list and updates it'''
@@ -104,10 +125,7 @@ class Auction():
         '''takes in a new end date and updates it'''
         self.end_date = new_end
     
-    def set_id(self, db_id):
-        '''takes in a new id and updates it'''
-        self._id = db_id
-    
+
     def add_bid(self, plus_bid):
         '''appends a bid to the bid list'''
         self.bids.append(plus_bid)

@@ -1,4 +1,13 @@
 '''Defines the model for users'''
+import json
+import jwt
+import datetime
+
+from auctionhouse.logging.logger import get_logger
+
+_log = get_logger(__name__)
+_secret_key = '10101567unique'
+
 class User():
     '''A class that defines how users should behave'''
     def __init__(self, username='', password=''):
@@ -17,6 +26,9 @@ class User():
     def get_password(self):
         '''Gets users password'''
         return self.password
+
+    def set_id(self, user_id):
+        self._id = user_id
     
     def login(self, username, password):
         '''Confirms users username and password are a match'''
@@ -27,6 +39,30 @@ class User():
     def to_dict(self):
         '''Creates an instance of a user from a dictionary input'''
         return self.__dict__
+
+    def encode_auth_token(self):
+        ''' Generate an authentication token for this user '''
+        try:
+            payload = {
+                'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),
+                'iat': datetime.datetime.utcnow(),
+                'sub': self._id
+            }
+            _log.debug("payload set")
+            return jwt.encode(payload, _secret_key, algorithm='HS256')
+        except Exception as e:
+            _log.exception('Encode failed.')
+            return e
+    @staticmethod
+    def decode_auth_token(auth_token):
+        ''' Decode the auth token to receive the id of user '''
+        try:
+            payload = jwt.decode(auth_token, _secret_key)
+            return payload['sub']
+        except jwt.ExpiredSignatureError:
+            return 'Token expired. please login again.'
+        except jwt.InvalidTokenError:
+            return 'Token invalid. Please login.'
 
 
 class Bidder(User):
