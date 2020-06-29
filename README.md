@@ -1,3 +1,7 @@
+The Auction House System
+The Auction House System provides an interface for handling auction house functions from item acquisition to completion of an auction to storing auction history for retroactive reflection. Managers supervise the approval, addition, and removal of items and employees. Curators oversee the acquisition of new items. Auctioneers lead the starting, managing, and ending of auctions. Bidders are able to place bids on items of open auctions.
+
+
 # Setup
 Start the virtual environment by running the script appropriate for your shell
  * https://docs.python.org/3/library/venv.html#creating-virtual-environments
