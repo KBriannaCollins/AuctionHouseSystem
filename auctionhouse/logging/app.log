@@ -203,3 +203,7 @@ AttributeError: 'Bid' object has no attribute 'get_id'
 2020-06-29 18:44:01,898 - auctionhouse.router.auctions - INFO - POST request recieved with body {'bidder_id': 1, 'item_id': 1, 'amount': 25000}
 2020-06-29 18:44:02,466 - auctionhouse.data.db - INFO - Added Bid. ID: 5.
 2020-06-29 18:44:02,468 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2020 18:44:02] "[37mPOST /auctions/1 HTTP/1.1[0m" 201 -
+2020-06-30 07:55:15,410 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-06-30 07:55:22,621 - auctionhouse.router.auctions - INFO - POST request recieved with body {'bidder_id': 1, 'item_id': 1, 'amount': 7}
+2020-06-30 07:55:23,311 - auctionhouse.data.db - INFO - Added Bid. ID: 6.
+2020-06-30 07:55:23,312 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2020 07:55:23] "[37mPOST /auctions/1 HTTP/1.1[0m" 201 -

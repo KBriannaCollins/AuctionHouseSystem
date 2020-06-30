@@ -1,6 +1,6 @@
 ''' This is the Auctions router. It will handle HTTP requests for Auctions. '''
 
-from flask import Flask, Blueprint, jsonify, request
+from flask import Flask, Blueprint, jsonify, request, make_response
 from auctionhouse.data.db import create_bid
 from auctionhouse.models.auctions import Bid
 
@@ -39,8 +39,9 @@ def auctions_with_id(auction_id):
             new_amount = input_dict['amount']
             new_bid = Bid(new_bidder_id, new_item_id, new_amount)
             create_bid(new_bid, query_id)
-            return jsonify(new_bid.to_dict()), 201
+            response = make_response(jsonify(new_bid.to_dict()), 201)
         else:
-            return request.json, 400
+            response = make_response(request.json, 400)
+            return response
     else:
         pass

@@ -20,7 +20,7 @@ function auctionReducer(state = initialState, action){
     }
 
 
-}
+
 
 let store = createStore(auctionReducer);
 
