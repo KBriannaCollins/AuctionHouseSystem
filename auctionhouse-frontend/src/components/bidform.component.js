@@ -10,7 +10,7 @@ class BidForm extends Component {
 
     constructor(props){
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleBidChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         
     }
