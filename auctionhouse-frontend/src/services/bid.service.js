@@ -6,7 +6,7 @@ class BidService{
     }
 
     addBid(bid){
-        return axios.post(this.URI + bid.bidder_id, )   
+        return axios.post(this.URI + bid.bidder_id, bid)   
     }
 }
 
