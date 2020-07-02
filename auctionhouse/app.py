@@ -8,12 +8,12 @@ from auctionhouse.router.auctions import auctions
 #Initialize Flask
 app = Flask(__name__)
 
+#initialize CORS
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+
 # Blueprints
 app.register_blueprint(users)
 app.register_blueprint(auctions)
-
-#initialize CORS
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 @app.route('/')
 def entry_page():
