@@ -153,9 +153,10 @@ def _get_product_id_counter():
 if __name__ == "__main__":
     ''' This is the database initialization functionality '''
     util.drop()
-    auctions.drop()
-    users.drop()
     products.drop()
+    users.drop()
+    auctions.drop()
+
     util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
     util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
     util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
@@ -177,7 +178,7 @@ if __name__ == "__main__":
 
     # product
     product = Product('Product1', 'Much expensive. Very product.', 10)
-    product = create_product(product)
+    create_product(product)
     # Bid
     bid = Bid(bidder.get_id(), product.get_id(), 100)
     bid.set_id()
