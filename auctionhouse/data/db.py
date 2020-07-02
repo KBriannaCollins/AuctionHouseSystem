@@ -124,6 +124,16 @@ def read_all_auctions():
     ''' Retrieves all auctions '''
     return auctions.find({})
 
+def login(username: str):
+    '''A function that takes in a username and returns a user object with that username'''
+    _log.debug('Attempting to retrieve user from database')
+    query_dict = {'username': username}
+    user_dict = mongo.users.find_one(query_dict)
+    _log.debug(user_dict)
+    _log.debug(type(user_dict))
+    # Ternary is "True value" if <condition> else "False Value"
+    return Bidder.from_dict(user_dict) or Employee.from_dict(user_dict) if user_dict else None
+
 #Update Functions
 
 #Delete Functions
