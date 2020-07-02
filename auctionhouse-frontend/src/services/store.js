@@ -11,6 +11,8 @@ function auctionReducer(state = initialState, action){
     switch(action.type){
         case 'handleBidChange':
             return Object.assign({}, state, {bid: action.bid})
+        case 'addBid':
+            return Object.assign({}, state, {bid: action.bid})
         default:
             return state;
     }
