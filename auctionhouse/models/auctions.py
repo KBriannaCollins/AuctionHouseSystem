@@ -148,6 +148,9 @@ class Bid():
         self.item_id = item_id
         self.amount = amount
     
+    def get_id(self):
+        return self._id
+    
     def get_amount(self):
         '''returns the amount of the bid'''
         return self.amount
@@ -159,7 +162,10 @@ class Bid():
     def get_item(self):
         '''returns the item id'''
         return self.item_id
-    
+
+    def set_id(self, new_id):
+        self._id = new_id
+
     def to_dict(self):
         '''Creates an instance of a user from a dictionary input'''
         return self.__dict__

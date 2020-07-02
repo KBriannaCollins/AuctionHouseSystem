@@ -19,3 +19,37 @@
 2020-07-01 20:26:33,217 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001ABDB2BCBE0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001ABDB2BCBE0>>
 2020-07-01 20:26:33,311 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001ABDB2BC4F0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001ABDB2BC4F0>>
 2020-07-01 20:26:33,423 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:42:34,514 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000002B1F85F2430>>
+2020-07-01 20:42:34,607 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000002B1F85FB7C0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000002B1F85FB7C0>>
+2020-07-01 20:42:34,702 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000002B1F85FBB20>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000002B1F85FBB20>>
+2020-07-01 20:42:34,809 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000002B1F85FB940>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000002B1F85FB940>>
+2020-07-01 20:42:34,943 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:42:50,786 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000001CFCD18E2E0>>
+2020-07-01 20:42:50,879 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001CFCD1BB8E0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001CFCD1BB8E0>>
+2020-07-01 20:42:50,971 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001CFCD1BB4F0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001CFCD1BB4F0>>
+2020-07-01 20:42:51,068 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001CFCD1BBA90>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001CFCD1BBA90>>
+2020-07-01 20:42:51,189 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:43:55,900 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x0000022016FB2550>>
+2020-07-01 20:43:55,994 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x0000022016FBBA30>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x0000022016FBBA30>>
+2020-07-01 20:43:56,095 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x0000022016FBBB20>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x0000022016FBBB20>>
+2020-07-01 20:43:56,187 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x0000022016FBBCA0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x0000022016FBBCA0>>
+2020-07-01 20:43:56,291 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:44:31,869 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000001479460F340>>
+2020-07-01 20:44:31,976 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x0000014794633D60>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x0000014794633D60>>
+2020-07-01 20:44:32,079 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001479463BD30>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001479463BD30>>
+2020-07-01 20:44:32,175 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001479463BA60>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001479463BA60>>
+2020-07-01 20:44:32,280 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:44:44,023 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000001255B7F3D60>>
+2020-07-01 20:44:44,122 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001255B7FBD90>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001255B7FBD90>>
+2020-07-01 20:44:44,227 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001255B7FBCD0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001255B7FBCD0>>
+2020-07-01 20:44:44,327 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001255B7FBC10>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001255B7FBC10>>
+2020-07-01 20:44:44,439 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:44:44,532 - __main__ - INFO - Added Bid. ID: 1.
+2020-07-01 20:44:44,633 - __main__ - INFO - Added auction 2
+2020-07-01 20:45:30,222 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x0000021F39D8E430>>
+2020-07-01 20:45:30,312 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x0000021F39DB3520>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x0000021F39DB3520>>
+2020-07-01 20:45:30,403 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x0000021F39DBBE50>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x0000021F39DBBE50>>
+2020-07-01 20:45:30,501 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x0000021F39DBBCD0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x0000021F39DBBCD0>>
+2020-07-01 20:45:30,604 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:45:30,717 - __main__ - INFO - Added auction 1
+2020-07-01 20:45:30,807 - __main__ - INFO - Added Bid. ID: 2.
