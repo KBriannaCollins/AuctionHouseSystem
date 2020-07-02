@@ -8,16 +8,13 @@ const initialState = {
 
 
 function auctionReducer(state = initialState, action){
-    // switch(action.type){
-    //     case 'handleBidChange':
-    //         return Object.assign({}, state, {bid: action.bid})
-    //I'm not entirely sure if we should add this
-    //I'll admit that I am a little confused
-    //I also feel like we talked about not needing a store?
-
-
-
+    switch(action.type){
+        case 'handleBidChange':
+            return Object.assign({}, state, {bid: action.bid})
+        default:
+            return state;
     }
+}
 
 
 

@@ -156,6 +156,7 @@ if __name__ == "__main__":
     products.drop()
     users.drop()
     auctions.drop()
+
     util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
     util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
     util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
@@ -182,6 +183,6 @@ if __name__ == "__main__":
     bid = Bid(bidder.get_id(), product.get_id(), 100)
     # auction
     auction = Auction(product.get_id())
-    auction.add_bid(bid.to_dict())
     create_auction(auction)
-
+    create_bid(bid, auction.get_id())
+    

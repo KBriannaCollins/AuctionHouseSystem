@@ -4,6 +4,7 @@ from flask import Flask, Blueprint, jsonify, request, make_response
 from auctionhouse.data.db import create_bid
 from auctionhouse.models.auctions import Bid
 
+
 from auctionhouse.logging.logger import get_logger
 
 _log = get_logger(__name__)
@@ -39,8 +40,10 @@ def auctions_with_id(auction_id):
             new_amount = input_dict['amount']
             new_bid = Bid(new_bidder_id, new_item_id, new_amount)
             create_bid(new_bid, query_id)
+            # response = make_response()
             return jsonify(new_bid.to_dict()), 201
         else:
+            # response = make_response()
             return request.json, 400
     else:
         pass
