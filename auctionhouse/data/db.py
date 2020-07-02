@@ -191,8 +191,7 @@ if __name__ == "__main__":
     create_product(product)
     # Bid
     bid = Bid(bidder.get_id(), product.get_id(), 100)
-    bid.set_id()
     # auction
     auction = Auction(product.get_id())
-    auction.add_bid(bid.to_dict())
     create_auction(auction)
+    create_bid(bid, auction.get_id())

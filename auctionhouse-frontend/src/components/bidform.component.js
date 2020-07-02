@@ -10,11 +10,8 @@ class BidForm extends Component {
 
     constructor(props){
         super(props);
-<<<<<<< Updated upstream
         this.handleChange = this.handleChange.bind(this);
-=======
         this.handleBidChange = this.handleBidChange.bind(this);
->>>>>>> Stashed changes
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
