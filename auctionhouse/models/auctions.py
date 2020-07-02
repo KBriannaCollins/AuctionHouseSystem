@@ -147,10 +147,11 @@ class Bid():
         self.bidder_id = bidder_id
         self.item_id = item_id
         self.amount = amount
-    
+
     def get_id(self):
+        '''return the id of the auctio'''
         return self._id
-    
+
     def get_amount(self):
         '''returns the amount of the bid'''
         return self.amount

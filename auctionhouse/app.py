@@ -13,11 +13,10 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 # , resources={r"/*": {"origins": "*"}}, supports_credentials=True
 
+
 # Blueprints
 app.register_blueprint(users)
 app.register_blueprint(auctions)
-
-
 
 @app.route('/')
 def entry_page():
