@@ -2,7 +2,7 @@
 
 from flask import Flask, Blueprint, jsonify
 
-auctions = Blueprint('users', __name__)
+auctions = Blueprint('auctions', __name__)
 
 @auctions.route('/auctions', methods=['GET'])
 def auctions_main():

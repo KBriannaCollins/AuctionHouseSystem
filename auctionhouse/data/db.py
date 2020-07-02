@@ -150,9 +150,12 @@ def _get_product_id_counter():
                                     return_document=pymongo.ReturnDocument.AFTER)['count']
 
 
-if __name__ is "__main__":
+if __name__ == "__main__":
     ''' This is the database initialization functionality '''
     util.drop()
+    auctions.drop()
+    users.drop()
+    products.drop()
     util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
     util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
     util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
@@ -177,8 +180,8 @@ if __name__ is "__main__":
     product = create_product(product)
     # Bid
     bid = Bid(bidder.get_id(), product.get_id(), 100)
+    bid.set_id()
     # auction
     auction = Auction(product.get_id())
-    auction.add_bid(bid)
+    auction.add_bid(bid.to_dict())
     create_auction(auction)
-

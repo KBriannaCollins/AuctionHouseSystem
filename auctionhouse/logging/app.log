@@ -1,0 +1,21 @@
+2020-07-01 20:22:08,707 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000001F4A28B2430>>
+2020-07-01 20:22:08,838 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001F4A28B9C70>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001F4A28B9C70>>
+2020-07-01 20:22:08,929 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001F4A28B9C10>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001F4A28B9C10>>
+2020-07-01 20:22:09,029 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001F4A28B9A60>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001F4A28B9A60>>
+2020-07-01 20:22:09,153 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:23:31,675 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000002421F1F3C70>>
+2020-07-01 20:23:31,771 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000002421F1CE2E0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000002421F1CE2E0>>
+2020-07-01 20:23:31,874 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000002421F1FBA00>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000002421F1FBA00>>
+2020-07-01 20:23:31,962 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000002421F1FB4F0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000002421F1FB4F0>>
+2020-07-01 20:23:32,079 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:25:25,930 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000001A9E990E2E0>>
+2020-07-01 20:25:26,033 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001A9E9932430>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001A9E9932430>>
+2020-07-01 20:25:26,133 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001A9E993CC70>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001A9E993CC70>>
+2020-07-01 20:25:26,233 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001A9E993CD00>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001A9E993CD00>>
+2020-07-01 20:25:26,347 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 20:25:26,450 - __main__ - INFO - Added auction 1
+2020-07-01 20:26:33,034 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000001ABDB2B2430>>
+2020-07-01 20:26:33,127 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001ABDB2BCD60>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001ABDB2BCD60>>
+2020-07-01 20:26:33,217 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001ABDB2BCBE0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001ABDB2BCBE0>>
+2020-07-01 20:26:33,311 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001ABDB2BC4F0>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001ABDB2BC4F0>>
+2020-07-01 20:26:33,423 - __main__ - INFO - Added Product1 product. ID: 1.
