@@ -148,10 +148,6 @@ class Bid():
         self.item_id = item_id
         self.amount = amount
 
-    def set_id(self, new_id):
-        '''takes in a new ID'''
-        self._id = new_id
-
     def get_id(self):
         '''return the id of the auctio'''
         return self._id
@@ -167,7 +163,10 @@ class Bid():
     def get_item(self):
         '''returns the item id'''
         return self.item_id
-    
+
+    def set_id(self, new_id):
+        self._id = new_id
+
     def to_dict(self):
         '''Creates an instance of a user from a dictionary input'''
         return self.__dict__

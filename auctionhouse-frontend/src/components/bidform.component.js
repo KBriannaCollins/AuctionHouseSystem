@@ -10,16 +10,25 @@ class BidForm extends Component {
 
     constructor(props){
         super(props);
+<<<<<<< HEAD
         this.handleChange = this.handleChange.bind(this);
+=======
+>>>>>>> bd5051530e17a4d248949b21c26411aa9c7ee5bd
         this.handleBidChange = this.handleBidChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleBidChange(e){
         let newBid = Object.assign({}, this.props.bid);
+<<<<<<< HEAD
         newBid['amount'] = e.target.value;
         this.props.dispatch({type: 'addBid', bid: newBid})
 
+=======
+        newBid['amount'] = parseInt(e.target.value);
+        this.props.dispatch({type: 'handleBidChange', bid: newBid})
+        console.log(this.props.bid)
+>>>>>>> bd5051530e17a4d248949b21c26411aa9c7ee5bd
     }
 
     handleSubmit(e){
