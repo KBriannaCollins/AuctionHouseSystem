@@ -40,9 +40,10 @@ def auctions_with_id(auction_id):
             new_amount = input_dict['amount']
             new_bid = Bid(new_bidder_id, new_item_id, new_amount)
             create_bid(new_bid, query_id)
-            response = make_response(jsonify(new_bid.to_dict()), 201)
+            # response = make_response()
+            return jsonify(new_bid.to_dict()), 201
         else:
-            response = make_response(request.json, 400)
-            return response
+            # response = make_response()
+            return request.json, 400
     else:
         pass
