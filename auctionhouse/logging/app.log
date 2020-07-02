@@ -207,3 +207,9 @@ AttributeError: 'Bid' object has no attribute 'get_id'
 2020-06-30 07:55:22,621 - auctionhouse.router.auctions - INFO - POST request recieved with body {'bidder_id': 1, 'item_id': 1, 'amount': 7}
 2020-06-30 07:55:23,311 - auctionhouse.data.db - INFO - Added Bid. ID: 6.
 2020-06-30 07:55:23,312 - werkzeug - INFO - 127.0.0.1 - - [30/Jun/2020 07:55:23] "[37mPOST /auctions/1 HTTP/1.1[0m" 201 -
+2020-07-01 19:24:39,596 - __main__ - INFO - Added <bound method User.get_username of <auctionhouse.models.users.Bidder object at 0x000001B05239E070>>
+2020-07-01 19:24:39,767 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001B0523A7C10>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001B0523A7C10>>
+2020-07-01 19:24:39,932 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001B0523A7C70>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001B0523A7C70>>
+2020-07-01 19:24:40,061 - __main__ - INFO - Added <bound method Employee.get_role of <auctionhouse.models.users.Employee object at 0x000001B0523A7880>> named <bound method User.get_username of <auctionhouse.models.users.Employee object at 0x000001B0523A7880>>
+2020-07-01 19:24:40,194 - __main__ - INFO - Added Product1 product. ID: 1.
+2020-07-01 19:24:40,333 - __main__ - INFO - Added auction 1
