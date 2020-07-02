@@ -3,7 +3,7 @@ The Auction House System provides an interface for handling auction house functi
 
 
 # Setup
- * first run ```python3 -m venv /auctionhouse``` from the root folder to set up the appropriate files in that folder
+ * first run ```python3 -m venv ./auctionhouse``` from the root folder to set up the appropriate files in that folder
  * Run the appropriate startup script for your system - https://docs.python.org/3/library/venv.html#creating-virtual-environments for reference
  * After starting it, run ```pip install -r requirements.txt``` in the auctionhouse directory to install the prerequisites
  * Set your FLASK_APP environment variable to auctionhouse/app.py if you are running the app from the root directory

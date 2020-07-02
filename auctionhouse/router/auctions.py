@@ -4,6 +4,7 @@ from flask import Flask, Blueprint, jsonify, request, make_response
 from auctionhouse.data.db import create_bid
 from auctionhouse.models.auctions import Bid
 
+
 from auctionhouse.logging.logger import get_logger
 
 _log = get_logger(__name__)
