@@ -2,7 +2,7 @@ const { default: axios } = require('axios')
 
 class UserService {
     constructor(){
-        this.URI = 'http://localhost:3000/users';
+        this.URI = 'http://localhost:5000/users';
     }
 
     checkLogin() {
