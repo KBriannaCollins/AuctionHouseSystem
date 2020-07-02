@@ -17,15 +17,19 @@ class BidForm extends Component {
 
     handleBidChange(e){
         let bid = Object.assign({}, this.props.bid);
-        bid[event.target.name]
+        bid['amount'] = event.target.value;
         this.props.dispatch({type: 'addBid', bid: newBid})
 
     }
 
     handleSubmit(e){
         e.preventDefault()
-
-        this.bidService.addBid(this.props.bid).then()
+        this.bidService.addBid(this.props.bid).then(
+            (resp) => {
+                //this resets the state of the bid
+                this.props.dispatch({type: 'addBid', bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0}})
+            }
+        )
 
     }
 
@@ -40,3 +44,10 @@ class BidForm extends Component {
         );
     }
 }
+
+function mapStateToProps(state){
+    const {bid} = state;
+    return {bid: bid}
+}
+
+export default connect(mapStateToProps)(BidForm);
