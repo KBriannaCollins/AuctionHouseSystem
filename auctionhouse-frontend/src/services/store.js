@@ -9,6 +9,10 @@ const initialState = {
 
 function auctionReducer(state = initialState, action){
     switch(action.type){
+        case 'login':
+            return Object.assign({}, state, {username: '', user: action.user})
+        case 'handleUsername':
+            return Object.assign({}, state, {username: action.username})
         case 'handleBidChange':
             return Object.assign({}, state, {bid: action.bid})
         case 'addBid':

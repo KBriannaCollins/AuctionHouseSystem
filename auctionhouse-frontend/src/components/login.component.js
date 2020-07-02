@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import UserService from '../services/user.service'
 import { connect } from 'react-redux';
-import RenewService from '../services/renew.service';
 
 class Login extends Component {
 
@@ -13,13 +12,11 @@ class Login extends Component {
         this.logout = this.logout.bind(this);
     }
     userService = new UserService();
-    renewService = new RenewService();
 
     componentDidMount() {
         this.userService.checkLogin().then(
             (resp) => {
                 this.props.dispatch( { type: 'login', user: resp.data })
-                this.loadMedia();
             }
         )
     }
@@ -35,7 +32,6 @@ class Login extends Component {
         this.userService.login(this.props.username).then(
             (resp) => {
                 this.props.dispatch( { type: 'login', user: resp.data })
-                this.loadMedia();
             }
         )
     }
@@ -52,14 +48,6 @@ class Login extends Component {
     handleInput(e) {
         console.log(this.props)
         this.props.dispatch( { type: 'handleUsername', username: e.target.value } )
-    }
-
-    loadMedia() {
-        this.renewService.getMedia(this.props.user.username).then(
-            res => {
-                console.log(res)
-                this.props.dispatch({ type: 'loadMedia', media: res.data 
-            })})
     }
 
     getLoginForm() {
