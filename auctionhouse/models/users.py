@@ -46,7 +46,7 @@ class User():
             payload = {
                 'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),
                 'iat': datetime.datetime.utcnow(),
-                'sub': self._id
+                'sub': self.username
             }
             _log.debug("payload set")
             return jwt.encode(payload, _secret_key, algorithm='HS256')
