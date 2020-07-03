@@ -13,7 +13,6 @@ class BidService{
 
 export default BidService;
 
-// addBid(username){
-    //     return axios.post(<uri to send post to>, <data trying to post>)
-        
-    // }
+/**addBid(username){
+    return axios.post(<uri to send post to>, <data trying to post>)
+    }*/
