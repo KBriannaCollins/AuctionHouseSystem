@@ -53,14 +53,15 @@ class Login extends Component {
     getLoginForm() {
         return (
             <>
-                <ul className = 'nav'>
-                    <li className = 'nav-item'>Username: <input type="text"
-                        value={this.props.username} 
-                        onChange={ this.handleInput }
-                        onKeyDown={ (e) => this.handleKeyDown(e) }></input></li>
-                    <li className = 'nav-item'><button className='btn btn-primary'
-                        onClick={ this.login }>Login</button></li>
-                </ul>
+                <form onSubmit={this.login}>
+                    <p><label>Username:</label></p>
+                    <p><input type="text"
+                        value={this.props.username}
+                        onChange={this.handleInput}
+                        onKeyDown={ (e) => this.handleKeyDown(e) }></input></p>
+                    <p><button className='btn btn-primary'
+                        onClick={ this.login}>Login</button></p>
+                </form>
             </>
         )
     }
