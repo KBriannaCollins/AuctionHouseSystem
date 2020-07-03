@@ -28,6 +28,7 @@ class BidForm extends Component {
         this.bidService.addBid(this.props.bid).then(
             (resp) => {
                 this.props.dispatch({type: 'addBid', bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0}})
+                console.log(resp)
             }
         )
     }
