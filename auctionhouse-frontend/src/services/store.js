@@ -1,8 +1,9 @@
 import { createStore } from 'redux';
 
 const initialState = {
-    user: null,
-    username: '',
+    user: null, //username and password?
+    role: '',
+    auction: {},
     bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0},
 }
 
