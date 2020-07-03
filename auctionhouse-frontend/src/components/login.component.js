@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import UserService from '../services/user.service'
 import { connect } from 'react-redux';
-import RenewService from '../services/renew.service';
 
 class Login extends Component {
 
@@ -13,13 +12,11 @@ class Login extends Component {
         this.logout = this.logout.bind(this);
     }
     userService = new UserService();
-    renewService = new RenewService();
 
     componentDidMount() {
         this.userService.checkLogin().then(
             (resp) => {
                 this.props.dispatch( { type: 'login', user: resp.data })
-                this.loadMedia();
             }
         )
     }
@@ -35,7 +32,6 @@ class Login extends Component {
         this.userService.login(this.props.username).then(
             (resp) => {
                 this.props.dispatch( { type: 'login', user: resp.data })
-                this.loadMedia();
             }
         )
     }
@@ -54,25 +50,18 @@ class Login extends Component {
         this.props.dispatch( { type: 'handleUsername', username: e.target.value } )
     }
 
-    loadMedia() {
-        this.renewService.getMedia(this.props.user.username).then(
-            res => {
-                console.log(res)
-                this.props.dispatch({ type: 'loadMedia', media: res.data 
-            })})
-    }
-
     getLoginForm() {
         return (
             <>
-                <ul className = 'nav'>
-                    <li className = 'nav-item'>Username: <input type="text"
-                        value={this.props.username} 
-                        onChange={ this.handleInput }
-                        onKeyDown={ (e) => this.handleKeyDown(e) }></input></li>
-                    <li className = 'nav-item'><button className='btn btn-primary'
-                        onClick={ this.login }>Login</button></li>
-                </ul>
+                <form onSubmit={this.login}>
+                    <p><label>Username:</label></p>
+                    <p><input type="text"
+                        value={this.props.username}
+                        onChange={this.handleInput}
+                        onKeyDown={ (e) => this.handleKeyDown(e) }></input></p>
+                    <p><button className='btn btn-primary'
+                        onClick={ this.login}>Login</button></p>
+                </form>
             </>
         )
     }

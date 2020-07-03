@@ -6,7 +6,7 @@ class BidService{
     }
 
     addBid(bid){
-        return axios.post(this.URI + bid.bidder_id, bid, {withCredentials: true})
+        return axios.post(this.URI + window.location.pathname.split('/')[2], bid, {withCredentials: true})
         //may need {bid} instead
     }
 }
