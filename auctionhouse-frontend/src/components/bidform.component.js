@@ -16,9 +16,7 @@ class BidForm extends Component {
 
     handleBidChange(e){
         let newBid = Object.assign({}, this.props.bid);
-        newBid['amount'] = parseInt(e.target.value);
-        newBid['bidder_id'] = this.props.user._id
-        console.log(this.props)
+        newBid['amount'] = parseFloat(e.target.value);
         this.props.dispatch({type: 'handleBidChange', bid: newBid})
         console.log(this.props.bid)
     }
@@ -28,14 +26,18 @@ class BidForm extends Component {
         this.bidService.addBid(this.props.bid).then(
             (resp) => {
                 this.props.dispatch({type: 'addBid', bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0}})
-                console.log(resp)
+                if (resp.status === 201){
+                    alert("Successfully added your bid.")
+                } else {
+                    alert("Could not add your bid.")
+                }
             }
         )
     }
 
     render(){
         return(
-            <form onSubmit={this.handleSubmit}><p></p>
+            <form onSubmit={this.handleSubmit}>
                 <p><label>Enter the amount you would like to bet:</label></p>
                 <p><input type="number"  onChange={this.handleBidChange}/></p>
                 <p><input type="submit" value="Submit" onClick={this.handleSubmit}/></p>
