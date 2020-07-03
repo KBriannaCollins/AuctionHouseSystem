@@ -47,8 +47,9 @@ class BidForm extends Component {
 }
 
 function mapStateToProps(state){
-    const { bid } = state;
-    return { bid: bid }
+    const { bid, user } = state;
+    return { bid: bid,
+             user: user }
 }
 
 export default connect(mapStateToProps)(BidForm);

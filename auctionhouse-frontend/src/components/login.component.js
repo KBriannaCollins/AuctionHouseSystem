@@ -16,6 +16,7 @@ class Login extends Component {
     componentDidMount() {
         this.userService.checkLogin().then(
             (resp) => {
+                console.log(resp)
                 this.props.dispatch( { type: 'login', user: resp.data })
             }
         )
