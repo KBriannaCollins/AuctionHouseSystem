@@ -17,6 +17,8 @@ class BidForm extends Component {
     handleBidChange(e){
         let newBid = Object.assign({}, this.props.bid);
         newBid['amount'] = parseInt(e.target.value);
+        newBid['bidder_id'] = this.props.user._id
+        console.log(this.props)
         this.props.dispatch({type: 'handleBidChange', bid: newBid})
         console.log(this.props.bid)
     }
@@ -42,8 +44,9 @@ class BidForm extends Component {
 }
 
 function mapStateToProps(state){
-    const { bid } = state;
-    return { bid: bid }
+    const { bid, user } = state;
+    return { bid: bid,
+             user: user }
 }
 
 export default connect(mapStateToProps)(BidForm);
