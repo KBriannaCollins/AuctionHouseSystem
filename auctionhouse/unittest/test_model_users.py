@@ -104,6 +104,3 @@ class EmployeeTestSuite(unittest.TestCase):
         test_dict = {'username': 'user', 'password': 'password', 'role': 'role'}
         self.emp = Employee().from_dict(test_dict)
         self.assertIs(type(EmployeeTestSuite.emp), Employee)
-
-if __name__ == '__main__':
-    unittest.main()
