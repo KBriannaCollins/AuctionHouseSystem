@@ -202,13 +202,4 @@ if __name__ == "__main__":
     # auction
     auction = Auction(product.get_id())
     create_auction(auction)
-<<<<<<< HEAD
-<<<<<<< HEAD
     create_bid(bid, auction.get_id())
-=======
-    create_bid(bid, auction.get_id())
-    
->>>>>>> bd5051530e17a4d248949b21c26411aa9c7ee5bd
-=======
-    create_bid(bid, auction.get_id())
->>>>>>> 9a5f54f039b7e8cd17aa3c4a1d6d03db289265c3

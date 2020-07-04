@@ -1,0 +1,31 @@
+@import './theme.scss';
+
+.nav_link {
+    @extend %titles;
+    h1 {
+        color: $ah-offblack;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    h2 {
+        color: $ah-offblack;
+    }
+    h3 {
+        color: $ah-gold;
+        font-weight: bold;
+    }
+    h4 {
+        color: $ah-gold;
+    }
+    h5 {
+        color: $ah-gold;
+    }
+    h6 {
+        color: $ah-gold;
+    }
+}
+
+td {
+    margin: 0 auto;
+    vertical-align: bottom;
+}

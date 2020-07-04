@@ -16,6 +16,7 @@ class Login extends Component {
     componentDidMount() {
         this.userService.checkLogin().then(
             (resp) => {
+                console.log(resp)
                 this.props.dispatch( { type: 'login', user: resp.data })
             }
         )
@@ -27,7 +28,8 @@ class Login extends Component {
         }
     }
 
-    login() {
+    login(e) {
+        e.preventDefault()
         console.log(this.props)
         this.userService.login(this.props.username).then(
             (resp) => {
@@ -36,7 +38,8 @@ class Login extends Component {
         )
     }
 
-    logout(){
+    logout(e){
+        e.preventDefault()
         this.userService.logout().then(
             () => {
                 console.log('Logging out.')
@@ -53,14 +56,15 @@ class Login extends Component {
     getLoginForm() {
         return (
             <>
-                <ul className = 'nav'>
-                    <li className = 'nav-item'>Username: <input type="text"
-                        value={this.props.username} 
-                        onChange={ this.handleInput }
-                        onKeyDown={ (e) => this.handleKeyDown(e) }></input></li>
-                    <li className = 'nav-item'><button className='btn btn-primary'
-                        onClick={ this.login }>Login</button></li>
-                </ul>
+                <form>
+                    <p><label>Username:</label></p>
+                    <p><input type="text"
+                        value={this.props.username}
+                        onChange={this.handleInput}
+                        onKeyDown={ (e) => this.handleKeyDown(e) }></input></p>
+                    <p><button className='btn btn-primary'
+                        onClick={ this.login }>Login</button></p>
+                </form>
             </>
         )
     }
