@@ -7,7 +7,6 @@ class ProductService{
 
     proposeProduct(product){
         return axios.post(this.URI, product, {withCredentials: true})
-        //may need {bid} instead
     }
 }
 
