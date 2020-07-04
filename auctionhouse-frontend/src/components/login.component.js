@@ -28,7 +28,8 @@ class Login extends Component {
         }
     }
 
-    login() {
+    login(e) {
+        e.preventDefault()
         console.log(this.props)
         this.userService.login(this.props.username).then(
             (resp) => {
@@ -37,7 +38,8 @@ class Login extends Component {
         )
     }
 
-    logout(){
+    logout(e){
+        e.preventDefault()
         this.userService.logout().then(
             () => {
                 console.log('Logging out.')
@@ -54,14 +56,14 @@ class Login extends Component {
     getLoginForm() {
         return (
             <>
-                <form onSubmit={this.login}>
+                <form>
                     <p><label>Username:</label></p>
                     <p><input type="text"
                         value={this.props.username}
                         onChange={this.handleInput}
                         onKeyDown={ (e) => this.handleKeyDown(e) }></input></p>
                     <p><button className='btn btn-primary'
-                        onClick={ this.login}>Login</button></p>
+                        onClick={ this.login }>Login</button></p>
                 </form>
             </>
         )

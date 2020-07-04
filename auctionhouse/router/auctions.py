@@ -1,8 +1,8 @@
 ''' This is the Auctions router. It will handle HTTP requests for Auctions. '''
 
 from flask import Flask, Blueprint, jsonify, request, make_response
-from auctionhouse.data.db import create_bid
-from auctionhouse.models.auctions import Bid
+from auctionhouse.data.db import create_bid, create_auction
+from auctionhouse.models.auctions import Bid, Auction
 
 
 from auctionhouse.logging.logger import get_logger
@@ -15,7 +15,18 @@ auctions = Blueprint('auctions', __name__)
 def auctions_main():
     ''' This is the main /auctions route '''
     if request.method == 'POST':
-        pass
+        # POST request body should contain...
+        # ID of the item (item_id)
+        input_dict = request.get_json(force=True)
+        _log.debug(input_dict)
+        if 'item_id' in input_dict:
+            new_auction = Auction(input_dict['item_id'])
+            if create_auction(new_auction):
+                return jsonify(new_auction.to_dict()), 201
+            else:
+                return request.json, 400
+        else:
+            return request.json, 400
     else:
         pass
 
