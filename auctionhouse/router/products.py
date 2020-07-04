@@ -11,11 +11,11 @@ products = Blueprint('products', __name__)
 
 @products.route('/products', methods=['POST'])
 def products_main():
-    required_fiels = ['name', 'description', 'start_bid']
+    required_fields = ['name', 'description', 'start_bid']
     if request.method == 'POST':
         input_dict = request.get_json(force=true)
         _log.debug('Product POST request received with body %s', input_dict)
-        if all(field in input_dict for field in required_fiels):
+        if all(field in input_dict for field in required_fields):
             name = input_dict['name']
             description = input_dict['description']
             start = input_dict['start_bid']

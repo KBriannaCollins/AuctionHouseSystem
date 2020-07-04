@@ -46,33 +46,14 @@ class ProductForm extends Component{
             <>
             <h3>Product Proposal Form</h3>
             <form>
-                <p><label>Product Name:</label></p>
+                <h5>Product Name:</h5>
                 <p><input type="text" name='name' onChange={this.handleProductChange}/></p>
-                <p><label>Product Description:</label></p>
+                <h5>Product Description:</h5>
                 <p><input type="text" name='description' onChange={this.handleProductChange}/></p>
-                <p><label>Starting Bid:</label></p>
+                <h5>Starting Bid:</h5>
                 <p><input type="number" name='start_bid' onChange={this.handleProductAmountChange} min='1'/></p>
-                <button className='btn btn-primary' onClick={(e) => this.proposeProduct(e)}>Submit</button>
+                <button onClick={(e) => this.proposeProduct(e)}>Submit</button>
             </form>
-            {/* <div className='container border'>
-                <h3>Product Proposal Form</h3>
-                {
-                FIELDS.map((name)=> {
-                    return(
-                        <div key={name}>
-                            <label htmlFor={name}>{name}</label>
-                            <input type="text" className='form-control' name={name}
-                                value={this.props.newProduct[name]}
-                                onChange={(e)=> this.handleProductFieldChange(e)}/>
-                        </div>
-                    )
-                })    
-                }
-                <button className='btn btn-primary'
-                    onClick={(e) => this.proposeProduct(e)}>Submit</button>
-
-
-            </div> */}
             </>
         )
     }

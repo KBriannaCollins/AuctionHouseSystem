@@ -6,6 +6,7 @@ class ProductService{
     }
 
     proposeProduct(product){
+        console.log('sending axios')
         return axios.post(this.URI, product, {withCredentials: true})
     }
 }
