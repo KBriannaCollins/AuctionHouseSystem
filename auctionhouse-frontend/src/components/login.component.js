@@ -56,14 +56,22 @@ class Login extends Component {
     getLoginForm() {
         return (
             <>
+<<<<<<< HEAD
                 <form>
+=======
+                <form onSubmit={this.login}>
+>>>>>>> e0fa59262640b812e7af67a9ca3bacc40706e4ca
                     <p><label>Username:</label></p>
                     <p><input type="text"
                         value={this.props.username}
                         onChange={this.handleInput}
                         onKeyDown={ (e) => this.handleKeyDown(e) }></input></p>
                     <p><button className='btn btn-primary'
+<<<<<<< HEAD
                         onClick={ this.login }>Login</button></p>
+=======
+                        onClick={ this.login}>Login</button></p>
+>>>>>>> e0fa59262640b812e7af67a9ca3bacc40706e4ca
                 </form>
             </>
         )

@@ -37,11 +37,19 @@ class BidForm extends Component {
 
     render(){
         return(
+<<<<<<< HEAD
             <form onSubmit={this.handleSubmit}>
                 <p><label>Enter the amount you would like to bet:</label></p>
+=======
+            <>
+            <h3>Bid Proposal</h3>
+            <form onSubmit={this.handleSubmit}>
+                <h5>Enter the amount you would like to bet:</h5>
+>>>>>>> e0fa59262640b812e7af67a9ca3bacc40706e4ca
                 <p><input type="number"  onChange={this.handleBidChange}/></p>
                 <p><input type="submit" value="Submit" onClick={this.handleSubmit}/></p>
             </form>
+            </>
         );
     }
 }
