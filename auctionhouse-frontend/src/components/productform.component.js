@@ -49,7 +49,7 @@ class ProductForm extends Component{
                 <h5>Product Name:</h5>
                 <p><input type="text" name='name' onChange={this.handleProductChange}/></p>
                 <h5>Product Description:</h5>
-                <p><input type="text" name='description' onChange={this.handleProductChange}/></p>
+                <p><textarea name='description' rows='10' cols='50' onChange={this.handleProductChange}/></p>
                 <h5>Starting Bid:</h5>
                 <p><input type="number" name='start_bid' onChange={this.handleProductAmountChange} min='1'/></p>
                 <button onClick={(e) => this.proposeProduct(e)}>Submit</button>
