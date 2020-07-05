@@ -2,7 +2,7 @@
 from flask import Flask, Blueprint, jsonify, request, make_response
 from auctionhouse.data.db import create_product
 from auctionhouse.models.auctions import Product
-from auctionhouse.data.db as db
+import auctionhouse.data.db as db
 
 from auctionhouse.logging.logger import get_logger
 
@@ -27,7 +27,7 @@ def products_main():
             return request.json, 400
     elif request.method == 'GET':
         _log.debug('GET request for products')
-        return jsonify(db.read_all_products), 200
+        return jsonify(db.read_all_products()), 200
     else:
         pass
 

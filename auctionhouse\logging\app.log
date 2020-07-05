@@ -1,0 +1,2 @@
+2020-07-05 11:50:58,468 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-05 11:59:34,457 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 11:59:34] "[33mGET /viewproducts HTTP/1.1[0m" 404 -

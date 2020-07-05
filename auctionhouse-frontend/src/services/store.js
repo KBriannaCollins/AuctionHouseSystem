@@ -4,9 +4,9 @@ const initialState = {
     user: null, //username and password?
     role: '',
     auction: {},
+    auctions: [],
     bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0},
-    product: {'name': '', 'description': '', 'start_bid': 0},
-    status: 'Proposed'
+    product: {'name': '', 'description': '', 'status': ''},
 }
 
 
