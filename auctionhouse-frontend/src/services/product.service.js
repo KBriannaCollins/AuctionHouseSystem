@@ -10,7 +10,8 @@ class ProductService{
         return axios.post(this.URI, product, {withCredentials: true})
     }
     getProducts() {
-        return axios.get('http://localhost:5000/viewproducts', {withCredentials: true});
+        console.log('sending axios get')
+        return axios.get(this.URI, {withCredentials: true});
     }
 
 }

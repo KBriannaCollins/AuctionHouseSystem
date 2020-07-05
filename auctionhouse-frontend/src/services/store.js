@@ -6,6 +6,7 @@ const initialState = {
     auction: {},
     auctions: [],
     bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0},
+    products: null,
     product: {'name': '', 'description': '', 'status': ''},
 }
 
@@ -22,6 +23,8 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {bid: action.bid})
         case 'handleProductFieldChange':
             return Object.assign({}, state, {product: action.product})
+        case 'loadProducts':
+            return Object.assign({}, state, {products: action.products})
         default:
             return state;
     }

@@ -27,14 +27,15 @@ def products_main():
             return request.json, 400
     elif request.method == 'GET':
         _log.debug('GET request for products')
+        _log.debug(db.read_all_products())
         return jsonify(db.read_all_products()), 200
     else:
         pass
 
-@products.route('/products/<int:product_id>', methods=['GET'])
-def get_product(product_id):
-    if request.method == 'GET':
-        _log.debug('GET request for products by ID')
-        product = db.read_product_by_id(product_id)
-        if product:
-            return jsonify(db.read_product_by_id(product_id)), 200
+#@products.route('/products/<int:product_id>', methods=['GET'])
+#def get_product(product_id):
+    #if request.method == 'GET':
+        #_log.debug('GET request for products by ID')
+        #product = db.read_product_by_id(product_id)
+        #if product:
+            #return jsonify(db.read_product_by_id(product_id)), 200

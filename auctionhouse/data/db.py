@@ -113,7 +113,15 @@ def read_product_by_id(product_id: int):
 
 def read_all_products():
     ''' Retrieve all products '''
-    return products.find({})
+    prod_list = []
+    for prod in products.find({}):
+        _log.debug(prod)
+        newer = Product(prod['name'], prod['description'], prod['start_bid'])
+        newer.set_id(prod['_id'])
+        newer.set_status(prod['status'])
+        _log.debug(newer)
+        prod_list.append(newer.to_dict())
+    return prod_list
 
 def read_auction_by_id(auction_id: int):
     ''' Retireve an auction or bid by id '''
@@ -122,6 +130,8 @@ def read_auction_by_id(auction_id: int):
 
 def read_all_auctions():
     ''' Retrieves all auctions '''
+    auction_list = auctions.find()
+    _log.debug(auction_list)
     return auctions.find({})
 
 def login(username: str):

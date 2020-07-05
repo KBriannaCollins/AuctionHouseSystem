@@ -1,2 +1,807 @@
 2020-07-05 11:50:58,468 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 2020-07-05 11:59:34,457 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 11:59:34] "[33mGET /viewproducts HTTP/1.1[0m" 404 -
+2020-07-05 12:04:31,280 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:04:31] "[33mGET /viewproducts HTTP/1.1[0m" 404 -
+2020-07-05 12:12:50,900 - auctionhouse.app - ERROR - Exception on /products [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/matthewyeadon/Documents/GitHub/AuctionHouseSystem/auctionhouse/router/products.py", line 30, in products_main
+    return jsonify(db.read_all_products()), 200
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Cursor is not JSON serializable
+2020-07-05 12:12:51,137 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:12:51] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2020-07-05 12:14:19,464 - auctionhouse.app - ERROR - Exception on /products [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/matthewyeadon/Documents/GitHub/AuctionHouseSystem/auctionhouse/router/products.py", line 30, in products_main
+    return jsonify(db.read_all_products()), 200
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Cursor is not JSON serializable
+2020-07-05 12:14:19,487 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:14:19] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2020-07-05 12:14:23,658 - auctionhouse.app - ERROR - Exception on /products [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/matthewyeadon/Documents/GitHub/AuctionHouseSystem/auctionhouse/router/products.py", line 30, in products_main
+    return jsonify(db.read_all_products()), 200
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Cursor is not JSON serializable
+2020-07-05 12:14:23,671 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:14:23] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2020-07-05 12:19:58,575 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-05 12:22:05,365 - auctionhouse.app - ERROR - Exception on /products [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/matthewyeadon/Documents/GitHub/AuctionHouseSystem/auctionhouse/router/products.py", line 31, in products_main
+    return jsonify(db.read_all_products()), 200
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Cursor is not JSON serializable
+2020-07-05 12:22:05,573 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:22:05] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2020-07-05 12:22:12,334 - auctionhouse.app - ERROR - Exception on /products [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/matthewyeadon/Documents/GitHub/AuctionHouseSystem/auctionhouse/router/products.py", line 31, in products_main
+    return jsonify(db.read_all_products()), 200
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Cursor is not JSON serializable
+2020-07-05 12:22:12,344 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:22:12] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2020-07-05 12:53:19,463 - auctionhouse.app - ERROR - Exception on /products [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/matthewyeadon/Documents/GitHub/AuctionHouseSystem/auctionhouse/router/products.py", line 31, in products_main
+    return jsonify(db.read_all_products()), 200
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Cursor is not JSON serializable
+2020-07-05 12:53:19,498 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:53:19] "[35m[1mGET /products HTTP/1.1[0m" 500 -
+2020-07-05 12:54:26,799 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-05 12:56:44,073 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:56:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 12:56:48,872 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:56:48] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 12:58:46,283 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:58:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 12:59:45,351 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:59:45] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 12:59:55,222 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 12:59:55] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:02:56,942 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:02:56] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:04:00,315 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:04:00] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:04:04,640 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:04:04] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:04:06,628 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:04:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:04:08,429 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:04:08] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:11,817 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:11] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:15,279 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:15] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:18,488 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:18,662 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:18,844 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:18,995 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:19,156 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:19,325 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:19,494 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:19,634 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:19,993 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:20,120 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:20,255 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:20,384 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:20,525 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:20,655 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:20,793 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:20,932 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:21,065 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:21,202 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:21,330 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:21,482 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:21,615 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:21,742 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:21,901 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:22,039 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:22,173 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:22,311 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:22,442 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:22,603 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:22,736 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:22,870 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:23,008 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:23,176 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:23,326 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:23,503 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:23,644 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:23,799 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:23,944 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:24,080 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:24,205 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:24,345 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:24,503 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:24,649 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:24,779 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:24,907 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:25,042 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:25,174 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:25,313 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:25,462 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:25,591 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:25,722 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:25,855 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:26,011 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:26,181 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:26,315 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:26,489 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:26,633 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:26,767 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:26,895 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:27,026 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:27,162 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:27,327 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:27,505 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:27,672 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:27,807 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:27,986 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:28,120 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:28,254 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:28,423 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:28,560 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:28,689 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:28,882 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:29,009 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:29,159 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:29,312 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:29,439 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:29,586 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:29,755 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:29,894 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:30,028 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:30,165 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:30,350 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:30,480 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:30,634 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:30,778 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:30,942 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:31,078 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:31,219 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:31,380 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:31,508 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:31,662 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:31,794 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:31,941 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:32,082 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:32,213 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:32,342 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:32,474 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:32,608 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:32,742 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:32,873 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:33,015 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:33,146 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:33,310 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:33,448 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:33,601 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:33,775 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:33,922 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:34,047 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:34,175 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:34,367 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:34,492 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:34,632 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:34,763 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:34,895 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:35,035 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:35,206 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:35,353 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:35,485 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:35,653 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:35,781 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:35,919 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:36,071 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:36,215 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:36,354 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:36,501 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:36,647 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:36,819 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:36,964 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:37,095 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:37,234 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:37,359 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:37,486 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:37,655 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:37,793 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:37,938 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:38,065 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:38,201 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:38,348 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:38,474 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:38,650 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:38,781 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:38,933 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:39,085 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:39,235 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:39,407 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:39,580 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:39,722 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:39,860 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:40,014 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:40,157 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:40,344 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:40,473 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:40,600 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:40,739 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:40,868 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:41,022 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:41,153 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:41,301 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:41,433 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:41,567 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:41,707 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:41,839 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:41,989 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:42,167 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:42,320 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:42,451 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:42,582 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:42,714 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:42,862 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:43,006 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:43,132 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:43,263 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:43,412 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:43,540 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:43,672 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:43,817 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:43,954 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:44,093 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:44,225 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:44,355 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:44,500 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:44,665 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:44,800 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:44,926 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:45,052 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:45] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:45,217 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:45] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:45,352 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:45] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:45,492 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:45] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:45,630 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:45] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:45,765 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:45] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:45,913 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:45] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:46,052 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:46,242 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:46,394 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:46,599 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:46,748 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:46,921 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:47,074 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:47] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:47,220 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:47] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:47,348 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:47] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:47,495 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:47] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:47,642 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:47] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:47,773 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:47] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:47,907 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:47] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:48,039 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:48] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:48,167 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:48] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:48,313 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:48] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:48,445 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:48] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:48,600 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:48] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:48,760 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:48] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:48,901 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:48] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:49,062 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:49] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:49,227 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:49] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:49,394 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:49] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:49,542 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:49] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:49,673 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:49] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:49,807 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:49] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:49,940 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:49] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:50,120 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:50] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:50,259 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:50] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:50,385 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:50] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:50,525 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:50] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:50,659 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:50] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:50,831 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:50] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:51,024 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:51] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:51,161 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:51] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:51,375 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:51] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:51,539 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:51] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:51,664 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:51] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:51,802 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:51] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:51,947 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:51] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:52,092 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:52] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:52,225 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:52] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:52,351 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:52] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:52,486 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:52] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:52,611 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:52] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:52,740 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:52] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:52,868 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:52] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:53,014 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:53] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:53,232 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:53] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:53,400 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:53] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:53,600 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:53] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:53,745 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:53] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:53,879 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:53] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:54,008 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:54] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:54,146 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:54] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:54,332 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:54] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:54,503 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:54] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:54,646 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:54] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:54,781 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:54] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:54,932 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:54] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:55,097 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:55] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:55,240 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:55] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:55,499 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:55] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:55,784 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:55] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:56,168 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:56] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:56,401 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:56] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:56,542 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:56] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:56,679 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:56] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:56,812 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:56] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:56,951 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:56] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:57,099 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:57] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:57,243 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:57] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:57,394 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:57] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:57,544 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:57] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:57,691 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:57] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:57,827 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:57] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:57,961 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:57] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:58,141 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:58] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:58,319 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:58] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:58,490 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:58] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:58,690 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:58] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:58,858 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:58] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:58,991 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:58] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:59,118 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:59] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:59,265 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:59] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:59,391 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:59] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:06:59,892 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:06:59] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:00,028 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:00] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:00,159 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:00] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:00,321 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:00] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:00,461 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:00] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:00,655 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:00] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:00,872 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:00] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:01,041 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:01,186 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:01,565 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:01,700 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:01,844 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:01,989 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:02,138 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:02] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:02,277 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:02] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:02,447 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:02] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:02,586 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:02] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:02,727 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:02] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:02,861 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:02] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:02,993 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:02] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:03,153 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:03] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:03,303 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:03] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:03,432 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:03] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:03,562 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:03] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:03,702 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:03] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:03,830 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:03] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:03,972 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:03] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:04,100 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:04] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:04,240 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:04] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:04,370 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:04] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:04,497 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:04] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:04,625 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:04] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:04,757 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:04] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:04,900 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:04] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:05,030 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:05] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:05,159 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:05] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:05,290 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:05] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:05,420 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:05] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:05,552 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:05] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:05,692 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:05] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:05,822 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:05] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:05,961 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:05] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:06,106 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:06,252 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:06,380 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:06,506 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:06,633 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:06,770 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:06,898 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:07,029 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:07] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:07,174 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:07] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:07,303 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:07] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:07,431 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:07] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:07,570 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:07] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:07,700 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:07] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:07,826 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:07] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:07,951 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:07] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:08,091 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:08] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:08,257 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:08] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:08,411 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:08] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:08,560 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:08] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:08,853 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:08] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:08,994 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:08] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:09,139 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:09] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:09,304 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:09] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:09,473 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:09] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:09,623 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:09] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:09,799 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:09] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:09,977 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:09] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:10,122 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:10] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:10,252 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:10] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:10,383 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:10] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:10,519 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:10] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:10,645 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:10] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:10,777 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:10] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:10,904 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:10] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:11,058 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:11] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:11,184 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:11] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:11,311 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:11] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:11,489 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:11] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:11,725 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:11] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:11,900 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:11] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:12,046 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:12] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:12,283 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:12] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:12,420 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:12] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:12,549 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:12] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:12,678 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:12] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:12,817 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:12] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:12,958 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:12] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:13,099 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:13] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:13,226 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:13] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:13,361 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:13] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:13,490 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:13] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:13,618 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:13] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:13,754 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:13] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:13,885 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:13] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:14,017 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:14,144 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:14,274 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:14,413 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:14,541 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:14,667 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:14,793 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:14,930 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:15,058 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:15] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:15,199 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:15] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:15,331 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:15] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:15,474 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:15] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:15,611 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:15] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:15,751 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:15] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:15,891 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:15] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:16,030 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:16] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:16,163 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:16] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:16,297 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:16] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:16,424 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:16] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:16,552 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:16] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:16,689 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:16] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:16,835 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:16] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:16,964 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:16] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:17,097 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:17] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:17,231 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:17] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:17,363 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:17] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:17,541 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:17] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:17,683 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:17] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:17,814 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:17] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:17,945 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:17] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:18,077 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:18,204 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:18,338 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:18,470 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:18,598 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:18,733 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:18,866 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:18] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:19,300 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:19,470 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:19,622 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:19,767 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:19,901 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:20,059 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:20,229 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:20,361 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:20,497 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:20,628 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:20,762 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:20,891 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:20] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:21,016 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:21,145 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:21,274 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:21,409 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:21,543 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:21,670 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:21,800 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:21,930 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:22,058 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:22,186 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:22,320 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:22,485 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:22,612 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:22,739 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:22,864 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:22,998 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:23,126 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:23,251 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:23,379 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:23,519 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:23,645 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:23,774 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:23,906 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:23] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:24,038 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:24,170 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:24,337 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:24,473 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:24,602 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:24,739 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:24,871 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:24,997 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:25,131 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:25,257 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:25,390 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:25,517 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:25,643 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:25,770 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:25,921 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:25] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:26,053 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:26,181 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:26,311 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:26,441 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:26,567 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:26,692 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:26,818 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:26,953 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:26] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:27,096 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:27,229 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:27,356 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:27,483 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:27,612 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:27,747 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:27,899 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:27] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:28,030 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:28,163 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:28,307 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:28,449 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:28,579 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:28,705 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:28,831 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:28,971 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:28] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:29,110 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:29,241 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:29,389 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:29,553 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:29,679 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:29,825 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:29,971 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:29] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:30,186 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:30,324 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:30,464 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:30,590 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:30,730 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:30,857 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:30,993 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:30] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:31,145 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:31,277 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:31,418 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:31,546 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:31,678 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:31,806 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:31,937 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:32,063 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:32,190 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:32,384 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:32,516 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:32,646 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:32,781 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:32,916 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:32] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:33,039 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:33,171 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:33,297 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:33,423 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:33,555 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:33,685 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:33,812 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:33,941 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:33] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:34,073 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:34,211 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:34,385 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:34,622 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:34,801 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:34,950 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:34] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:35,139 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:35,271 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:35,453 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:35,593 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:35,720 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:35,842 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:35,969 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:35] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:36,127 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:36,272 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:36,406 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:36,536 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:36,664 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:36,792 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:36,925 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:36] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:37,056 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:37,185 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:37,317 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:37,478 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:37,636 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:37,770 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:37] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:38,037 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:38,176 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:38,380 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:38,581 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:38,731 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:38,871 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:39,006 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:39,151 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:39,292 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:39,429 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:39,667 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:39,813 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:39,980 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:39] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:40,158 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:40,309 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:40,449 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:40,618 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:40,804 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:40,967 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:40] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:41,132 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:41,285 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:41,420 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:41,566 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:41,717 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:41,874 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:41] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:42,016 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:42,147 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:42,325 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:42,504 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:42,689 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:42,844 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:42] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:43,038 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:43,283 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:43,421 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:43,671 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:43,801 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:43,939 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:43] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:44,197 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:44,337 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:44,510 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:47,260 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:47] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-05 13:07:50,689 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:50] "[37mGET /products HTTP/1.1[0m" 200 -

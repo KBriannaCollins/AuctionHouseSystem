@@ -14,18 +14,42 @@ class Product extends React.Component {
 
     componentDidMount() {
         console.log('Mounting Product')
+        this.productService.getProducts();
+        this.renderTableData = this.renderTableData.bind(this);
     }
 
     /** componentDidUpdate records when update occurs. */
     componentDidUpdate() {
         console.log('Updating Product')
-        this.productService.getProducts()
+        this.productService.getProducts().then(
+            (resp) => {
+                console.log(resp)
+                this.props.dispatch({type: 'loadProducts', products: resp.data})
+            }
+        )
+    }
+    renderTableData(){
+        pro = this.props.products
+        return pro.map((product) =>{
+            const prod = ['name', 'description', 'start_bid', 'status'];
+            return(
+                <tr>
+                    <td>{product['name']}</td>
+                    <td>{product.name}</td>
+                </tr>
+            )
+
+
+        })
+
     }
 
     /** renders the product component.
      * @return {JSX} Returns an HTML template for products
      */
     render() {
+        let products = this.props.products
+        
         return (
             <>
             <h3>Auctions</h3>
@@ -39,12 +63,7 @@ class Product extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>{this.props.product.name}</td>
-                            <td>{this.props.product.description}</td>
-                            <td>{this.props.product.start_bid}</td>
-                            <td>{this.props.product.status}</td>
-                        </tr>
+                            {this.renderTableData()}
                     </tbody>
             </table>
             </>
