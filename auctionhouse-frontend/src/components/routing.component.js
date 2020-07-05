@@ -35,7 +35,6 @@ class Routing extends Component{
                     <Nav className="mr-auto"><Link to='/login' className='nav_link'><h3>Login</h3></Link></Nav>
 
                 </Navbar>
-
                 <Route path='/auctions/:id' component={BidForm}/>
                 <Route path='/products' component={ProductForm}/>
                 <Route path='/viewproducts' component={Product}/>
