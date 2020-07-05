@@ -9,6 +9,10 @@ class ProductService{
         console.log('sending axios')
         return axios.post(this.URI, product, {withCredentials: true})
     }
+    getProduct() {
+        return axios.get(this.URI);
+    }
+
 }
 
 export default ProductService;
