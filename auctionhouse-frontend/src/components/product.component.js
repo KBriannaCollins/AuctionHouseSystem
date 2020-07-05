@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux';
 
-class Products extends React.Component {
+class Product extends React.Component {
     
     PropTypes = {
         name: PropTypes.string.isRequired,
@@ -24,16 +25,23 @@ class Products extends React.Component {
      */
     render() {
         return (
-            <>
+        <table>
+            <tbody>
                 <tr>
-                    <td>{this.props.products.name}</td>
-                    <td>{this.props.products.description}</td>
-                    <td>{this.props.products.start_bid}</td>
-                    <td>{this.props.products.status}</td>
+                    <td>{this.props.product.name}</td>
+                    <td>{this.props.product.description}</td>
+                    <td>{this.props.product.start_bid}</td>
+                    <td>{this.props.product.status}</td>
                 </tr>
-            </>
+            </tbody>
+        </table>
         )
     }
 }
 
-export default Products;
+function mapStateToProps(state){
+    const { product } = state;
+    return { product: product }
+}
+
+export default connect(mapStateToProps)(Product);

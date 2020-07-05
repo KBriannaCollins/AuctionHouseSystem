@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 import BidForm from './bidform.component';
-import Products from './products.component';
+import Product from './product.component';
 import ProductForm from './productform.component';
 import Login from './login.component';
 import { Navbar, Nav } from 'react-bootstrap';
@@ -38,7 +38,7 @@ class Routing extends Component{
 
                 <Route path='/auctions/:id' component={BidForm}/>
                 <Route path='/products' component={ProductForm}/>
-                <Route path='/viewproducts' component={Products}/>
+                <Route path='/viewproducts' component={Product}/>
                 <Route path="/login" component={Login}/>
             </Router>
         </>

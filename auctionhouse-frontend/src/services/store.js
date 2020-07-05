@@ -5,7 +5,8 @@ const initialState = {
     role: '',
     auction: {},
     bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0},
-    product: {'name': '', 'description': '', 'start_bid': 0}
+    product: {'name': '', 'description': '', 'start_bid': 0},
+    status: 'Proposed'
 }
 
 

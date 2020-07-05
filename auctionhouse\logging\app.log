@@ -25,3 +25,5 @@
 2020-07-05 00:51:35,102 - __main__ - INFO - Added Bid. ID: 2.
 2020-07-05 00:52:18,954 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 00:52:18] "[31m[1mGET /users HTTP/1.1[0m" 401 -
 2020-07-05 00:52:23,866 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 00:52:23] "[37mPOST /users HTTP/1.1[0m" 200 -
+2020-07-05 09:32:01,509 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-05 10:13:35,729 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 10:13:35] "[37mGET /users HTTP/1.1[0m" 200 -
