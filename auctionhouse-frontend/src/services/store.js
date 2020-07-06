@@ -21,6 +21,12 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {bid: action.bid})
         case 'handleProductFieldChange':
             return Object.assign({}, state, {product: action.product})
+        case 'loadAuction':
+            return Object.assign({}, state, {auction: action.auction})
+        case 'expirationTypeChange':
+            return Object.assign({}, state, {auction: action.auction})
+        case 'expirationDateChange':
+            return Object.assign({}, state, {auction: action.auction})
         default:
             return state;
     }

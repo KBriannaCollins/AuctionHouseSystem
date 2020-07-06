@@ -143,6 +143,16 @@ def login(username: str):
     # return Bidder.from_dict(user_dict) or Employee.from_dict(user_dict) if user_dict else None
 
 #Update Functions
+def auction_start(auction_id, new_status): 
+    ''' This function will change the status of an auction with the given status '''
+    query_string = {'_id': auction_id}
+    update_string = {'$set': new_status}
+    _log.debug(new_status)
+    updated_auction = auctions.find_one_and_update(query_string, update_string,
+                                                   return_document=pymongo.ReturnDocument.AFTER)
+    _log.debug(updated_auction)
+
+    return updated_auction
 
 #Delete Functions
 

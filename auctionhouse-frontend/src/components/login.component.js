@@ -24,7 +24,7 @@ class Login extends Component {
 
     handleKeyDown(e) {
         if (e.key === 'Enter') {
-            this.login();
+            this.login(e);
         }
     }
 

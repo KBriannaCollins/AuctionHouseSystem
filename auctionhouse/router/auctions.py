@@ -1,7 +1,7 @@
 ''' This is the Auctions router. It will handle HTTP requests for Auctions. '''
 
 from flask import Flask, Blueprint, jsonify, request, make_response
-from auctionhouse.data.db import create_bid, create_auction
+from auctionhouse.data.db import create_bid, create_auction, auction_start
 from auctionhouse.models.auctions import Bid, Auction
 
 
@@ -30,7 +30,7 @@ def auctions_main():
     else:
         pass
 
-@auctions.route('/auctions/<auction_id>',  methods=['GET', 'POST'])
+@auctions.route('/auctions/<auction_id>',  methods=['GET', 'POST', 'PUT'])
 def auctions_with_id(auction_id):
     ''' This is for requests associated with an Auction ID '''
     if request.method == 'POST': 
@@ -56,5 +56,12 @@ def auctions_with_id(auction_id):
         else:
             # response = make_response()
             return request.json, 400
+    elif request.method == 'PUT':
+        input_dict = request.get_json(force=True)
+        updated_auction = auction_start(int(auction_id), input_dict)
+        if updated_auction:
+            return updated_auction, 201
+        else:
+            return input_dict, 400
     else:
         pass
