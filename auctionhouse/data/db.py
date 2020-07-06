@@ -1,6 +1,7 @@
 ''' This file will handle database functionality '''
 
 import os
+import datetime
 import pymongo
 from auctionhouse.logging.logger import get_logger
 from auctionhouse.models.auctions import Product, Auction, Bid
@@ -153,6 +154,17 @@ def login(username: str):
     # return Bidder.from_dict(user_dict) or Employee.from_dict(user_dict) if user_dict else None
 
 #Update Functions
+def auction_start(auction_id, duration): 
+    ''' This function will change the status of an auction with the given status '''
+    query_string = {'_id': auction_id}
+    date_now = datetime.datetime.now()
+    date_end = date_now + datetime.timedelta(days=duration)
+    update_string = {'$set': {'date_start': date_now, 'date_end': date_end}}
+    updated_auction = auctions.find_one_and_update(query_string, update_string,
+                                                   return_document=pymongo.ReturnDocument.AFTER)
+    _log.debug(updated_auction)
+
+    return updated_auction
 
 #Delete Functions
 

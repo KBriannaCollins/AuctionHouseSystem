@@ -24,7 +24,7 @@ class Login extends Component {
 
     handleKeyDown(e) {
         if (e.key === 'Enter') {
-            this.login();
+            this.login(e);
         }
     }
 
@@ -56,14 +56,14 @@ class Login extends Component {
     getLoginForm() {
         return (
             <>
-                <form onSubmit={this.login}>
+                <form>
                     <p><label>Username:</label></p>
                     <p><input type="text"
                         value={this.props.username}
                         onChange={this.handleInput}
                         onKeyDown={ (e) => this.handleKeyDown(e) }></input></p>
                     <p><button className='btn btn-primary'
-                        onClick={ this.login}>Login</button></p>
+                        onClick={ this.login }>Login</button></p>
                 </form>
             </>
         )

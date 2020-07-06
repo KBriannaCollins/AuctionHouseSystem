@@ -10,11 +10,11 @@ _log = get_logger(__name__)
 
 products = Blueprint('products', __name__)
 
-@products.route('/products', methods=['POST', 'GET'])
+@products.route('/products', methods=['GET','POST'])
 def products_main():
     required_fields = ['name', 'description', 'start_bid']
     if request.method == 'POST':
-        input_dict = request.get_json(force=true)
+        input_dict = request.get_json(force=True)
         _log.debug('Product POST request received with body %s', input_dict)
         if all(field in input_dict for field in required_fields):
             name = input_dict['name']
