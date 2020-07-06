@@ -1,7 +1,8 @@
 ''' This is the Auctions router. It will handle HTTP requests for Auctions. '''
 
 from flask import Flask, Blueprint, jsonify, request, make_response
-from auctionhouse.data.db import create_bid, create_auction, auction_start
+from auctionhouse.data.db import create_bid, create_auction, auction_start, read_all_auctions, \
+                                 read_auctions_from_query
 from auctionhouse.models.auctions import Bid, Auction
 
 
@@ -27,8 +28,21 @@ def auctions_main():
                 return request.json, 400
         else:
             return request.json, 400
+    elif request.method == 'GET':
+        # The GET request will either return all auctions or return them based on query info
+        if len(request.args) == 0:
+            return {'auctions': read_all_auctions()}, 200
+        else:
+            query_dict = dict(request.args)
+            for query in query_dict:
+                try:
+                    query_dict[query] = int(query_dict[query])
+                except ValueError as err:
+                    _log.error('Could not cast value to int, moving on...')
+            _log.debug(query_dict)
+            return {'auctions': read_auctions_from_query(query_dict)}, 200
     else:
-        pass
+        return 'Not implemented', 501
 
 @auctions.route('/auctions/<auction_id>',  methods=['GET', 'POST', 'PUT'])
 def auctions_with_id(auction_id):

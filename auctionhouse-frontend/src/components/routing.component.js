@@ -5,6 +5,7 @@ import ProductForm from './productform.component';
 import Login from './login.component';
 import { Navbar, Nav } from 'react-bootstrap';
 import AuctionForm from './auctioneer.managment.component'
+import AuctionList from './auctionlist.component'
 import '../sass/nav.scss';
 import { connect } from 'react-redux'
 
@@ -12,7 +13,7 @@ import { connect } from 'react-redux'
 function UserNav(props) {
     const UserLoggedIn = props.user
     if (UserLoggedIn) {
-        return <Nav className="mr-auto"><Link to='/auctions/1' className='nav_link'><h3>Auctions</h3></Link></Nav>
+        return <Nav className="mr-auto"><Link to='/auctionlist' className='nav_link'><h3>Auctions</h3></Link></Nav>
     }
     else {
         return <Nav className="mr-auto"></Nav>
@@ -37,6 +38,7 @@ class Routing extends Component{
                 </Navbar>
 
                 <Route path='/auctions/:id' component={BidForm}/>
+                <Route path='/auctionlist' component={AuctionList}/>
                 <Route path='/products' component={ProductForm}/>
                 <Route path="/login" component={Login}/>
                 <Route path='/manage/:id' component={AuctionForm}/>
