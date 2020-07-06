@@ -50,5 +50,5 @@ function mapStateToProps(state){
     return { bidder: bidder }
 }
 
-export default connect(mapStateToProps)(Register);
+export default connect(mapStateToProps)(RegisterForm);
 

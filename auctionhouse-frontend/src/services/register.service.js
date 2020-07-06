@@ -10,4 +10,4 @@ class RegisterService{
     }
 }
 
-export default BidService;
+export default RegisterService;
