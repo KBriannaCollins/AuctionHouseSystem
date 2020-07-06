@@ -28,7 +28,7 @@ class Product extends React.Component {
             }
         )
     }
-    renderTableData(){
+    renderTableData(pro={}){
         pro = this.props.products
         return pro.map((product) =>{
             const prod = ['name', 'description', 'start_bid', 'status'];

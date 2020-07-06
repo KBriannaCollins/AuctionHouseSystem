@@ -131,9 +131,24 @@ def read_auction_by_id(auction_id: int):
 
 def read_all_auctions():
     ''' Retrieves all auctions '''
+<<<<<<< HEAD
     auction_list = auctions.find()
     _log.debug(auction_list)
     return auctions.find({})
+=======
+    return list(auctions.find({}))
+
+def read_auctions_from_query(query_dict):
+    ''' This function will take in a dict of query arguments and return the matching auctions '''
+    returned_auctions = list(auctions.find(query_dict))
+    return_struct = []
+    for auction in returned_auctions:
+        product_doc = read_product_by_id( int(auction['item_id']) )
+        print(auction)
+        auction['item'] = product_doc
+        return_struct.append(auction)
+    return return_struct
+>>>>>>> fcd19f7aa275c87a6573062f62b965bd315bf79d
 
 def login(username: str):
     '''A function that takes in a username and returns a user object with that username'''
@@ -159,7 +174,12 @@ def auction_start(auction_id, duration):
     query_string = {'_id': auction_id}
     date_now = datetime.datetime.now()
     date_end = date_now + datetime.timedelta(days=duration)
-    update_string = {'$set': {'date_start': date_now, 'date_end': date_end}}
+    if duration == 0:
+        expiration_type = 'Manual'
+    else:
+        expiration_type = 'Automatic'
+    update_string = {'$set': {'date_start': date_now, 'date_end': date_end, 
+                              'expiration_type': expiration_type}}
     updated_auction = auctions.find_one_and_update(query_string, update_string,
                                                    return_document=pymongo.ReturnDocument.AFTER)
     _log.debug(updated_auction)

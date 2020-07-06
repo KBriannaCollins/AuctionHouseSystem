@@ -805,3 +805,28 @@ TypeError: Object of type Cursor is not JSON serializable
 2020-07-05 13:07:44,510 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:44] "[37mGET /products HTTP/1.1[0m" 200 -
 2020-07-05 13:07:47,260 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:47] "[37mGET /products HTTP/1.1[0m" 200 -
 2020-07-05 13:07:50,689 - werkzeug - INFO - 127.0.0.1 - - [05/Jul/2020 13:07:50] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-06 12:54:21,427 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-06 12:56:51,575 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 12:56:51] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-06 13:01:11,527 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:01:11] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-06 13:02:36,874 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:02:36] "[37mPOST /users HTTP/1.1[0m" 200 -
+2020-07-06 13:02:53,332 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:02:53] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-06 13:03:25,043 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:03:25] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-06 13:03:49,553 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:03:49] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-06 13:03:51,293 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:03:51] "[37mOPTIONS /users HTTP/1.1[0m" 200 -
+2020-07-06 13:03:51,301 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:03:51] "[37mDELETE /users HTTP/1.1[0m" 204 -
+2020-07-06 13:03:55,690 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:03:55] "[37mPOST /users HTTP/1.1[0m" 200 -
+2020-07-06 13:04:16,478 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:04:16] "[37mOPTIONS /users HTTP/1.1[0m" 200 -
+2020-07-06 13:04:16,506 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:04:16] "[37mDELETE /users HTTP/1.1[0m" 204 -
+2020-07-06 13:04:34,670 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:04:34] "[37mPOST /users HTTP/1.1[0m" 200 -
+2020-07-06 13:04:40,629 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:04:40] "[37mOPTIONS /users HTTP/1.1[0m" 200 -
+2020-07-06 13:04:40,636 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:04:40] "[37mDELETE /users HTTP/1.1[0m" 204 -
+2020-07-06 13:07:41,573 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 13:07:41] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-06 14:58:10,799 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 14:58:10] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-06 15:00:01,469 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 15:00:01] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-06 15:00:49,314 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 15:00:49] "[37mOPTIONS /products HTTP/1.1[0m" 200 -
+2020-07-06 15:00:49,495 - auctionhouse.data.db - INFO - Added Supreme Tee product. ID: 2.
+2020-07-06 15:00:49,497 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 15:00:49] "[37mPOST /products HTTP/1.1[0m" 201 -
+2020-07-06 15:11:40,323 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 15:11:40] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-06 15:12:13,985 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 15:12:13] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-06 15:12:30,041 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 15:12:30] "[37mPOST /users HTTP/1.1[0m" 200 -
+2020-07-06 15:12:39,379 - werkzeug - INFO - 127.0.0.1 - - [06/Jul/2020 15:12:39] "[37mGET /users HTTP/1.1[0m" 200 -

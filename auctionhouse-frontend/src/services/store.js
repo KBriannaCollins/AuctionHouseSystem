@@ -6,8 +6,13 @@ const initialState = {
     auction: {},
     auctions: [],
     bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0},
+<<<<<<< HEAD
     products: null,
     product: {'name': '', 'description': '', 'status': ''},
+=======
+    product: {'name': '', 'description': '', 'start_bid': 0},
+    auctionList: []
+>>>>>>> fcd19f7aa275c87a6573062f62b965bd315bf79d
 }
 
 
@@ -31,6 +36,8 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {auction: action.auction})
         case 'expirationDateChange':
             return Object.assign({}, state, {auction: action.auction})
+        case 'loadAuctionList':
+            return Object.assign({}, state, {auctionList: action.auctionList})
         default:
             return state;
     }
