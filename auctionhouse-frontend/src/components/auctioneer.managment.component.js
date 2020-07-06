@@ -13,23 +13,8 @@ class AuctionForm extends Component {
         this.updateStatus = this.updateStatus.bind(this);
         
         this.expirationTypeChange = this.expirationTypeChange.bind(this);
-        let startDate = new Date()
-        let stringifiedDay, stringifiedMonth
-        if (startDate.getDate() < 10) {
-            stringifiedDay = "0" + startDate.getDate()
-        }
-        else {
-            stringifiedDay = "" + startDate.getDate()
-        }
-        if (startDate.getMonth()+1 < 10) {
-            stringifiedMonth = "0" + (startDate.getMonth()+1)
-        }
-        else {
-            stringifiedMonth = "" + (startDate.getMonth()+1)
-        }
-        const stringifiedYear = "" + startDate.getFullYear()
-        let dateString = `${stringifiedYear}-${stringifiedDay}-${stringifiedMonth}`
-        let defaultAuction = {expiration_type: 'Manual', date_start: dateString, date_end: '0000-00-00'}
+        
+        let defaultAuction = {expiration_type: 'Manual', numOfDays: 0}
         this.props.dispatch({type: 'loadAuction', auction: defaultAuction})
     }
 
@@ -37,7 +22,7 @@ class AuctionForm extends Component {
         e.preventDefault()
         this.auctionService.updateAuctionStatus(this.props.auction).then(
             resp => {
-                
+                this.props.dispatch({type: 'loadAuction', auction: {}})
             }
         )
     }
@@ -51,7 +36,7 @@ class AuctionForm extends Component {
             console.log(this.props.auction)
         } else {
             newAuction.expiration_type = 'Manual'
-            newAuction.date_end = '0000-00-00'
+            newAuction.numOfDays = 0
             this.props.dispatch({type: 'expirationTypeChange', auction: newAuction})
             console.log(this.props.auction)
         }

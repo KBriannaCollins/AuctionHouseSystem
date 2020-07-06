@@ -58,10 +58,12 @@ def auctions_with_id(auction_id):
             return request.json, 400
     elif request.method == 'PUT':
         input_dict = request.get_json(force=True)
-        updated_auction = auction_start(int(auction_id), input_dict)
-        if updated_auction:
-            return updated_auction, 201
+        _log.debug(input_dict)
+        target_auction = int(auction_id)
+        if 'numOfDays' in input_dict:
+            updated_auction = auction_start(target_auction, input_dict['numOfDays'])
+            return updated_auction, 200
         else:
-            return input_dict, 400
+            return 'Invalid Request', 400
     else:
         pass

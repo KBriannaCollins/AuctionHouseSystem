@@ -10,7 +10,7 @@ class DatePicker extends Component {
 
     expirationDateChange(e) {
         let newAuction = Object.assign({}, this.props.auction)
-        newAuction.date_end = e.target.value
+        newAuction.numOfDays = parseInt(e.target.value)
         this.props.dispatch({type: 'expirationDateChange', auction: newAuction})
         console.log(this.props.auction)
     }
@@ -21,10 +21,10 @@ class DatePicker extends Component {
             return (
             <>
                 <Row>
-                    <Col><label htmlFor="expiration">Expiration Date:</label></Col>
+                    <Col><label htmlFor="expiration">How many days should this auction last?</label></Col>
                 </Row>
                 <Row>
-                    <Col><input type="date" name="expiration"
+                    <Col><input type="number" name="expiration"
                     onChange={ this.expirationDateChange }>
                     </input></Col>
                 </Row>
