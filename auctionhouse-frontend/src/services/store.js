@@ -5,6 +5,7 @@ const initialState = {
     role: '',
     auction: {},
     bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0},
+    product: {'name': '', 'description': '', 'start_bid': 0}
 }
 
 
@@ -18,6 +19,8 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {bid: action.bid})
         case 'addBid':
             return Object.assign({}, state, {bid: action.bid})
+        case 'handleProductFieldChange':
+            return Object.assign({}, state, {product: action.product})
         default:
             return state;
     }
