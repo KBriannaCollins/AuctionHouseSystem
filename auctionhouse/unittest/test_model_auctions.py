@@ -28,6 +28,8 @@ class ProductTestSuite(unittest.TestCase):
         self.assertEqual(self.product.description, self.product.get_description())
     def test_get_start_bid(self):
         self.assertEqual(self.product.start_bid, self.product.get_start_bid())
+    def test_get_status(self):
+        self.assertEqual(self.product.status, self.product.get_status())
    
     
     '''setters'''
@@ -43,6 +45,9 @@ class ProductTestSuite(unittest.TestCase):
     def test_set_start_bid(self):
         self.product.set_start_bid(1)
         self.assertEqual(self.product.start_bid, 1)
+    def test_set_status(self):
+        self.product.set_status("Approved")
+        self.assertEqual(self.product.status, "Approved")
 
     def test_to_dict(self):
         self.product = Product("name", "descript", 1)
@@ -162,6 +167,3 @@ class BidTestSuite(unittest.TestCase):
         test_dict = {'bidder_id': 1, 'item_id': 1, 'amount': 1}
         self.bid = Bid().from_dict(test_dict)
         self.assertIs(type(self.bid), Bid)
-
-if __name__ == '__main__':
-    unittest.main()
