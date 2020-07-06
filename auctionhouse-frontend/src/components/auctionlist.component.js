@@ -31,7 +31,7 @@ class AuctionList extends Component {
     }
 
     componentDidMount() {
-        this.auctionService.getOpenAuctions().then(resp => {
+        this.auctionService.getOpenAuctions({status: 'Active'}).then(resp => {
             this.props.getAuctionList(resp.data.auctions)
         })
     }
