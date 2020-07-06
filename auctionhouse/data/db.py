@@ -113,7 +113,15 @@ def read_product_by_id(product_id: int):
 
 def read_all_products():
     ''' Retrieve all products '''
-    return products.find({})
+    prod_list = []
+    for prod in products.find({}):
+        _log.debug(prod)
+        newer = Product(prod['name'], prod['description'], prod['start_bid'])
+        newer.set_id(prod['_id'])
+        newer.set_status(prod['status'])
+        _log.debug(newer)
+        prod_list.append(newer.to_dict())
+    return prod_list
 
 def read_auction_by_id(auction_id: int):
     ''' Retireve an auction or bid by id '''
@@ -122,6 +130,7 @@ def read_auction_by_id(auction_id: int):
 
 def read_all_auctions():
     ''' Retrieves all auctions '''
+    auctions_list = auctions.find()
     return auctions.find({})
 
 def login(username: str):
@@ -169,37 +178,38 @@ def _get_product_id_counter():
 
 
 if __name__ == "__main__":
-    ''' This is the database initialization functionality '''
-    util.drop()
-    products.drop()
-    users.drop()
-    auctions.drop()
+    read_all_products()
+    # ''' This is the database initialization functionality '''
+    # util.drop()
+    # products.drop()
+    # users.drop()
+    # auctions.drop()
 
-    util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
-    util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
-    util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
 
-    users.create_index('username', unique=True)
+    # users.create_index('username', unique=True)
 
-    # Bidder
-    bidder = Bidder('bidder', 'password')
-    bidder = create_bidder(bidder)
-    # manager
-    manager = Employee('manager', 'password', 'Manager')
-    create_employee(manager)
-    # curator
-    curator = Employee('curator', 'password', 'Curator')
-    create_employee(curator)
-    # auctioneer
-    auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
-    create_employee(auctioneer)
+    # # Bidder
+    # bidder = Bidder('bidder', 'password')
+    # bidder = create_bidder(bidder)
+    # # manager
+    # manager = Employee('manager', 'password', 'Manager')
+    # create_employee(manager)
+    # # curator
+    # curator = Employee('curator', 'password', 'Curator')
+    # create_employee(curator)
+    # # auctioneer
+    # auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
+    # create_employee(auctioneer)
 
-    # product
-    product = Product('Product1', 'Much expensive. Very product.', 10)
-    create_product(product)
-    # Bid
-    bid = Bid(bidder.get_id(), product.get_id(), 100)
-    # auction
-    auction = Auction(product.get_id())
-    create_auction(auction)
-    create_bid(bid, auction.get_id())
+    # # product
+    # product = Product('Product1', 'Much expensive. Very product.', 10)
+    # create_product(product)
+    # # Bid
+    # bid = Bid(bidder.get_id(), product.get_id(), 100)
+    # # auction
+    # auction = Auction(product.get_id())
+    # create_auction(auction)
+    # create_bid(bid, auction.get_id())
