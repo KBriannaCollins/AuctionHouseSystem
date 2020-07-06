@@ -40,7 +40,8 @@ def auctions_main():
                 except ValueError as err:
                     _log.error('Could not cast value to int, moving on...')
             _log.debug(query_dict)
-            return {'auctions': read_auctions_from_query(query_dict)}, 200
+            return_auctions = read_auctions_from_query(query_dict)
+            return {'auctions': return_auctions}, 200
     else:
         return 'Not implemented', 501
 

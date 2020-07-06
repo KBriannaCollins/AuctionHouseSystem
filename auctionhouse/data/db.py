@@ -127,7 +127,14 @@ def read_all_auctions():
 
 def read_auctions_from_query(query_dict):
     ''' This function will take in a dict of query arguments and return the matching auctions '''
-    return list(auctions.find(query_dict))
+    returned_auctions = list(auctions.find(query_dict))
+    return_struct = []
+    for auction in returned_auctions:
+        product_doc = read_product_by_id( int(auction['item_id']) )
+        print(auction)
+        auction['item'] = product_doc
+        return_struct.append(auction)
+    return return_struct
 
 def login(username: str):
     '''A function that takes in a username and returns a user object with that username'''

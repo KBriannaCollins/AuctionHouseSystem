@@ -9,7 +9,7 @@ class AuctionService {
         return axios.put(this.URI + '/' + window.location.pathname.split('/')[2], infoObject, {withCredentials: true})
     }
 
-    getOpenAuctions() {
+    getOpenAuctions(querydict) {
         return axios.get(this.URI, {withCredentials: true})
     }
 
