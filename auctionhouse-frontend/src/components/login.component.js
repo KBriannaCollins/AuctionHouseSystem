@@ -24,11 +24,12 @@ class Login extends Component {
 
     handleKeyDown(e) {
         if (e.key === 'Enter') {
-            this.login();
+            this.login(e);
         }
     }
 
-    login() {
+    login(e) {
+        e.preventDefault()
         console.log(this.props)
         this.userService.login(this.props.username).then(
             (resp) => {
@@ -37,7 +38,8 @@ class Login extends Component {
         )
     }
 
-    logout(){
+    logout(e){
+        e.preventDefault()
         this.userService.logout().then(
             () => {
                 console.log('Logging out.')
