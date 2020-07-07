@@ -7,6 +7,7 @@ import Login from './login.component';
 import { Navbar, Nav } from 'react-bootstrap';
 import AuctionForm from './auctioneer.managment.component'
 import AuctionList from './auctionlist.component'
+import ProductList from './productlist.component'
 import '../sass/nav.scss';
 import { connect } from 'react-redux'
 
@@ -33,7 +34,7 @@ class Routing extends Component{
                     <Navbar.Brand><Link to='/' className='nav_link'><h1>KTMN Auction House</h1></Link></Navbar.Brand>
                     <UserNav user={this.props.user}></UserNav>
                     <Nav className="mr-auto"><Link to='/products' className='nav_link'><h3>Product Proposal</h3></Link></Nav>
-                    <Nav className="mr-auto"><Link to='/viewproducts' className='nav_link'><h3>View Products</h3></Link></Nav>
+                    <Nav className="mr-auto"><Link to='/productlist' className='nav_link'><h3>View Products</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/login' className='nav_link'><h3>Login</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/manage/1' className='nav_link'><h3>Manage Auction</h3></Link></Nav>
                     <Login></Login>
@@ -42,7 +43,7 @@ class Routing extends Component{
                 <Route path='/auctions/:id' component={BidForm}/>
                 <Route path='/auctionlist' component={AuctionList}/>
                 <Route path='/products' component={ProductForm}/>
-                <Route path='/viewproducts' component={Product}/>
+                <Route path='/productlist' component={ProductList}/>
                 <Route path="/login" component={Login}/>
                 <Route path='/manage/:id' component={AuctionForm}/>
             </Router>

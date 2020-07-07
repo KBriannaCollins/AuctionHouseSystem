@@ -5,14 +5,12 @@ const initialState = {
     role: '',
     auction: {},
     auctions: [],
+    product: {},
+    products: [],
     bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0},
-<<<<<<< HEAD
-    products: null,
-    product: {'name': '', 'description': '', 'status': ''},
-=======
     product: {'name': '', 'description': '', 'start_bid': 0},
-    auctionList: []
->>>>>>> fcd19f7aa275c87a6573062f62b965bd315bf79d
+    auctionList: [],
+    productList: []
 }
 
 
@@ -28,8 +26,10 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {bid: action.bid})
         case 'handleProductFieldChange':
             return Object.assign({}, state, {product: action.product})
-        case 'loadProducts':
-            return Object.assign({}, state, {products: action.products})
+        case 'loadProductList':
+            return Object.assign({}, state, {productList: action.product})
+        case 'loadProduct':
+            return Object.assign({}, state, {product: action.product})
         case 'loadAuction':
             return Object.assign({}, state, {auction: action.auction})
         case 'expirationTypeChange':

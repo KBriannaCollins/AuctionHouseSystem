@@ -9,7 +9,7 @@ class ProductService{
         console.log('sending axios')
         return axios.post(this.URI, product, {withCredentials: true})
     }
-    getProducts() {
+    getProducts(querydict) {
         console.log('sending axios get')
         return axios.get(this.URI, {withCredentials: true});
     }

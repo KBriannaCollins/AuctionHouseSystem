@@ -114,15 +114,7 @@ def read_product_by_id(product_id: int):
 
 def read_all_products():
     ''' Retrieve all products '''
-    prod_list = []
-    for prod in products.find({}):
-        _log.debug(prod)
-        newer = Product(prod['name'], prod['description'], prod['start_bid'])
-        newer.set_id(prod['_id'])
-        newer.set_status(prod['status'])
-        _log.debug(newer)
-        prod_list.append(newer.to_dict())
-    return prod_list
+    return list(products.find({}))
 
 def read_auction_by_id(auction_id: int):
     ''' Retireve an auction or bid by id '''
@@ -131,12 +123,17 @@ def read_auction_by_id(auction_id: int):
 
 def read_all_auctions():
     ''' Retrieves all auctions '''
-<<<<<<< HEAD
-    auction_list = auctions.find()
-    _log.debug(auction_list)
-    return auctions.find({})
-=======
     return list(auctions.find({}))
+
+def read_products_from_query(query_dict):
+    returned_products = list(products.find(query_dict))
+    return_struct = []
+    for product in returned_products:
+        product_doc = read_product_by_id( int(product['_id']) )
+        print(product)
+        product['id'] = product_doc
+        return_struct.append(product)
+    return return_struct
 
 def read_auctions_from_query(query_dict):
     ''' This function will take in a dict of query arguments and return the matching auctions '''
@@ -148,7 +145,6 @@ def read_auctions_from_query(query_dict):
         auction['item'] = product_doc
         return_struct.append(auction)
     return return_struct
->>>>>>> fcd19f7aa275c87a6573062f62b965bd315bf79d
 
 def login(username: str):
     '''A function that takes in a username and returns a user object with that username'''
