@@ -54,7 +54,7 @@ class Login extends Component {
     getLoginForm() {
         return (
             <div class="text-center">
-                <form class="form-group" onSubmit={this.login}>
+                <form class="form-group w-25" onSubmit={this.login}>
                 <div class="row">
                         <div class="col"></div>
                         <div class="col">

@@ -8,7 +8,6 @@ from auctionhouse.models.users import Bidder, Employee
 
 _log = get_logger(__name__)
 
-''' Ensure taht your MONGO_URI environment variable is set to your mongo connection URI. '''
 MONGO_URI = os.getenv('MONGO_URI')
 
 # Initialize mongo conection
