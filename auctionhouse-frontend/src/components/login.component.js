@@ -53,17 +53,38 @@ class Login extends Component {
 
     getLoginForm() {
         return (
-            <>
-                <form onSubmit={this.login}>
-                    <p><label>Username:</label></p>
-                    <p><input type="text"
-                        value={this.props.username}
-                        onChange={this.handleInput}
-                        onKeyDown={ (e) => this.handleKeyDown(e) }></input></p>
-                    <p><button className='btn btn-primary'
-                        onClick={ this.login}>Login</button></p>
+            <div class="text-center">
+                <form class="form-group" onSubmit={this.login}>
+                <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <h3 class="form-group">Login</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <h5 class="small_h5">Username:</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <input type="text"
+                                value={this.props.username}
+                                onChange={this.handleInput}
+                                onKeyDown={ (e) => this.handleKeyDown(e) }></input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <button
+                                class="form-control"
+                                onClick={ this.login}>Login</button></div>
+                    </div>
                 </form>
-            </>
+            </div>
         )
     }
 

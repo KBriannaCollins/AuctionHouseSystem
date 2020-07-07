@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import ProductService from '../services/product.service';
 
@@ -42,19 +43,43 @@ class ProductForm extends Component{
 
     render(){
         // const FIELDS = ['name', 'description', 'start_bid']
-        return(
-            <>
-            <h3>Product Proposal Form</h3>
-            <form>
-                <h5>Product Name:</h5>
-                <p><input type="text" name='name' onChange={this.handleProductChange}/></p>
-                <h5>Product Description:</h5>
-                <p><textarea name='description' rows='10' cols='50' onChange={this.handleProductChange}/></p>
-                <h5>Starting Bid:</h5>
-                <p><input type="number" name='start_bid' onChange={this.handleProductAmountChange} min='1'/></p>
-                <button onClick={(e) => this.proposeProduct(e)}>Submit</button>
-            </form>
-            </>
+        return( 
+            <div class="form-group">
+                <form>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <h3 class="form-group">Product Proposal Form</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h5>Product Name:</h5>
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" name='name' onChange={this.handleProductChange}/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><h5>Product Description:</h5></div>
+                        <div class="col">
+                            <textarea class="form-control" name='description' rows='10' cols='50' onChange={this.handleProductChange}/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><h5>Starting Bid:</h5></div>
+                        <div class="col">
+                            <input class="form-control" type="number" name='start_bid' onChange={this.handleProductAmountChange} min='1'/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                        <button class="form-control" onClick={(e) => this.proposeProduct(e)}>Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         )
     }
 }
