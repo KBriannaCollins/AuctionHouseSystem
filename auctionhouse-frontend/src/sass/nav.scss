@@ -6,6 +6,7 @@
         color: $ah-offblack;
         font-weight: bold;
         text-decoration: underline;
+        text-decoration-thickness: 2px;
     }
     h2 {
         color: $ah-offblack;
@@ -28,4 +29,26 @@
 td {
     margin: 0 auto;
     vertical-align: bottom;
+}
+
+.form-group{
+    .row{
+        padding: 5px;
+    }
+    h5{
+        text-align: right;
+    }
+    button{
+        background-color: $ah-red;
+        color: $ah-offwhite;
+        border-radius: 8px;
+        font-size: 20px;
+    }
+    button:hover{
+        background-color: $ah-offwhite;
+        color: $ah-red;
+    }
+    .small_h5{
+        text-align: center;
+    }
 }
