@@ -46,7 +46,7 @@ class User():
             payload = {
                 'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1),
                 'iat': datetime.datetime.utcnow(),
-                'sub': self._id
+                'sub': self.username
             }
             _log.debug("payload set")
             return jwt.encode(payload, _secret_key, algorithm='HS256')
@@ -70,11 +70,15 @@ class Bidder(User):
     def __init__(self, username='', password=''):
         super().__init__(username, password)
         self.history = []
-    
+
     def get_history(self):
         '''Gets bidders history'''
         return self.history
     
+    def create_history(self, product_name, amount, bid_status):
+        add_dict = {'product_name': product_name, 'amount': amount, 'bid_status': bid_status}
+        self.history.append(add_dict)
+
     @classmethod
     def from_dict(cls, input_bidder):
         '''Creates an instance of a bidder from a dictionary input'''
@@ -93,6 +97,9 @@ class Employee(User):
         '''Gets users role'''
         return self.role
     
+    def set_role(self, new_role):
+        self.role = new_role
+
     @classmethod
     def from_dict(cls, input_employee):
         '''Creates an instance of an employee from a dictionary input'''
