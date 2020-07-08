@@ -189,18 +189,21 @@ def auction_start(auction_id, duration):
 
 def auction_end(auction_id, bidder_id):
     '''find the auction'''
+    bidder_id = int(bidder_id)
+    auction_id = int(auction_id)
     query_string = {'_id': auction_id}
+    _log.debug(type(auction_id))
     auct = Auction.from_dict(read_auction_by_id(auction_id))
     bid_list = auct.get_bids()
     winning_bid = None
     for bid in bid_list:
-        if bid['bidder_id'] == bidder_id:
+        if int(bid['bidder_id']) == bidder_id:
             winning_bid = bid
-            bidder = Bidder.from_dict(read_user_by_id(bid['bidder_id']))
-            bidder.create_history(auction_id, bid['amount'], 'Win')
+            bidder = Bidder.from_dict(read_user_by_id(int(bid['bidder_id'])))
+            bidder.create_history(auction_id, float(bid['amount']), 'Win')
         else:
-            bidder = Bidder.from_dict(read_user_by_id(bid['bidder_id']))
-            bidder.create_history(auction_id, bid['amount'], 'Loss')
+            bidder = Bidder.from_dict(read_user_by_id(int(bid['bidder_id'])))
+            bidder.create_history(auction_id, float(bid['amount']), 'Loss')
     try:
         date_now = datetime.datetime.now()
         auctions.update_one(query_string, {'$set': {'status': 'Closed', 'bids': winning_bid,
