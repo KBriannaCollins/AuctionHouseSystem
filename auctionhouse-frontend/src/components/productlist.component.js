@@ -36,8 +36,8 @@ function ProductCard(props) {
                         Status: {productStatus}
                     </div>
                 </Card.Body>
-                <Button onClick={handleClickApprove}>Approve Product</Button>
-                <Button onClick={handleClickDecline}>Decline Product</Button>
+                <Button onClick={handleClickApprove} name={productId}>Approve Product</Button>
+                <Button onClick={handleClickDecline} name={productId}>Decline Product</Button>
             </Card>
         </>
     )
@@ -57,7 +57,7 @@ class ProductList extends Component {
         })
     }
 
-    productService = new ProductService;
+    productService = new ProductService();
 
     fullProductList(products) {
         
@@ -65,7 +65,7 @@ class ProductList extends Component {
             <>
                 {
                     products.map((product) => {
-                        return <ProductCard key={product._id} productInfo={product} />
+                        return <ProductCard handleClickApprove={this.handleClickApprove} handleClickDecline={this.handleClickDecline} key={product._id} productInfo={product} />
                     })
                 }
             </>
@@ -73,9 +73,12 @@ class ProductList extends Component {
     }
     handleClickApprove(e) {
         e.preventDefault()
-        let newStatus = this.props.product
-        newStatus.status = "Approved"
-        this.productService.updateProductStatus(newStatus).then(
+        console.log("In handle click approve")
+        //let newStatus = e.target.name
+        //console.log(newStatus)
+        //newStatus['status'] = "Approved"
+        let infoObject = {_id:e.target.name, status: 'Approved'}
+        this.productService.updateProductStatus(infoObject).then(
             resp => {
                 this.props.dispatch({type: 'loadProduct', product: {}})
             }
@@ -84,10 +87,8 @@ class ProductList extends Component {
     handleClickDecline(e) {
         e.preventDefault()
         let newStatus = this.props.product
-        newStatus.status = "Declined"
-        if (newStatus.status = 'Proposed') {
-            newStatus.status = 'Declined'
-        }
+        newStatus['status'] = "Declined"
+ 
         this.productService.updateProductStatus(newStatus).then(
             resp => {
                 this.props.dispatch({type: 'loadProduct', product: {}})
@@ -99,9 +100,6 @@ class ProductList extends Component {
         console.log(this.props.productList)
         if(this.props.productList && this.props.productList.length != 0) {
             return this.fullProductList(this.props.productList)
-                if (this.props.product.status === 'Proposed') {
-                    return <ProductCard handleClickApprove={this.handleClickApprove} handleClickDecline={this.handleClickDecline} />
-                }
         }
         else {
             return(

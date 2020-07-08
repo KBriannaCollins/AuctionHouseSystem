@@ -9,7 +9,7 @@ class ProductService{
         return axios.post(this.URI, product, {withCredentials: true})
     }
     updateProductStatus(infoObject) {
-        return axios.put(this.URI + '/' + window.location.pathname.split('/')[2], infoObject, {withCredentials: true})
+        return axios.put(this.URI + '/' + infoObject._id, infoObject, {withCredentials: true})
     }
     getProducts(querydict) {
         console.log('sending axios get')

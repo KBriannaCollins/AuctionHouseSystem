@@ -10,7 +10,7 @@ _log = get_logger(__name__)
 
 products = Blueprint('products', __name__)
 
-@products.route('/products', methods=['GET','POST'])
+@products.route('/products', methods=['GET','POST','PUT'])
 def products_main():
     required_fields = ['name', 'description', 'start_bid']
     if request.method == 'POST':
@@ -32,10 +32,18 @@ def products_main():
     else:
         pass
 
-#@products.route('/products/<int:product_id>', methods=['GET'])
-#def get_product(product_id):
-    #if request.method == 'GET':
-        #_log.debug('GET request for products by ID')
-        #product = db.read_product_by_id(product_id)
-        #if product:
-            #return jsonify(db.read_product_by_id(product_id)), 200
+@products.route('/products/<int:product_id>', methods=['GET','PUT'])
+def get_product(product_id):
+    if request.method == 'GET':
+        _log.debug('GET request for products by ID')
+        product = db.read_product_by_id(product_id)
+        if product:
+            return jsonify(db.read_product_by_id(product_id)), 200
+    elif request.method == 'PUT':
+        input_dict = request.get_json(force=True)
+        if db.update_product_status(input_dict['_id'], input_dict['status']):
+            return request.json, 204
+        else:
+            return request.json, 400
+    else:
+        pass
