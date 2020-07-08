@@ -70,13 +70,14 @@ class Bidder(User):
     def __init__(self, username='', password=''):
         super().__init__(username, password)
         self.history = []
+        '''history = [{auction_id, amount, w/l status}]'''
 
     def get_history(self):
         '''Gets bidders history'''
         return self.history
     
-    def create_history(self, product_name, amount, bid_status):
-        add_dict = {'product_name': product_name, 'amount': amount, 'bid_status': bid_status}
+    def create_history(self, auction_id, amount, bid_status):
+        add_dict = {'auction_id': auction_id, 'amount': amount, 'bid_status': bid_status}
         self.history.append(add_dict)
 
     @classmethod

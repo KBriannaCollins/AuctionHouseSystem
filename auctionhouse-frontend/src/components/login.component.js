@@ -24,11 +24,12 @@ class Login extends Component {
 
     handleKeyDown(e) {
         if (e.key === 'Enter') {
-            this.login();
+            this.login(e);
         }
     }
 
-    login() {
+    login(e) {
+        e.preventDefault()
         console.log(this.props)
         this.userService.login(this.props.username).then(
             (resp) => {
@@ -37,7 +38,8 @@ class Login extends Component {
         )
     }
 
-    logout(){
+    logout(e){
+        e.preventDefault()
         this.userService.logout().then(
             () => {
                 console.log('Logging out.')
@@ -53,31 +55,44 @@ class Login extends Component {
 
     getLoginForm() {
         return (
-            <>
-                <form onSubmit={this.login}>
-                    <p><label>Username:</label></p>
-                    <p><input type="text"
-                        value={this.props.username}
-                        onChange={this.handleInput}
-                        onKeyDown={ (e) => this.handleKeyDown(e) }></input></p>
-                    <p><button className='btn btn-primary'
-                        onClick={ this.login}>Login</button></p>
+            <div>
+                <form class="form-row align-items-right" onSubmit={this.login}>
+                    <div class="col-auto">
+                        <input type="text"
+                            value={this.props.username}
+                            onChange={this.handleInput}
+                            placeholder="Username"
+                            onKeyDown={ (e) => this.handleKeyDown(e) }></input>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text"
+                            value={this.props.password}
+                            onChange={this.handleInput}
+                            placeholder="Password"
+                            onKeyDown={ (e) => this.handleKeyDown(e) }></input>
+                    </div>
+                    <div class="col-auto">
+                        <button
+                            class="form-control"
+                            onClick={ this.login}>Login</button>
+                    </div>
                 </form>
-            </>
+            </div>
         )
     }
 
     displayUser() {
         return (
-            <>
-                <ul className = 'nav'>
-                    <li className = 'nav-item'>
-                        Welcome {this.props.user.role}: {this.props.user.username}
-                    </li>
-                    <li className = 'nav-item'><button className='btn btn-danger'
-                        onClick={ this.logout }>Logout</button></li>
-                </ul>
-            </>
+            <div>
+                <div className = 'nav'>
+                    <div className = 'nav-item'>
+                        Welcome{this.props.user.role}: {this.props.user.username}
+                    </div>
+                    <div className = 'nav-item'>
+                        <button onClick={ this.logout }>Logout</button>
+                    </div>
+                </div>
+            </div>
         )
     }
 

@@ -4,6 +4,7 @@ from flask import Flask, request, make_response, jsonify, render_template
 from flask_cors import CORS
 from auctionhouse.router.users import users
 from auctionhouse.router.auctions import auctions
+from auctionhouse.router.products import products
 import werkzeug
 
 #Initialize Flask
@@ -17,6 +18,7 @@ CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 # Blueprints
 app.register_blueprint(users)
 app.register_blueprint(auctions)
+app.register_blueprint(products)
 
 @app.route('/')
 def entry_page():

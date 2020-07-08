@@ -6,6 +6,7 @@ class Product():
         self.name = name
         self.description = description
         self.start_bid = start_bid
+        self.status = 'Proposed'
     
     def get_id(self):
         '''return the id of the product'''
@@ -22,7 +23,14 @@ class Product():
     def get_start_bid(self):
         '''returns the starting bid'''
         return self.start_bid
+
+    def get_status(self):
+        return self.status
     
+    def set_id(self, db_id):
+        '''takes in a new id and updates it'''
+        self._id = db_id
+
     def set_name(self, new_name):
         '''takes in a new name and updates it'''
         self.name = new_name
@@ -35,10 +43,13 @@ class Product():
         '''takes in a new start bid and updates it'''
         self.start_bid = new_start
     
-    def set_id(self, db_id):
-        '''takes in a new id and updates it'''
-        self._id = db_id
+    def set_status(self, new_status):
+        self.status = new_status
     
+    def __str__(self):
+        string = self.name + ' ' + self.description
+        return string
+
     def to_dict(self):
         '''Creates a dict from an instance of a product'''
         return self.__dict__
