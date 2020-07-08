@@ -9,7 +9,6 @@ from auctionhouse.models.users import Bidder, Employee
 
 _log = get_logger(__name__)
 
-''' Ensure taht your MONGO_URI environment variable is set to your mongo connection URI. '''
 MONGO_URI = os.getenv('MONGO_URI')
 
 # Initialize mongo conection
@@ -73,15 +72,22 @@ def create_auction(new_auction: Auction):
       
 def create_bid(new_bid: Bid, auction_id):
     ''' Create a Bid in the database '''
-    new_bid.set_id(_get_auction_id_counter())
     query_string = {'_id': auction_id}
+    auct = Auction.from_dict(read_auction_by_id(auction_id))
+    bid_list = auct.get_bids()
+    if any (d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
+        for bid in bid_list:
+            if bid['bidder_id'] == new_bid.get_bidder_id():
+                x = bid_list.index(bid)
+                bid_list[x] = new_bid.to_dict()
+    else:
+        bid_list.append(new_bid.to_dict())
     try:
-        auctions.update_one(query_string, { '$push': {'bids': new_bid.to_dict()}})
+        auctions.update_one(query_string, {'$set': {'bids': bid_list}})
         op_success = new_bid
-    except pymongo.errors.DuplicateKeyError as err:
-        _log.error(err)
+    except:
         op_success = None
-    _log.info('Added Bid. ID: %s.', new_bid.get_id())
+    _log.info('Added new bid to auction %s', auction_id)
     return op_success
 
 # Read operations
@@ -127,7 +133,7 @@ def read_all_products():
 def read_auction_by_id(auction_id: int):
     ''' Retireve an auction or bid by id '''
     query_string = {"_id": auction_id}
-    return products.find_one(query_string)
+    return auctions.find_one(query_string)
 
 def read_all_auctions():
     ''' Retrieves all auctions '''
@@ -174,12 +180,49 @@ def auction_start(auction_id, duration):
     else:
         expiration_type = 'Automatic'
     update_string = {'$set': {'date_start': date_now, 'date_end': date_end, 
-                              'expiration_type': expiration_type}}
+                              'expiration_type': expiration_type, 'status': 'Active'}}
     updated_auction = auctions.find_one_and_update(query_string, update_string,
                                                    return_document=pymongo.ReturnDocument.AFTER)
     _log.debug(updated_auction)
 
     return updated_auction
+
+def auction_end(auction_id, bidder_id):
+    '''find the auction'''
+    bidder_id = int(bidder_id)
+    auction_id = int(auction_id)
+    query_string = {'_id': auction_id}
+    auct = Auction.from_dict(read_auction_by_id(auction_id))
+    bid_list = auct.get_bids()
+    winning_bid = None
+    for bid in bid_list:
+        if int(bid['bidder_id']) == bidder_id:
+            winning_bid = bid
+            bidder_doc = read_user_by_id(int(bid['bidder_id']))
+            try:
+                bidder = Bidder.from_dict(bidder_doc)
+                bidder.create_history(auction_id, float(bid['amount']), 'Win')
+                users.update_one({'_id': bidder_id}, {'$set': bidder.to_dict()})
+            except TypeError as err:
+                _log.error('Encountered an error: %s', err)
+        else:
+            bidder_doc = read_user_by_id(int(bid['bidder_id']))
+            try:
+                bidder = Bidder.from_dict(bidder_doc)
+                bidder.create_history(auction_id, float(bid['amount']), 'Loss')
+                users.update_one({'_id': int(bid['bidder_id'])}, {'$set': bidder.to_dict()})
+            except TypeError as err:
+                _log.error('Encountered an error: %s', err)
+    try:
+        date_now = datetime.datetime.now()
+        auctions.update_one(query_string, {'$set': {'status': 'Closed', 'bids': winning_bid,
+                                                    'date_end': date_now}})
+        op_success = winning_bid
+    except:
+        op_success = None
+    _log.info(' to auction %s', auction_id)
+    return op_success
+
 
 #Delete Functions
 
@@ -206,38 +249,37 @@ def _get_product_id_counter():
 
 
 if __name__ == "__main__":
-    read_all_products()
-    # ''' This is the database initialization functionality '''
-    # util.drop()
-    # products.drop()
-    # users.drop()
-    # auctions.drop()
+    ''' This is the database initialization functionality '''
+    util.drop()
+    products.drop()
+    users.drop()
+    auctions.drop()
 
-    # util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
-    # util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
-    # util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
 
-    # users.create_index('username', unique=True)
+    users.create_index('username', unique=True)
 
-    # # Bidder
-    # bidder = Bidder('bidder', 'password')
-    # bidder = create_bidder(bidder)
-    # # manager
-    # manager = Employee('manager', 'password', 'Manager')
-    # create_employee(manager)
-    # # curator
-    # curator = Employee('curator', 'password', 'Curator')
-    # create_employee(curator)
-    # # auctioneer
-    # auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
-    # create_employee(auctioneer)
+    # Bidder
+    bidder = Bidder('bidder', 'password')
+    bidder = create_bidder(bidder)
+    # manager
+    manager = Employee('manager', 'password', 'Manager')
+    create_employee(manager)
+    # curator
+    curator = Employee('curator', 'password', 'Curator')
+    create_employee(curator)
+    # auctioneer
+    auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
+    create_employee(auctioneer)
 
-    # # product
-    # product = Product('Product1', 'Much expensive. Very product.', 10)
-    # create_product(product)
-    # # Bid
-    # bid = Bid(bidder.get_id(), product.get_id(), 100)
-    # # auction
-    # auction = Auction(product.get_id())
-    # create_auction(auction)
-    # create_bid(bid, auction.get_id())
+    # product
+    product = Product('Product1', 'Much expensive. Very product.', 10)
+    create_product(product)
+    # Bid
+    bid = Bid(bidder.get_id(), product.get_id(), 100)
+    # auction
+    auction = Auction(product.get_id())
+    create_auction(auction)
+    create_bid(bid, auction.get_id())
