@@ -84,6 +84,12 @@ def create_bid(new_bid: Bid, auction_id):
     _log.info('Added Bid. ID: %s.', new_bid.get_id())
     return op_success
 
+def update_the_product(product: Product):
+    '''A function that takes in a offer and updates the entire offer with that id'''
+    query_string = {"_id": product._id}
+    mongo.products.update_one(query_string, {'$set':product.to_dict()})
+
+
 # Read operations
 def read_all_users():
     ''' Retrieve all users '''
@@ -114,19 +120,7 @@ def read_product_by_id(product_id: int):
 
 def read_all_products():
     ''' Retrieve all products '''
-<<<<<<< HEAD
     return list(products.find({}))
-=======
-    prod_list = []
-    for prod in products.find({}):
-        _log.debug(prod)
-        newer = Product(prod['name'], prod['description'], prod['start_bid'])
-        newer.set_id(prod['_id'])
-        newer.set_status(prod['status'])
-        _log.debug(newer)
-        prod_list.append(newer.to_dict())
-    return prod_list
->>>>>>> f3eea6edd62b62c23e1de297e07ee88ccba76b0f
 
 def read_auction_by_id(auction_id: int):
     ''' Retireve an auction or bid by id '''

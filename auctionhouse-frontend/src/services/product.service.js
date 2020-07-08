@@ -9,6 +9,10 @@ class ProductService{
         console.log('sending axios')
         return axios.post(this.URI, product, {withCredentials: true})
     }
+    updateStatus(prodcut) {
+        let uri = `${this.URI}/${product}/status`
+        return axios.put(uri, {withCredentials:true});
+    }
     getProducts(querydict) {
         console.log('sending axios get')
         return axios.get(this.URI, {withCredentials: true});

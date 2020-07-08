@@ -1019,3 +1019,33 @@ TypeError: Object of type Cursor is not JSON serializable
 2020-07-07 16:10:02,987 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 16:10:02] "[37mGET /auctions HTTP/1.1[0m" 200 -
 2020-07-07 16:10:05,097 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 16:10:05] "[37mGET /products HTTP/1.1[0m" 200 -
 2020-07-07 16:12:24,446 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 16:12:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 18:54:28,053 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-07 18:56:44,601 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:56:44] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-07 18:57:22,970 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:57:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 18:57:43,078 - auctionhouse.router.auctions - ERROR - Could not cast value to int, moving on...
+2020-07-07 18:57:43,144 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:57:43] "[37mGET /auctions?status=Active HTTP/1.1[0m" 200 -
+2020-07-07 18:58:22,861 - auctionhouse.router.auctions - ERROR - Could not cast value to int, moving on...
+2020-07-07 18:58:22,937 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:58:22] "[37mGET /auctions?status=Active HTTP/1.1[0m" 200 -
+2020-07-07 18:59:38,219 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:59:38] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-07 18:59:40,255 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:59:40] "[37mOPTIONS /users HTTP/1.1[0m" 200 -
+2020-07-07 18:59:40,262 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:59:40] "[37mDELETE /users HTTP/1.1[0m" 204 -
+2020-07-07 18:59:55,536 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:59:55] "[37mPOST /users HTTP/1.1[0m" 200 -
+2020-07-07 18:59:59,784 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 18:59:59] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 22:45:57,620 - auctionhouse.router.auctions - ERROR - Could not cast value to int, moving on...
+2020-07-07 22:45:58,202 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:45:58] "[37mGET /auctions?status=Active HTTP/1.1[0m" 200 -
+2020-07-07 22:46:01,678 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:46:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 22:46:02,975 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:46:02] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-07 22:46:08,514 - auctionhouse.router.auctions - ERROR - Could not cast value to int, moving on...
+2020-07-07 22:46:08,585 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:46:08] "[37mGET /auctions?status=Active HTTP/1.1[0m" 200 -
+2020-07-07 22:48:21,971 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:48:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 22:49:01,397 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:49:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 22:51:58,421 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:51:58] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 22:52:16,145 - auctionhouse.router.auctions - ERROR - Could not cast value to int, moving on...
+2020-07-07 22:52:16,226 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:52:16] "[37mGET /auctions?status=Active HTTP/1.1[0m" 200 -
+2020-07-07 22:52:19,839 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:52:19] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-07 22:52:21,586 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:52:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 22:52:22,198 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:52:22] "[37mOPTIONS /users HTTP/1.1[0m" 200 -
+2020-07-07 22:52:22,204 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:52:22] "[37mDELETE /users HTTP/1.1[0m" 204 -
+2020-07-07 22:53:22,600 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:53:22] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-07 22:53:29,631 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:53:29] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-07 22:54:14,793 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2020 22:54:14] "[37mGET /products HTTP/1.1[0m" 200 -
