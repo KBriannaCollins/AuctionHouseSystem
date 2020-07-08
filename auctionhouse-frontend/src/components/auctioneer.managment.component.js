@@ -3,6 +3,29 @@ import { connect } from 'react-redux';
 import AuctionService from '../services/auction.service'
 import { Card, Button, Form } from 'react-bootstrap'
 import DatePicker from './datepicker.component'
+import EndAuctionCard from './endauctioncard.component'
+
+function StartAuctionCard(props) {
+    const expirationTypeChange = props.expirationTypeChange
+    const updateStatus = props.updateStatus
+    return (
+        <Card style={{ width: '18rem' }}>
+        <Card.Title>Start an Auction</Card.Title>
+        <Card.Body>
+            <Form>
+                <Form.Group>
+                    <Form.Check type="checkbox" label="Should this auction expire automatically?" 
+                    onChange={expirationTypeChange} />
+                </Form.Group>
+                <Form.Group>
+                    <DatePicker />
+                </Form.Group>
+            </Form>
+        </Card.Body>
+        <Button name="Active" onClick={updateStatus}>Start Auction</Button>
+    </Card>
+    )
+}
 
 class AuctionForm extends Component {
 
@@ -14,8 +37,11 @@ class AuctionForm extends Component {
         
         this.expirationTypeChange = this.expirationTypeChange.bind(this);
         
-        let defaultAuction = {expiration_type: 'Manual', numOfDays: 0}
-        this.props.dispatch({type: 'loadAuction', auction: defaultAuction})
+        // let defaultAuction = {expiration_type: 'Manual', numOfDays: 0}
+        this.auctionService.getOpenAuctions({_id: parseInt(window.location.pathname.split('/')[2]) }).then( res => {
+            this.props.dispatch({type: 'loadAuction', auction: res.data.auctions[0]})
+            console.log(res.data.auctions[0])
+        })
     }
 
     updateStatus(e) {
@@ -43,25 +69,20 @@ class AuctionForm extends Component {
     }
 
     render() {
-        return(
-            <>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Title>Start an Auction</Card.Title>
-                    <Card.Body>
-                        <Form>
-                            <Form.Group>
-                                <Form.Check type="checkbox" label="Should this auction expire automatically?" 
-                                onChange={this.expirationTypeChange} />
-                            </Form.Group>
-                            <Form.Group>
-                                <DatePicker />
-                            </Form.Group>
-                        </Form>
-                    </Card.Body>
-                    <Button name="Active" onClick={this.updateStatus}>Start Auction</Button>
-                </Card>
-            </>
-        )
+        if (this.props.auction && this.props.auction !== {}) {
+            if (this.props.auction.status === 'Active') {
+                return <EndAuctionCard auction={this.props.auction} />
+            }
+            else if (this.props.auction.status === 'Listed') {
+                return <StartAuctionCard updateStatus={this.updateStatus} expirationTypeChange={this.expirationTypeChange} />
+            }
+            else {
+                return null
+            }
+        }
+        else {
+            return null
+        }
     }
 }
 

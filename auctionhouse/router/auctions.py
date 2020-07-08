@@ -77,6 +77,9 @@ def auctions_with_id(auction_id):
         if 'numOfDays' in input_dict:
             updated_auction = auction_start(target_auction, input_dict['numOfDays'])
             return updated_auction, 200
+        elif 'bidder_id' in input_dict:
+            pass # Call db function
+            return 'Nothing to say', 204
         else:
             return 'Invalid Request', 400
     else:
