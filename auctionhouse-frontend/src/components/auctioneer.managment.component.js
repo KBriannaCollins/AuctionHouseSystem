@@ -46,7 +46,12 @@ class AuctionForm extends Component {
 
     updateStatus(e) {
         e.preventDefault()
-        this.auctionService.updateAuctionStatus(this.props.auction).then(
+        let newStatus = this.props.auction
+        newStatus.status = "Active"
+        if (newStatus.numOfDays == undefined) {
+            newStatus.numOfDays = 0
+        }
+        this.auctionService.updateAuctionStatus(newStatus).then(
             resp => {
                 this.props.dispatch({type: 'loadAuction', auction: {}})
             }
