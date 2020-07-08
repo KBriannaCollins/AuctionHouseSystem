@@ -45,7 +45,7 @@ class AuctionForm extends Component {
     render() {
         return(
             <>
-                <Card style={{ width: '18rem' }}>
+                <Card class="card align-item-md-center" style={{ width: '18rem' }}>
                     <Card.Title>Start an Auction</Card.Title>
                     <Card.Body>
                         <Form>
@@ -54,7 +54,7 @@ class AuctionForm extends Component {
                                 onChange={this.expirationTypeChange} />
                             </Form.Group>
                             <Form.Group>
-                                <DatePicker />
+                               <DatePicker/>
                             </Form.Group>
                         </Form>
                     </Card.Body>

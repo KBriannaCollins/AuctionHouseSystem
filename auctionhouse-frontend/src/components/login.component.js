@@ -55,35 +55,26 @@ class Login extends Component {
 
     getLoginForm() {
         return (
-            <div class="text-center">
-                <form class="form-group w-25" onSubmit={this.login}>
-                <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                            <h3 class="form-group">Login</h3>
-                        </div>
+            <div>
+                <form class="form-row align-items-right" onSubmit={this.login}>
+                    <div class="col-auto">
+                        <input type="text"
+                            value={this.props.username}
+                            onChange={this.handleInput}
+                            placeholder="Username"
+                            onKeyDown={ (e) => this.handleKeyDown(e) }></input>
                     </div>
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                            <h5 class="small_h5">Username:</h5>
-                        </div>
+                    <div class="col-auto">
+                        <input type="text"
+                            value={this.props.password}
+                            onChange={this.handleInput}
+                            placeholder="Password"
+                            onKeyDown={ (e) => this.handleKeyDown(e) }></input>
                     </div>
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                            <input type="text"
-                                value={this.props.username}
-                                onChange={this.handleInput}
-                                onKeyDown={ (e) => this.handleKeyDown(e) }></input>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                            <button
-                                class="form-control"
-                                onClick={ this.login}>Login</button></div>
+                    <div class="col-auto">
+                        <button
+                            class="form-control"
+                            onClick={ this.login}>Login</button>
                     </div>
                 </form>
             </div>
@@ -92,15 +83,16 @@ class Login extends Component {
 
     displayUser() {
         return (
-            <>
-                <ul className = 'nav'>
-                    <li className = 'nav-item'>
-                        Welcome {this.props.user.role}: {this.props.user.username}
-                    </li>
-                    <li className = 'nav-item'><button className='btn btn-danger'
-                        onClick={ this.logout }>Logout</button></li>
-                </ul>
-            </>
+            <div>
+                <div className = 'nav'>
+                    <div className = 'nav-item'>
+                        Welcome{this.props.user.role}: {this.props.user.username}
+                    </div>
+                    <div className = 'nav-item'>
+                        <button onClick={ this.logout }>Logout</button>
+                    </div>
+                </div>
+            </div>
         )
     }
 

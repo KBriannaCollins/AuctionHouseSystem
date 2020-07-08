@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import ProductService from '../services/product.service';
 

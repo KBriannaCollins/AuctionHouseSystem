@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+import { connect } from 'react-redux'
+
 import BidForm from './bidform.component';
 import ProductForm from './productform.component';
 import Login from './login.component';
-import { Navbar, Nav } from 'react-bootstrap';
 import AuctionForm from './auctioneer.managment.component'
 import AuctionList from './auctionlist.component'
 import '../sass/nav.scss';
-import { connect } from 'react-redux'
+
 
 
 function UserNav(props) {
