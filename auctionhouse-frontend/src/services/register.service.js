@@ -2,7 +2,7 @@ const { default: axios } = require('axios');
 
 class RegisterService{
     constructor(){
-        this.URI = 'http://localhost:5000/auctions/';
+        this.URI = 'http://localhost:5000/users/';
     }
 
     addBidder(bidder){
