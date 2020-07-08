@@ -200,9 +200,11 @@ def auction_end(auction_id, bidder_id):
             winning_bid = bid
             bidder = Bidder.from_dict(read_user_by_id(int(bid['bidder_id'])))
             bidder.create_history(auction_id, float(bid['amount']), 'Win')
+            users.update_one({'_id': bidder_id}, {'$set': bidder.to_dict()})
         else:
             bidder = Bidder.from_dict(read_user_by_id(int(bid['bidder_id'])))
             bidder.create_history(auction_id, float(bid['amount']), 'Loss')
+            users.update_one({'_id': int(bid['bidder_id'])}, {'$set': bidder.to_dict()})
     try:
         date_now = datetime.datetime.now()
         auctions.update_one(query_string, {'$set': {'status': 'Closed', 'bids': winning_bid,
