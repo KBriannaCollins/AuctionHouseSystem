@@ -198,13 +198,21 @@ def auction_end(auction_id, bidder_id):
     for bid in bid_list:
         if int(bid['bidder_id']) == bidder_id:
             winning_bid = bid
-            bidder = Bidder.from_dict(read_user_by_id(int(bid['bidder_id'])))
-            bidder.create_history(auction_id, float(bid['amount']), 'Win')
-            users.update_one({'_id': bidder_id}, {'$set': bidder.to_dict()})
+            bidder_doc = read_user_by_id(int(bid['bidder_id']))
+            try:
+                bidder = Bidder.from_dict(bidder_doc)
+                bidder.create_history(auction_id, float(bid['amount']), 'Win')
+                users.update_one({'_id': bidder_id}, {'$set': bidder.to_dict()})
+            except TypeError as err:
+                _log.error('Encountered an error: %s', err)
         else:
-            bidder = Bidder.from_dict(read_user_by_id(int(bid['bidder_id'])))
-            bidder.create_history(auction_id, float(bid['amount']), 'Loss')
-            users.update_one({'_id': int(bid['bidder_id'])}, {'$set': bidder.to_dict()})
+            bidder_doc = read_user_by_id(int(bid['bidder_id']))
+            try:
+                bidder = Bidder.from_dict(bidder_doc)
+                bidder.create_history(auction_id, float(bid['amount']), 'Loss')
+                users.update_one({'_id': int(bid['bidder_id'])}, {'$set': bidder.to_dict()})
+            except TypeError as err:
+                _log.error('Encountered an error: %s', err)
     try:
         date_now = datetime.datetime.now()
         auctions.update_one(query_string, {'$set': {'status': 'Closed', 'bids': winning_bid,
@@ -241,39 +249,37 @@ def _get_product_id_counter():
 
 
 if __name__ == "__main__":
-    bid = Bid( 99, 1, 2)
-    create_bid(bid, 2)
-    # ''' This is the database initialization functionality '''
-    # util.drop()
-    # products.drop()
-    # users.drop()
-    # auctions.drop()
+    ''' This is the database initialization functionality '''
+    util.drop()
+    products.drop()
+    users.drop()
+    auctions.drop()
 
-    # util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
-    # util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
-    # util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
 
-    # users.create_index('username', unique=True)
+    users.create_index('username', unique=True)
 
-    # # Bidder
-    # bidder = Bidder('bidder', 'password')
-    # bidder = create_bidder(bidder)
-    # # manager
-    # manager = Employee('manager', 'password', 'Manager')
-    # create_employee(manager)
-    # # curator
-    # curator = Employee('curator', 'password', 'Curator')
-    # create_employee(curator)
-    # # auctioneer
-    # auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
-    # create_employee(auctioneer)
+    # Bidder
+    bidder = Bidder('bidder', 'password')
+    bidder = create_bidder(bidder)
+    # manager
+    manager = Employee('manager', 'password', 'Manager')
+    create_employee(manager)
+    # curator
+    curator = Employee('curator', 'password', 'Curator')
+    create_employee(curator)
+    # auctioneer
+    auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
+    create_employee(auctioneer)
 
-    # # product
-    # product = Product('Product1', 'Much expensive. Very product.', 10)
-    # create_product(product)
-    # # Bid
-    # bid = Bid(bidder.get_id(), product.get_id(), 100)
-    # # auction
-    # auction = Auction(product.get_id())
-    # create_auction(auction)
-    # create_bid(bid, auction.get_id())
+    # product
+    product = Product('Product1', 'Much expensive. Very product.', 10)
+    create_product(product)
+    # Bid
+    bid = Bid(bidder.get_id(), product.get_id(), 100)
+    # auction
+    auction = Auction(product.get_id())
+    create_auction(auction)
+    create_bid(bid, auction.get_id())
