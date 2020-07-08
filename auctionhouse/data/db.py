@@ -91,7 +91,7 @@ def create_bid(new_bid: Bid, auction_id):
     return op_success
 
 def update_product_status(product_id: int, status: str):
-    '''A function that takes in a product and changes the status'''
+    '''Takes in a product and changes the status while optionally creating an auction'''
     query_string = {"_id": product_id}
     try:
         products.update_one(query_string, {'$set': status})
