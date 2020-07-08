@@ -1182,3 +1182,11 @@ TypeError: Object of type Cursor is not JSON serializable
 2020-07-08 18:03:50,538 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2020 18:03:50] "[37mOPTIONS /products/1 HTTP/1.1[0m" 200 -
 2020-07-08 18:03:50,602 - auctionhouse.data.db - INFO - Status updated for product ID 1
 2020-07-08 18:03:50,618 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2020 18:03:50] "[31m[1mPUT /products/1 HTTP/1.1[0m" 400 -
+2020-07-08 18:08:31,366 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2020 18:08:31] "[37mOPTIONS /products/1 HTTP/1.1[0m" 200 -
+2020-07-08 18:08:31,429 - auctionhouse.data.db - INFO - Status updated for product ID 1
+2020-07-08 18:08:31,430 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2020 18:08:31] "[31m[1mPUT /products/1 HTTP/1.1[0m" 400 -
+2020-07-08 18:08:49,760 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2020 18:08:49] "[37mOPTIONS /users HTTP/1.1[0m" 200 -
+2020-07-08 18:08:49,768 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2020 18:08:49] "[37mDELETE /users HTTP/1.1[0m" 204 -
+2020-07-08 18:08:54,606 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2020 18:08:54] "[37mOPTIONS /products/1 HTTP/1.1[0m" 200 -
+2020-07-08 18:08:54,666 - auctionhouse.data.db - INFO - Status updated for product ID 1
+2020-07-08 18:08:54,669 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2020 18:08:54] "[31m[1mPUT /products/1 HTTP/1.1[0m" 400 -
