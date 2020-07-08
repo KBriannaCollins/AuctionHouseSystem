@@ -174,7 +174,7 @@ def auction_start(auction_id, duration):
     else:
         expiration_type = 'Automatic'
     update_string = {'$set': {'date_start': date_now, 'date_end': date_end, 
-                              'expiration_type': expiration_type}}
+                              'expiration_type': expiration_type, 'status': 'Active'}}
     updated_auction = auctions.find_one_and_update(query_string, update_string,
                                                    return_document=pymongo.ReturnDocument.AFTER)
     _log.debug(updated_auction)

@@ -55,34 +55,34 @@ class Login extends Component {
 
     getLoginForm() {
         return (
-            <div class="text-center">
-                <form class="form-group" onSubmit={this.login}>
-                <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                            <h3 class="form-group">Login</h3>
+            <div className="text-center">
+                <form className="form-group" onSubmit={this.login}>
+                <div className="row">
+                        <div className="col"></div>
+                        <div className="col">
+                            <h3 className="form-group">Login</h3>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                            <h5 class="small_h5">Username:</h5>
+                    <div className="row">
+                        <div className="col"></div>
+                        <div className="col">
+                            <h5 className="small_h5">Username:</h5>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
+                    <div className="row">
+                        <div className="col"></div>
+                        <div className="col">
                             <input type="text"
                                 value={this.props.username}
                                 onChange={this.handleInput}
                                 onKeyDown={ (e) => this.handleKeyDown(e) }></input>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
+                    <div className="row">
+                        <div className="col"></div>
+                        <div className="col">
                             <button
-                                class="form-control"
+                                className="form-control"
                                 onClick={ this.login}>Login</button></div>
                     </div>
                 </form>

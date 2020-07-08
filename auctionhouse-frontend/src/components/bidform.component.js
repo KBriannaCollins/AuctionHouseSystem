@@ -37,7 +37,7 @@ class BidForm extends Component {
 
     render(){
         return(
-            <div class="form-group">
+            <div class="form-group w-25">
                 <form onSubmit={this.handleSubmit}>
                 <div class="row">
                     <div class="col"></div>

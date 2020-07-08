@@ -44,7 +44,7 @@ class ProductForm extends Component{
     render(){
         // const FIELDS = ['name', 'description', 'start_bid']
         return( 
-            <div class="form-group">
+            <div class="form-group w-50">
                 <form>
                     <div class="row">
                         <div class="col"></div>
