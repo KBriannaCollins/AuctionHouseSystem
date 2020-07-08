@@ -90,10 +90,20 @@ def create_bid(new_bid: Bid, auction_id):
     _log.info('Added new bid to auction %s', auction_id)
     return op_success
 
-def update_the_product(product: Product):
-    '''A function that takes in a offer and updates the entire offer with that id'''
-    query_string = {"_id": product._id}
-    mongo.products.update_one(query_string, {'$set':product.to_dict()})
+def update_product_status(product_id: int, status: str):
+    '''A function that takes in a product and changes the status'''
+    query_string = {"_id": product_id}
+    try:
+        products.update_one(query_string, {'$set': status})
+        if status == 'Approved':
+            auct = Auction(product_id)
+            create_auction(auct)
+        op_success = status
+    except:
+        op_success = None
+    _log.info('Status updated for product ID %s', product_id)
+    return op_success
+
 
 
 # Read operations

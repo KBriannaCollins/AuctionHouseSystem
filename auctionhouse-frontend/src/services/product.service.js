@@ -9,7 +9,7 @@ class ProductService{
         console.log('sending axios')
         return axios.post(this.URI, product, {withCredentials: true})
     }
-    updateStatus(prodcut) {
+    updateStatus(product) {
         let uri = `${this.URI}/${product}/status`
         return axios.put(uri, {withCredentials:true});
     }

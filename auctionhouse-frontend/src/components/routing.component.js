@@ -4,7 +4,6 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { connect } from 'react-redux'
 
 import BidForm from './bidform.component';
-import Product from './product.component';
 import ProductForm from './productform.component';
 import Login from './login.component';
 import AuctionForm from './auctioneer.managment.component'
