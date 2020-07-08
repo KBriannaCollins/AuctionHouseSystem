@@ -8,6 +8,7 @@ import ProductForm from './productform.component';
 import Login from './login.component';
 import AuctionForm from './auctioneer.managment.component'
 import AuctionList from './auctionlist.component'
+import ManageList from './managelist.component'
 import '../sass/nav.scss';
 
 
@@ -35,7 +36,7 @@ class Routing extends Component{
                     <Navbar.Brand><Link to='/' className='nav_link'><h1>KTMN Auction House</h1></Link></Navbar.Brand>
                     <UserNav user={this.props.user}></UserNav>
                     <Nav className="mr-auto"><Link to='/products' className='nav_link'><h3>Product Proposal</h3></Link></Nav>
-                    <Nav className="mr-auto"><Link to='/manage/1' className='nav_link'><h3>Manage Auction</h3></Link></Nav>
+                    <Nav className="mr-auto"><Link to='/managelist' className='nav_link'><h3>Manage Auction</h3></Link></Nav>
                     <Login></Login>
                 </Navbar>
 
@@ -43,7 +44,8 @@ class Routing extends Component{
                 <Route path='/auctionlist' component={AuctionList}/>
                 <Route path='/products' component={ProductForm}/>
                 <Route path="/login" component={Login}/>
-                <Route path='/manage/:id' component={AuctionForm}/>
+                <Route path='/managelist' component={ManageList}/>
+                <Route path='/manage/:id' component={AuctionForm} />
             </Router>
         </>
         )
