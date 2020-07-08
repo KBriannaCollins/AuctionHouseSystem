@@ -9,7 +9,8 @@ const initialState = {
     bid: {'bidder_id': -1, 'item_id': -1, 'amount': 0},
     product: {'name': '', 'description': '', 'start_bid': 0},
     auctionList: [],
-    productList: []
+    productList: [],
+    bidder: {}
 }
 
 
@@ -37,6 +38,8 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {auction: action.auction})
         case 'loadAuctionList':
             return Object.assign({}, state, {auctionList: action.auctionList})
+        case 'setHighestBidder':
+            return Object.assign({}, state, {bidder: action.bidder})
         default:
             return state;
     }

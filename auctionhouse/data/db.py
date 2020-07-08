@@ -9,7 +9,6 @@ from auctionhouse.models.users import Bidder, Employee
 
 _log = get_logger(__name__)
 
-''' Ensure taht your MONGO_URI environment variable is set to your mongo connection URI. '''
 MONGO_URI = os.getenv('MONGO_URI')
 
 # Initialize mongo conection
@@ -73,15 +72,22 @@ def create_auction(new_auction: Auction):
       
 def create_bid(new_bid: Bid, auction_id):
     ''' Create a Bid in the database '''
-    new_bid.set_id(_get_auction_id_counter())
     query_string = {'_id': auction_id}
+    auct = Auction.from_dict(read_auction_by_id(auction_id))
+    bid_list = auct.get_bids()
+    if any (d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
+        for bid in bid_list:
+            if bid['bidder_id'] == new_bid.get_bidder_id():
+                x = bid_list.index(bid)
+                bid_list[x] = new_bid.to_dict()
+    else:
+        bid_list.append(new_bid.to_dict())
     try:
-        auctions.update_one(query_string, { '$push': {'bids': new_bid.to_dict()}})
+        auctions.update_one(query_string, {'$set': {'bids': bid_list}})
         op_success = new_bid
-    except pymongo.errors.DuplicateKeyError as err:
-        _log.error(err)
+    except:
         op_success = None
-    _log.info('Added Bid. ID: %s.', new_bid.get_id())
+    _log.info('Added new bid to auction %s', auction_id)
     return op_success
 
 def update_the_product(product: Product):
@@ -125,7 +131,7 @@ def read_all_products():
 def read_auction_by_id(auction_id: int):
     ''' Retireve an auction or bid by id '''
     query_string = {"_id": auction_id}
-    return products.find_one(query_string)
+    return auctions.find_one(query_string)
 
 def read_all_auctions():
     ''' Retrieves all auctions '''
@@ -182,12 +188,40 @@ def auction_start(auction_id, duration):
     else:
         expiration_type = 'Automatic'
     update_string = {'$set': {'date_start': date_now, 'date_end': date_end, 
-                              'expiration_type': expiration_type}}
+                              'expiration_type': expiration_type, 'status': 'Active'}}
     updated_auction = auctions.find_one_and_update(query_string, update_string,
                                                    return_document=pymongo.ReturnDocument.AFTER)
     _log.debug(updated_auction)
 
     return updated_auction
+
+def auction_end(auction_id, bidder_id):
+    '''find the auction'''
+    bidder_id = int(bidder_id)
+    auction_id = int(auction_id)
+    query_string = {'_id': auction_id}
+    _log.debug(type(auction_id))
+    auct = Auction.from_dict(read_auction_by_id(auction_id))
+    bid_list = auct.get_bids()
+    winning_bid = None
+    for bid in bid_list:
+        if int(bid['bidder_id']) == bidder_id:
+            winning_bid = bid
+            bidder = Bidder.from_dict(read_user_by_id(int(bid['bidder_id'])))
+            bidder.create_history(auction_id, float(bid['amount']), 'Win')
+        else:
+            bidder = Bidder.from_dict(read_user_by_id(int(bid['bidder_id'])))
+            bidder.create_history(auction_id, float(bid['amount']), 'Loss')
+    try:
+        date_now = datetime.datetime.now()
+        auctions.update_one(query_string, {'$set': {'status': 'Closed', 'bids': winning_bid,
+                                                    'date_end': date_now}})
+        op_success = winning_bid
+    except:
+        op_success = None
+    _log.info(' to auction %s', auction_id)
+    return op_success
+
 
 #Delete Functions
 
@@ -214,7 +248,8 @@ def _get_product_id_counter():
 
 
 if __name__ == "__main__":
-    read_all_products()
+    bid = Bid( 99, 1, 2)
+    create_bid(bid, 2)
     # ''' This is the database initialization functionality '''
     # util.drop()
     # products.drop()

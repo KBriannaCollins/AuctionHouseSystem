@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import ProductService from '../services/product.service';
 
@@ -44,7 +43,7 @@ class ProductForm extends Component{
     render(){
         // const FIELDS = ['name', 'description', 'start_bid']
         return( 
-            <div class="form-group">
+            <div class="form-group w-50">
                 <form>
                     <div class="row">
                         <div class="col"></div>
@@ -63,7 +62,7 @@ class ProductForm extends Component{
                     <div class="row">
                         <div class="col"><h5>Product Description:</h5></div>
                         <div class="col">
-                            <textarea class="form-control" name='description' rows='10' cols='50' onChange={this.handleProductChange}/>
+                            <textarea class="form-control" name='description' rows="10" onChange={this.handleProductChange}/>
                         </div>
                     </div>
                     <div class="row">
