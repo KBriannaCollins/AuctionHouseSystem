@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import UserService from '../services/user.service'
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom'
+
+function RegisterButton() {
+    const history = useHistory();
+
+    function handleClick() {
+        history.push('/register')
+    }
+
+    return (
+        <>
+            <button className="form-control" onClick={ handleClick }>Register</button>
+        </>
+        )
+}
 
 class Login extends Component {
 
@@ -56,25 +71,28 @@ class Login extends Component {
     getLoginForm() {
         return (
             <div>
-                <form class="form-row align-items-right" onSubmit={this.login}>
-                    <div class="col-auto">
+                <form className="form-row align-items-right" onSubmit={this.login}>
+                    <div className="col-auto">
                         <input type="text"
                             value={this.props.username}
                             onChange={this.handleInput}
                             placeholder="Username"
                             onKeyDown={ (e) => this.handleKeyDown(e) }></input>
                     </div>
-                    <div class="col-auto">
+                    <div className="col-auto">
                         <input type="text"
                             value={this.props.password}
                             onChange={this.handleInput}
                             placeholder="Password"
                             onKeyDown={ (e) => this.handleKeyDown(e) }></input>
                     </div>
-                    <div class="col-auto">
+                    <div className="col-auto">
                         <button
-                            class="form-control"
+                            className="form-control"
                             onClick={ this.login}>Login</button>
+                    </div>
+                    <div className="col-auto">
+                        <RegisterButton />
                     </div>
                 </form>
             </div>
