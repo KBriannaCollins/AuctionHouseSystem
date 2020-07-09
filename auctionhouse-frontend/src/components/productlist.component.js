@@ -73,11 +73,8 @@ class ProductList extends Component {
     }
     handleClickApprove(e) {
         e.preventDefault()
-        console.log("In handle click approve")
-        //let newStatus = e.target.name
-        //console.log(newStatus)
-        //newStatus['status'] = "Approved"
-        let infoObject = {_id:e.target.name, status: 'Approved'}
+        console.log("In handle click Approve")
+        let infoObject = {_id: e.target.name, status: 'Approved'}
         this.productService.updateProductStatus(infoObject).then(
             resp => {
                 this.props.dispatch({type: 'loadProduct', product: {}})
@@ -86,10 +83,9 @@ class ProductList extends Component {
     }
     handleClickDecline(e) {
         e.preventDefault()
-        let newStatus = this.props.product
-        newStatus['status'] = "Declined"
- 
-        this.productService.updateProductStatus(newStatus).then(
+        console.log("In handle click Decline")
+        let infoObject = {_id: e.target.name, status: 'Declined'}
+        this.productService.updateProductStatus(infoObject).then(
             resp => {
                 this.props.dispatch({type: 'loadProduct', product: {}})
             }

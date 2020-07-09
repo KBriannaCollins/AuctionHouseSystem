@@ -9,6 +9,7 @@ class ProductService{
         return axios.post(this.URI, product, {withCredentials: true})
     }
     updateProductStatus(infoObject) {
+        console.log(infoObject)
         return axios.put(this.URI + '/' + infoObject._id, infoObject, {withCredentials: true})
     }
     getProducts(querydict) {

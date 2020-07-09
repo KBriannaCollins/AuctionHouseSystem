@@ -92,16 +92,21 @@ def create_bid(new_bid: Bid, auction_id):
 
 def update_product_status(product_id: int, status: str):
     '''Takes in a product and changes the status while optionally creating an auction'''
+    _log.debug('Product Id %s', product_id)
+    _log.debug('status string %s', status)
+    product_id = int(product_id)
     query_string = {"_id": product_id}
     try:
-        products.update_one(query_string, {'$set': status})
+        products.update_one(query_string, {'$set': {'status': status}})
         if status == 'Approved':
+            _log.info('changing status to approved')
             auct = Auction(product_id)
             create_auction(auct)
         op_success = status
+        _log.info('Status updated for product ID %s', product_id)
     except:
         op_success = None
-    _log.info('Status updated for product ID %s', product_id)
+        _log.info('Status not updated for product ID %s', product_id)
     return op_success
 
 
