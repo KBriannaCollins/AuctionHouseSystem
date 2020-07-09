@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import BidForm from './bidform.component';
 import ProductForm from './productform.component';
+import RegisterForm from './register.component';
 import Login from './login.component';
 import AuctionForm from './auctioneer.managment.component'
 import AuctionList from './auctionlist.component'
@@ -46,6 +47,7 @@ class Routing extends Component{
                 <Route path='/auctionlist' component={AuctionList}/>
                 <Route path='/products' component={ProductForm}/>
                 <Route path='/productlist' component={ProductList}/>
+                <Route path='/register' component={RegisterForm}/>
                 <Route path="/login" component={Login}/>
                 <Route path='/managelist' component={ManageList}/>
                 <Route path='/manage/:id' component={AuctionForm} />
