@@ -183,9 +183,15 @@ def expire_auction(auction_id):
     auction_id = int(auction_id)
     this_auction = read_auction_by_id(auction_id)
     
-    highest_bid = max(this_auction['bids'], key=lambda x:x['amount'])
-
-    auction_end(auction_id, highest_bid['bidder_id'])
+    if this_auction:
+        highest_bid = max(this_auction['bids'], key=lambda x:x['amount'])
+        auction_end(auction_id, highest_bid['bidder_id'])
+        op_success = 'Auction ' + this_auction['_id'] + ' expired'
+    
+    else:
+        op_success = None
+    
+    return op_success
 
 #Update Functions
 def auction_start(auction_id, duration): 
