@@ -6,6 +6,7 @@ class Product():
         self.name = name
         self.description = description
         self.start_bid = start_bid
+        '''Proposed/ Approved / Declined/ Sold'''
         self.status = 'Proposed'
     
     def get_id(self):
