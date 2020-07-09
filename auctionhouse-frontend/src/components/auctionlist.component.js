@@ -18,7 +18,7 @@ function AuctionCard(props) {
     }
 
     return(
-        <div class="card-group" style={{}}>
+        <div class="card-group w-25" style={{alignContent: 'center'}}>
             <Card style={{width: '18rem'}}>
                 {/* <img src={prod_pic} class="card-img-top"></img> */}
                 <Card.Title>
