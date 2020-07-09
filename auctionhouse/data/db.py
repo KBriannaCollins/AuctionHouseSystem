@@ -183,15 +183,15 @@ def expire_auction(auction_id):
     auction_id = int(auction_id)
     this_auction = read_auction_by_id(auction_id)
     
-    if this_auction:
+    if len(this_auction['bids']) > 0:
         highest_bid = max(this_auction['bids'], key=lambda x:x['amount'])
         auction_end(auction_id, highest_bid['bidder_id'])
-        op_success = 'Auction ' + this_auction['_id'] + ' expired'
+        _log.info('Auction expired with winner')
     
     else:
-        op_success = None
-    
-    return op_success
+        auctions.update_one({'_id': auction_id}, {'$set': {'status': 'Listed'}})
+        _log.info('Auction expired with no winner')
+
 
 #Update Functions
 def auction_start(auction_id, duration): 
