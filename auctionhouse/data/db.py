@@ -90,6 +90,27 @@ def create_bid(new_bid: Bid, auction_id):
     _log.info('Added new bid to auction %s', auction_id)
     return op_success
 
+def update_product_status(product_id: int, status: str):
+    '''Takes in a product and changes the status while optionally creating an auction'''
+    _log.debug('Product Id %s', product_id)
+    _log.debug('status string %s', status)
+    product_id = int(product_id)
+    query_string = {"_id": product_id}
+    try:
+        products.update_one(query_string, {'$set': {'status': status}})
+        if status == 'Approved':
+            _log.info('changing status to approved')
+            auct = Auction(product_id)
+            create_auction(auct)
+        op_success = status
+        _log.info('Status updated for product ID %s', product_id)
+    except:
+        op_success = None
+        _log.info('Status not updated for product ID %s', product_id)
+    return op_success
+
+
+
 # Read operations
 def read_all_users():
     ''' Retrieve all users '''
@@ -120,15 +141,7 @@ def read_product_by_id(product_id: int):
 
 def read_all_products():
     ''' Retrieve all products '''
-    prod_list = []
-    for prod in products.find({}):
-        _log.debug(prod)
-        newer = Product(prod['name'], prod['description'], prod['start_bid'])
-        newer.set_id(prod['_id'])
-        newer.set_status(prod['status'])
-        _log.debug(newer)
-        prod_list.append(newer.to_dict())
-    return prod_list
+    return list(products.find({}))
 
 def read_auction_by_id(auction_id: int):
     ''' Retireve an auction or bid by id '''
@@ -138,6 +151,16 @@ def read_auction_by_id(auction_id: int):
 def read_all_auctions():
     ''' Retrieves all auctions '''
     return list(auctions.find({}))
+
+def read_products_from_query(query_dict):
+    returned_products = list(products.find(query_dict))
+    return_struct = []
+    for product in returned_products:
+        product_doc = read_product_by_id( int(product['_id']) )
+        print(product)
+        product['id'] = product_doc
+        return_struct.append(product)
+    return return_struct
 
 def read_auctions_from_query(query_dict):
     ''' This function will take in a dict of query arguments and return the matching auctions '''
