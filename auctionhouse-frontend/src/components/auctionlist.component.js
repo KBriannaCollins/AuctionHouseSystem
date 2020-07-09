@@ -11,7 +11,7 @@ function AuctionCard(props) {
     let prod_name = props.auctionInfo.item.name
     let prod_descript = props.auctionInfo.item.description
     // let prod_pic = "https://i.pinimg.com/originals/bb/55/66/bb5566c14a95f1897b1e258e0fcb69fe.jpg"
-    let numBids = props.auctionInfo.bids.length
+    let numBids = props.bidAmount
 
     function handleClick() {
         history.push(`/auctions/${auctionId}`)
@@ -31,7 +31,7 @@ function AuctionCard(props) {
                         <p>{prod_descript}</p>
                     </div>
                     <div>
-                        There are {numBids} bids on this auction.
+                        {numBids}
                     </div>    
                 </Card.Body>
                 <Button onClick={handleClick}>Place a bid</Button>
@@ -53,13 +53,20 @@ class AuctionList extends Component {
 
     auctionService = new AuctionService();
 
-    fullAuctionList(auctions) {
-        
+    fullAuctionList(auctions) { 
         return (
             <>
                 {
                     auctions.map((auction) => {
-                        return <AuctionCard key={auction._id} auctionInfo={auction} />
+                        let bidAmount = null;
+                        console.log(auction)
+                        console.log(auction.bids.length);
+                        if (auction.bids.length === 0){
+                            bidAmount = 'There are currently no bids.';
+                        } else {
+                            bidAmount = 'There are ' + String(auction.bids.length) + ' bids.';
+                        }
+                        return <AuctionCard key={auction._id} bidAmount={bidAmount} auctionInfo={auction} />
                     })
                 }
             </>

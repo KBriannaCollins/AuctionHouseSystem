@@ -45,14 +45,11 @@ class Product():
     
     def set_status(self, new_status):
         self.status = new_status
-    
-    def __str__(self):
-        string = self.name + ' ' + self.description
-        return string
 
     def to_dict(self):
         '''Creates a dict from an instance of a product'''
         return self.__dict__
+
     @classmethod
     def from_dict(cls, input_product):
         '''Creates an instance of a product from a dictionary input'''

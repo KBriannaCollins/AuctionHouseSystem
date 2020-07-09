@@ -105,7 +105,7 @@ def read_all_employees():
 
 def read_user_by_id(user_id: int):
     ''' Retrieve a User by their id in the database '''
-    query_string = {'_id': user_id}
+    query_string = {'_id': int(user_id)}
     return users.find_one(query_string)
 
 def read_user_by_username(username: str):
@@ -188,7 +188,8 @@ def auction_start(auction_id, duration):
     return updated_auction
 
 def auction_end(auction_id, bidder_id):
-    '''find the auction'''
+    '''Find and end the specified auction. Sets the auction winner, and updates bid history
+    of bidders involved.'''
     bidder_id = int(bidder_id)
     auction_id = int(auction_id)
     query_string = {'_id': auction_id}
@@ -222,6 +223,31 @@ def auction_end(auction_id, bidder_id):
         op_success = None
     _log.info(' to auction %s', auction_id)
     return op_success
+
+def update_user_info(user_id: int, user_info: dict):
+    '''Updates user information'''
+    query_string = {'_id': int(user_id)}
+    update_string = {'username': user_info['username'] , 'password': user_info['password']}
+    try:
+        users.update_one(query_string, {'$set': update_string})
+        op_success = user_info
+    except:
+        op_success = None
+    _log.info('Updated information for user ID %s', user_id)
+    return op_success
+
+def delete_user(user_id):
+    query_string = {'_id': int(user_id)}
+    try:
+        user = read_user_by_id(user_id)
+        if 'role' in user and user['role'].upper() == 'MANAGER':
+            return 'Cannot delete a manager.'
+        users.delete_one(query_string)
+        op_success = user_id
+    except:
+        op_success = None
+    return op_success
+    
 
 
 #Delete Functions
