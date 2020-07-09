@@ -78,8 +78,8 @@ def create_bid(new_bid: Bid, auction_id):
     if any (d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
         for bid in bid_list:
             if bid['bidder_id'] == new_bid.get_bidder_id():
-                x = bid_list.index(bid)
-                bid_list[x] = new_bid.to_dict()
+                ind = bid_list.index(bid)
+                bid_list[ind] = new_bid.to_dict()
     else:
         bid_list.append(new_bid.to_dict())
     try:
@@ -231,23 +231,28 @@ def update_user_info(user_id: int, user_info: dict):
     try:
         users.update_one(query_string, {'$set': update_string})
         op_success = user_info
+        _log.info('Updated information for user ID %s', user_id)
     except:
         op_success = None
-    _log.info('Updated information for user ID %s', user_id)
+        _log.info('Could not update information for user ID %s', user_id)
     return op_success
 
 def delete_user(user_id):
-    query_string = {'_id': int(user_id)}
+    user_query_string = {'_id': int(user_id)}
+    query_string = {'status': 'Active', 'bids.bidder_id': user_id}
     try:
         user = read_user_by_id(user_id)
         if 'role' in user and user['role'].upper() == 'MANAGER':
             return 'Cannot delete a manager.'
-        users.delete_one(query_string)
+        users.delete_one(user_query_string)
+        auctions.update_many(query_string, {'$pull': {'bids': {'bidder_id': user_id}}})
         op_success = user_id
+        _log.info('Deleted user ID %s', user_id)
     except:
         op_success = None
+        _log.info('Could not delete user ID %s', user_id)
     return op_success
-    
+
 
 
 #Delete Functions
@@ -275,37 +280,38 @@ def _get_product_id_counter():
 
 
 if __name__ == "__main__":
+    print(delete_user(99))
     ''' This is the database initialization functionality '''
-    util.drop()
-    products.drop()
-    users.drop()
-    auctions.drop()
+    # util.drop()
+    # products.drop()
+    # users.drop()
+    # auctions.drop()
 
-    util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
-    util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
-    util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
 
-    users.create_index('username', unique=True)
+    # users.create_index('username', unique=True)
 
-    # Bidder
-    bidder = Bidder('bidder', 'password')
-    bidder = create_bidder(bidder)
-    # manager
-    manager = Employee('manager', 'password', 'Manager')
-    create_employee(manager)
-    # curator
-    curator = Employee('curator', 'password', 'Curator')
-    create_employee(curator)
-    # auctioneer
-    auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
-    create_employee(auctioneer)
+    # # Bidder
+    # bidder = Bidder('bidder', 'password')
+    # bidder = create_bidder(bidder)
+    # # manager
+    # manager = Employee('manager', 'password', 'Manager')
+    # create_employee(manager)
+    # # curator
+    # curator = Employee('curator', 'password', 'Curator')
+    # create_employee(curator)
+    # # auctioneer
+    # auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
+    # create_employee(auctioneer)
 
-    # product
-    product = Product('Product1', 'Much expensive. Very product.', 10)
-    create_product(product)
-    # Bid
-    bid = Bid(bidder.get_id(), product.get_id(), 100)
-    # auction
-    auction = Auction(product.get_id())
-    create_auction(auction)
-    create_bid(bid, auction.get_id())
+    # # product
+    # product = Product('Product1', 'Much expensive. Very product.', 10)
+    # create_product(product)
+    # # Bid
+    # bid = Bid(bidder.get_id(), product.get_id(), 100)
+    # # auction
+    # auction = Auction(product.get_id())
+    # create_auction(auction)
+    # create_bid(bid, auction.get_id())

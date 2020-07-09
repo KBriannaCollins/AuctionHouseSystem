@@ -64,6 +64,7 @@ class Auction():
         self.auct_id = -1
         self.item_id = item_id
         self.bids = []
+        '''Statuses: Listed > Active > Closed'''
         self.status = 'Listed'
         self.expiration_type = 'Manual'
         self.date_start = None
