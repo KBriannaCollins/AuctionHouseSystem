@@ -14,13 +14,13 @@ class RegisterForm extends Component{
     }
     handleUsernameChange(e){
         let newBidder = Object.assign({}, this.props.bidder);
-        newBidder['username'] = e.target.value;
+        newBidder.username = e.target.value;
         this.props.dispatch({type: 'handleUsernameChange', bidder: newBidder})
-        console.log(this.props.bidder)
+        console.log('Username:', this.props.bidder)
     }
     handlePasswordChange(e){
         let newBidder = Object.assign({}, this.props.bidder);
-        newBidder['password'] = e.target.value;
+        newBidder.password = e.target.value;
         this.props.dispatch({type: 'handlePasswordChange', bidder: newBidder})
         console.log(this.props.bidder)
     }
@@ -36,9 +36,9 @@ class RegisterForm extends Component{
         return(
             <form onSubmit={this.handleSubmit}><p></p>
                 <p><label>Enter your desired username:</label></p>
-                <p><input type="text"  onChange={this.handleBidChange}/></p>
+                <p><input type="text"  onChange={this.handleUsernameChange}/></p>
                 <p><label>Enter your desired password:</label></p>
-                <p><input type="text" onChange={this.handleBidChange}/></p>
+                <p><input type="text" onChange={this.handlePasswordChange}/></p>
                 <p><input type="submit" value="Submit" onClick={this.handleSubmit}/></p>
             </form>
         );

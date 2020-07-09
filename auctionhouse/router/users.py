@@ -1,10 +1,10 @@
 ''' This is the Users router. It will handle HTTP requests for Users. '''
 from flask import Flask, request, make_response, jsonify, render_template, Blueprint
 from flask_cors import CORS
-from auctionhouse.models.users import User
+from auctionhouse.models.users import User, Bidder
 import werkzeug
 from auctionhouse.logging.logger import get_logger
-from auctionhouse.data.db import login, read_user_by_username
+from auctionhouse.data.db import login, read_user_by_username, create_bidder
 
 users = Blueprint('users', __name__)
 
@@ -40,11 +40,21 @@ def route_login():
 
 @users.route('/register', methods=['GET','POST'])
 def create_user():
+    required_fields = ['username', 'password']
     if request.method == 'POST':
-        response = db.create_bidder(request.json)
-        return response
+        input_dict = request.get_json(force=True)
+        _log.debug('User POST request received with body %s', input_dict)
+        if all(field in input_dict for field in required_fields):
+            username = input_dict['username']
+            password = input_dict['password']
+            newBidder = Bidder(username, password)
+            if create_bidder(newBidder):
+                return jsonify(newBidder.to_dict()), 201
+            else:
+                return request.json, 400
+        else:
+            return request.json, 400
     else:
-        pass
         empty = make_response({})
         empty.set_cookie('authorization', '')
         return empty, 204

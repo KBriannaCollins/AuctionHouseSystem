@@ -33,6 +33,10 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {auctionList: action.auctionList})
         case 'setHighestBidder':
             return Object.assign({}, state, {bidder: action.bidder})
+        case 'handleUsernameChange':
+            return Object.assign({}, state, {bidder: action.bidder})
+        case 'handlePasswordChange':
+            return Object.assign({}, state, {bidder: action.bidder})
         default:
             return state;
     }

@@ -2,11 +2,12 @@ const { default: axios } = require('axios');
 
 class RegisterService{
     constructor(){
-        this.URI = 'http://localhost:5000/users/';
+        this.URI = 'http://localhost:5000/register';
     }
 
     addBidder(bidder){
-        return axios.post(this.URI + bidder, {withCredentials: true})
+        console.log(bidder)
+        return axios.post(this.URI, bidder, {withCredentials: true})
     }
 }
 
