@@ -76,7 +76,7 @@ class ProductList extends Component {
         console.log("In handle click Approve")
         let infoObject = {_id: e.target.name, status: 'Approved'}
         this.productService.updateProductStatus(infoObject).then(
-            resp => {
+            (resp) => {
                 this.props.dispatch({type: 'loadProduct', product: {}})
             }
         )
@@ -86,7 +86,7 @@ class ProductList extends Component {
         console.log("In handle click Decline")
         let infoObject = {_id: e.target.name, status: 'Declined'}
         this.productService.updateProductStatus(infoObject).then(
-            resp => {
+            (resp) => {
                 this.props.dispatch({type: 'loadProduct', product: {}})
             }
         )
@@ -108,13 +108,14 @@ class ProductList extends Component {
 }
 
 function mapStateToProps(state) {
-    const { productList } = state;
-    return { productList: productList }
+    const { productList, product } = state
+    return { productList: productList, product: product }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getProductList: (list) => dispatch({type: 'loadProductList', productList: list})
+        getProductList: (list) => dispatch({type: 'loadProductList', productList: list}),
+        dispatch
     }
 }
 
