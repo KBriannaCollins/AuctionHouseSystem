@@ -1402,3 +1402,5 @@ TypeError: Object of type Cursor is not JSON serializable
 2020-07-09 17:40:02,834 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 17:40:02] "[37mPUT /products/5 HTTP/1.1[0m" 204 -
 2020-07-09 17:40:06,287 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 17:40:06] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
 2020-07-09 17:40:14,819 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 17:40:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 17:51:14,342 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 17:51:14] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-09 17:51:14,457 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 17:51:14] "[37mGET /products HTTP/1.1[0m" 200 -
