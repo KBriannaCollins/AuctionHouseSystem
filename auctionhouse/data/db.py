@@ -216,7 +216,6 @@ def auction_end(auction_id, bidder_id):
     bidder_id = int(bidder_id)
     auction_id = int(auction_id)
     query_string = {'_id': auction_id}
-    _log.debug(type(auction_id))
     auct = Auction.from_dict(read_auction_by_id(auction_id))
     bid_list = auct.get_bids()
     winning_bid = None
