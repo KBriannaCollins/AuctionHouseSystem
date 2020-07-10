@@ -10,6 +10,7 @@ function ProductCard(props) {
     const handleClickApprove = props.handleClickApprove
     const handleClickDecline = props.handleClickDecline
 
+    
     let productId = props.productInfo._id
     let productName = props.productInfo.name
     let productDescription = props.productInfo.description

@@ -14,6 +14,11 @@ class UserService {
     logout() {
         return axios.delete(this.URI, {withCredentials: true})
     }
+    updateUser(infoObject) {
+        console.log(infoObject)
+        return axios.put(this.URI + '/' + infoObject.username, infoObject, infoObject, {withCredentials: true})
+    }
+
 }
 
 export default UserService;

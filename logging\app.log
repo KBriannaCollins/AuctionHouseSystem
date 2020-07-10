@@ -1,2 +1,55 @@
 2020-07-09 19:47:28,450 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 2020-07-09 20:00:10,226 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 20:00:10] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:06:54,552 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-10 11:10:56,032 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:10:56] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:11:55,401 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:11:55] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:12:20,952 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:12:20] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:16:48,588 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:16:48] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:16:48,647 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:16:48] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:35:36,779 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-10 11:35:54,374 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:35:54] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-10 11:35:54,980 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:35:54] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:38:29,329 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:38:29] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:38:30,646 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:38:30] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:40:37,694 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-10 11:40:50,588 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:40:50] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-10 11:40:55,209 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:40:55] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-10 11:40:59,828 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:40:59] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-10 11:56:54,320 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 11:56:54] "[37mPOST /users HTTP/1.1[0m" 200 -
+2020-07-10 12:08:38,309 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:08:38] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:09:06,659 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:09:06] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:09:14,782 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:09:14] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:28:28,612 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:28:28] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:28:34,784 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:28:34] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:28:37,936 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:28:37] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-10 12:28:38,821 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:28:38] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-10 12:39:41,151 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:39:41] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:39:47,652 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:39:47] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-10 12:39:48,435 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:39:48] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:39:49,867 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:39:49] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-10 12:39:51,551 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:39:51] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-10 12:42:09,442 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:42:09] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:56:21,304 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:56:21] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:57:55,825 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:57:55] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 12:58:35,695 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 12:58:35] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:00:47,492 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:00:47] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:01:29,140 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:01:29] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:01:49,326 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:01:49] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:02:23,058 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:02:23] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-10 13:02:24,368 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:02:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-10 13:02:27,872 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:02:27] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-10 13:03:01,302 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:03:01] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:05:19,465 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:05:19] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:06:19,938 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:06:19] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:19:09,122 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:19:09] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:20:27,225 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:20:27] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 13:20:32,974 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 13:20:32] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 15:52:10,653 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-10 15:52:45,761 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 15:52:45] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 16:00:27,121 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 16:00:27] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 16:00:46,971 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 16:00:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-10 16:01:39,921 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 16:01:39] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 16:08:16,690 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 16:08:16] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 16:08:58,802 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 16:08:58] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 16:10:17,566 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 16:10:17] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-10 16:10:37,062 - werkzeug - INFO - 127.0.0.1 - - [10/Jul/2020 16:10:37] "[37mGET /users HTTP/1.1[0m" 200 -

@@ -92,8 +92,6 @@ def create_bid(new_bid: Bid, auction_id):
 
 def update_product_status(product_id: int, status: str):
     '''Takes in a product and changes the status while optionally creating an auction'''
-    _log.debug('Product Id %s', product_id)
-    _log.debug('status string %s', status)
     product_id = int(product_id)
     query_string = {"_id": product_id}
     try:
@@ -108,6 +106,23 @@ def update_product_status(product_id: int, status: str):
         op_success = None
         _log.info('Status not updated for product ID %s', product_id)
     return op_success
+
+def update_user_info(user_id: int, username: str, password: str):
+    '''Takes in a user and changes the username '''
+    user_id = int(user_id)
+    query_string = {"_id": user_id}
+    try:
+        users.update_one(query_string, {'$set': {'username': username, 'password': password}})
+        if username and password:
+            _log.info("Changing user's username and password")
+        op_success = username, password
+        _log.info('Username and Password updated for User ID %s', user_id)
+    except:
+        op_success = None
+        _log.info('Username and Password not updated for User ID %s', user_id)
+    return op_success
+
+
 
 
 

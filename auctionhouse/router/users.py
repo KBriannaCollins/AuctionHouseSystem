@@ -58,3 +58,23 @@ def create_user():
         empty = make_response({})
         empty.set_cookie('authorization', '')
         return empty, 204
+
+@users.route('/users/<int:user_id>', methods=['GET','PUT'])
+def get_user(user_id):
+    if request.method == 'GET':
+        _log.debug('GET request for users by ID')
+        user = db.read_user_by_id(user_id)
+        if user:
+            return jsonify(db.read_user_by_id(user_id)), 200
+    elif request.method == 'PUT':
+        input_dict = request.get_json(force=True)
+        if db.update_user_username(input_dict['_id'], input_dict['username'], inputdict['password']):
+            return request.json, 204
+        else:
+            return request.json, 400
+    else:
+        pass
+
+
+
+

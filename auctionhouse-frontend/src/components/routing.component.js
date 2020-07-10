@@ -11,6 +11,7 @@ import AuctionForm from './auctioneer.managment.component'
 import AuctionList from './auctionlist.component'
 import ProductList from './productlist.component'
 import ManageList from './managelist.component'
+import UpdateUserInfo from './updateuserinfo.component'
 import '../sass/nav.scss';
 
 
@@ -40,9 +41,11 @@ class Routing extends Component{
                     <Nav className="mr-auto"><Link to='/productlist' className='nav_link'><h3>View Products</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/login' className='nav_link'><h3>Login</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/managelist' className='nav_link'><h3>Manage Auction</h3></Link></Nav>
+                    <Nav className="mr-auto"><Link to='/updateuserinfo' className='nav_link'><h3>Manage User Info</h3></Link></Nav>
                     <Login></Login>
                 </Navbar>
                 
+                <Route path='/updateuserinfo' component={UpdateUserInfo}/>
                 <Route path='/auctions/:id' component={BidForm}/>
                 <Route path='/auctionlist' component={AuctionList}/>
                 <Route path='/products' component={ProductForm}/>
