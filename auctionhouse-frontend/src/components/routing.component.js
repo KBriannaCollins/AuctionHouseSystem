@@ -17,8 +17,11 @@ import '../sass/nav.scss';
 
 function UserNav(props) {
     const UserLoggedIn = props.user
-    if (UserLoggedIn) {
+    if (UserLoggedIn && !UserLoggedIn.role) {
         return <Nav className="mr-auto"><Link to='/auctionlist' className='nav_link'><h3>Auctions</h3></Link></Nav>
+    }
+    else if (UserLoggedIn && UserLoggedIn.role == "Manager") {
+        return <Nav className="mr-auto"><Link to='/productlist' className='nav_link'><h3>View Products</h3></Link></Nav>
     }
     else {
         return <Nav className="mr-auto"></Nav>
@@ -37,7 +40,6 @@ class Routing extends Component{
                     <Navbar.Brand><Link to='/' className='nav_link'><h1>KTMN Auction House</h1></Link></Navbar.Brand>
                     <UserNav user={this.props.user}></UserNav>
                     <Nav className="mr-auto"><Link to='/products' className='nav_link'><h3>Product Proposal</h3></Link></Nav>
-                    <Nav className="mr-auto"><Link to='/productlist' className='nav_link'><h3>View Products</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/managelist' className='nav_link'><h3>Manage Auction</h3></Link></Nav>
                     <Login></Login>
                 </Navbar>
