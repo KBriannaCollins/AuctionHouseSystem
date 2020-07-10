@@ -18,7 +18,17 @@ function UserTable(props) {
 
     function handleClick(e) {
         console.log('Sending request to remove user: ', e.target.name)
-        props.userService.removeUser(e.target.name)
+        props.userService.removeUser(e.target.name).then(resp =>
+            {
+                if (resp.status === 200)
+                    alert("Successfully deleted the user.")
+            }
+        ).catch(e =>{
+            console.error(e)
+            alert("Could not delete the user.\nIf it is the manager, it cannot be deleted.")
+        }
+           
+        )
     }
 
     return(
@@ -26,7 +36,7 @@ function UserTable(props) {
             <td>{identity}</td>
             <td>{username}</td>
             <td>{role}</td>
-            <td><Button name={identity} onClick={handleClick}>Delete User</Button></td>
+            <td><Button className='button' name={identity} onClick={handleClick}>Delete User</Button></td>
         </tr>
     )
 }

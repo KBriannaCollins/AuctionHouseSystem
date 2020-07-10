@@ -49,9 +49,9 @@ def route_users():
     elif request.method == 'DELETE':
         del_dict = request.get_json(force=True)
         if '_id' in del_dict:
-            delete_user(del_dict['_id'])
-            return request.json, 200
-        else:
-            return {}, 401
+            result = delete_user(del_dict['_id'])
+            if result not in [None, 'Cannot delete a manager.']:
+                return request.json, 200
+        return {}, 400
     else:
         return {}, 400
