@@ -30,6 +30,7 @@ class Routing extends Component{
     constructor(props) {
         super(props)
     }
+    //'/employee - Create Employees' should only render for managers
     render(){
         return (
         <>
@@ -40,6 +41,7 @@ class Routing extends Component{
                     <Nav className="mr-auto"><Link to='/products' className='nav_link'><h3>Product Proposal</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/productlist' className='nav_link'><h3>View Products</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/managelist' className='nav_link'><h3>Manage Auction</h3></Link></Nav>
+                    <Nav className="mr-auto"><Link to='/employee' className='nav_link'><h3>Create Employees</h3></Link></Nav>
                     <Login></Login>
                 </Navbar>
                 
