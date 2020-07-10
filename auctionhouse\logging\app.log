@@ -1404,3 +1404,43 @@ TypeError: Object of type Cursor is not JSON serializable
 2020-07-09 17:40:14,819 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 17:40:14] "[37mGET /products HTTP/1.1[0m" 200 -
 2020-07-09 17:51:14,342 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 17:51:14] "[31m[1mGET /users HTTP/1.1[0m" 401 -
 2020-07-09 17:51:14,457 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 17:51:14] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 18:04:13,268 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 18:04:13] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-09 18:04:19,522 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 18:04:19] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 18:04:21,814 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 18:04:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 18:05:19,440 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 18:05:19] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-09 19:31:01,459 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:01] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 19:31:05,215 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:05] "[37mOPTIONS /products/5 HTTP/1.1[0m" 200 -
+2020-07-09 19:31:05,516 - auctionhouse.data.db - INFO - changing status to approved
+2020-07-09 19:31:05,628 - auctionhouse.data.db - INFO - Added auction 9
+2020-07-09 19:31:05,629 - auctionhouse.data.db - INFO - Status updated for product ID 5
+2020-07-09 19:31:05,630 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:05] "[37mPUT /products/5 HTTP/1.1[0m" 204 -
+2020-07-09 19:31:31,506 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:31] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-09 19:31:31,690 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:31] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 19:31:35,845 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:35] "[37mOPTIONS /products/2 HTTP/1.1[0m" 200 -
+2020-07-09 19:31:35,912 - auctionhouse.data.db - INFO - changing status to approved
+2020-07-09 19:31:36,060 - auctionhouse.data.db - INFO - Added auction 10
+2020-07-09 19:31:36,060 - auctionhouse.data.db - INFO - Status updated for product ID 2
+2020-07-09 19:31:36,061 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:36] "[37mPUT /products/2 HTTP/1.1[0m" 204 -
+2020-07-09 19:31:38,423 - auctionhouse.data.db - INFO - changing status to approved
+2020-07-09 19:31:38,554 - auctionhouse.data.db - INFO - Added auction 11
+2020-07-09 19:31:38,554 - auctionhouse.data.db - INFO - Status updated for product ID 2
+2020-07-09 19:31:38,555 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:38] "[37mPUT /products/2 HTTP/1.1[0m" 204 -
+2020-07-09 19:31:58,884 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:58] "[37mOPTIONS /products/2 HTTP/1.1[0m" 200 -
+2020-07-09 19:31:58,964 - auctionhouse.data.db - INFO - changing status to approved
+2020-07-09 19:31:59,098 - auctionhouse.data.db - INFO - Added auction 12
+2020-07-09 19:31:59,099 - auctionhouse.data.db - INFO - Status updated for product ID 2
+2020-07-09 19:31:59,104 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:31:59] "[37mPUT /products/2 HTTP/1.1[0m" 204 -
+2020-07-09 19:32:06,474 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:06] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-09 19:32:06,648 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:06] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 19:32:11,554 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:11] "[37mOPTIONS /products/3 HTTP/1.1[0m" 200 -
+2020-07-09 19:32:11,616 - auctionhouse.data.db - INFO - changing status to approved
+2020-07-09 19:32:11,729 - auctionhouse.data.db - INFO - Added auction 13
+2020-07-09 19:32:11,729 - auctionhouse.data.db - INFO - Status updated for product ID 3
+2020-07-09 19:32:11,730 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:11] "[37mPUT /products/3 HTTP/1.1[0m" 204 -
+2020-07-09 19:32:21,259 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:21] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 19:32:30,335 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:30] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-09 19:32:44,360 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:44] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 19:32:45,703 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:45] "[37mGET /auctions?auct_id=-1 HTTP/1.1[0m" 200 -
+2020-07-09 19:32:46,145 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:46] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-09 19:32:58,042 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:58] "[31m[1mGET /users HTTP/1.1[0m" 401 -
+2020-07-09 19:32:58,161 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 19:32:58] "[37mGET /products HTTP/1.1[0m" 200 -
