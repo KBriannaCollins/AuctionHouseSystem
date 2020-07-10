@@ -74,20 +74,26 @@ def create_bid(new_bid: Bid, auction_id):
     ''' Create a Bid in the database '''
     query_string = {'_id': auction_id}
     auct = Auction.from_dict(read_auction_by_id(auction_id))
-    bid_list = auct.get_bids()
-    if any (d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
-        for bid in bid_list:
-            if bid['bidder_id'] == new_bid.get_bidder_id():
-                x = bid_list.index(bid)
-                bid_list[x] = new_bid.to_dict()
+    prod = read_product_by_id(auct.get_item_id())
+    if new_bid['amount'] >= prod.get_start_bid():
+        bid_list = auct.get_bids()
+        if any (d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
+            for bid in bid_list:
+                if bid['bidder_id'] == new_bid.get_bidder_id():
+                    x = bid_list.index(bid)
+                    bid_list[x] = new_bid.to_dict()
+        else:
+            bid_list.append(new_bid.to_dict())
+        try:
+            auctions.update_one(query_string, {'$set': {'bids': bid_list}})
+            op_success = new_bid
+            _log.info('Added new bid to auction %s', auction_id)
+        except:
+            op_success = None
+        _log.info('Could not add new bid to auction %s', auction_id)
     else:
-        bid_list.append(new_bid.to_dict())
-    try:
-        auctions.update_one(query_string, {'$set': {'bids': bid_list}})
-        op_success = new_bid
-    except:
         op_success = None
-    _log.info('Added new bid to auction %s', auction_id)
+        _log.info('Could not add new bid to auction %s', auction_id)
     return op_success
 
 def update_product_status(product_id: int, status: str):
