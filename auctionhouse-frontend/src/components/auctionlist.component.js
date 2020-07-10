@@ -1,8 +1,40 @@
 import React, { Component } from 'react';
 import AuctionService from '../services/auction.service'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, Form } from 'react-bootstrap'
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom'
+
+
+function FilterAuctions(props) {
+
+    const auctionService = props.auctionService
+    const getAuctionList = props.getAuctionList
+
+    function dayValueChange(e) {
+        if (e.target.value !== '' || e.target.value !== '0') {
+            auctionService.getOpenAuctions({status: 'Active', date_end: e.target.value}).then(res => {
+                getAuctionList(res.data.auctions)
+            })
+        }
+        else {
+            auctionService.getOpenAuctions({status: 'Active'}).then(res => {
+                getAuctionList(res.data.auctions)
+            })
+        }
+    }
+
+    return (
+        <>
+            <Form>
+                <Form.Group>
+                    <Form.Label>Filter auctions by days remaining...</Form.Label>
+                    <input type="number" onChange={dayValueChange} />
+                </Form.Group>
+            </Form>
+        </>
+    )
+}
+
 
 function AuctionCard(props) {
     const history = useHistory();
@@ -69,12 +101,20 @@ class AuctionList extends Component {
     render() {
         console.log(this.props.auctionList)
         if(this.props.auctionList && this.props.auctionList.length !== 0) {
-            return this.fullAuctionList(this.props.auctionList)
+            return (
+                <>
+                    <FilterAuctions auctionService={this.auctionService} getAuctionList={this.props.getAuctionList}></FilterAuctions>
+                    { 
+                        this.fullAuctionList(this.props.auctionList) 
+                    }
+                </>
+                )
         }
         else {
             return(
                 <>
-                    <h1>Loading...</h1>
+                    <FilterAuctions auctionService={this.auctionService} getAuctionList={this.props.getAuctionList}></FilterAuctions>
+                    <h1>No Open Auctions</h1>
                 </>
             )
         }
