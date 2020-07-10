@@ -74,6 +74,7 @@ class Login extends Component {
                 <form className="form-row align-items-right" onSubmit={this.login}>
                     <div className="col-auto">
                         <input type="text"
+                            id='username'
                             value={this.props.username}
                             onChange={this.handleInput}
                             placeholder="Username"
@@ -89,7 +90,7 @@ class Login extends Component {
                     <div className="col-auto">
                         <button
                             className="form-control"
-                            onClick={ this.login}>Login</button>
+                            onClick={ this.login } id='login'>Login</button>
                     </div>
                     <div className="col-auto">
                         <RegisterButton />
@@ -103,8 +104,8 @@ class Login extends Component {
         return (
             <div>
                 <div className = 'nav'>
-                    <div className = 'nav-item'>
-                        Welcome{this.props.user.role}: {this.props.user.username}
+                    <div className = 'nav-item' id='userDisplay'>
+                        Welcome {this.props.user.role}: {this.props.user.username}
                     </div>
                     <div className = 'nav-item'>
                         <button onClick={ this.logout }>Logout</button>

@@ -20,7 +20,7 @@ function UserNav(props) {
     if (UserLoggedIn && !UserLoggedIn.role) {
         return <Nav className="mr-auto"><Link to='/auctionlist' className='nav_link'><h3>Auctions</h3></Link></Nav>
     }
-    else if (UserLoggedIn && UserLoggedIn.role == "Manager") {
+    else if (UserLoggedIn && UserLoggedIn.role === "Manager") {
         return <Nav className="mr-auto"><Link to='/productlist' className='nav_link'><h3>View Products</h3></Link></Nav>
     }
     else {
