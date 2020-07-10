@@ -11,6 +11,7 @@ import AuctionForm from './auctioneer.managment.component'
 import AuctionList from './auctionlist.component'
 import ProductList from './productlist.component'
 import ManageList from './managelist.component'
+import EmployeeForm from './employeeform.component';
 import '../sass/nav.scss';
 
 
@@ -50,6 +51,7 @@ class Routing extends Component{
                 <Route path="/login" component={Login}/>
                 <Route path='/managelist' component={ManageList}/>
                 <Route path='/manage/:id' component={AuctionForm} />
+                <Route path='/employee' component={EmployeeForm} />
             </Router>
         </>
         )
