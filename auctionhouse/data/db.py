@@ -93,7 +93,7 @@ def create_bid(new_bid: Bid, auction_id):
 # Read operations
 def read_all_users():
     ''' Retrieve all users '''
-    return users.find({})
+    return list(users.find({}))
 
 def read_all_bidders():
     ''' Retrieve all bidders '''

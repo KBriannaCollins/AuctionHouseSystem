@@ -6,9 +6,10 @@ import { connect } from 'react-redux'
 import BidForm from './bidform.component';
 import ProductForm from './productform.component';
 import Login from './login.component';
-import AuctionForm from './auctioneer.managment.component'
-import AuctionList from './auctionlist.component'
-import ManageList from './managelist.component'
+import AuctionForm from './auctioneer.managment.component';
+import AuctionList from './auctionlist.component';
+import ManageList from './managelist.component';
+import UserList from './userlist.component';
 import '../sass/nav.scss';
 
 
@@ -37,6 +38,7 @@ class Routing extends Component{
                     <UserNav user={this.props.user}></UserNav>
                     <Nav className="mr-auto"><Link to='/products' className='nav_link'><h3>Product Proposal</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/managelist' className='nav_link'><h3>Manage Auction</h3></Link></Nav>
+                    <Nav className="mr-auto"><Link to='/userlist' className='nav_link'><h3>Users List</h3></Link></Nav>
                     <Login></Login>
                 </Navbar>
 
@@ -46,6 +48,7 @@ class Routing extends Component{
                 <Route path="/login" component={Login}/>
                 <Route path='/managelist' component={ManageList}/>
                 <Route path='/manage/:id' component={AuctionForm} />
+                <Route path='/userlist' component={UserList}/>
             </Router>
         </>
         )
