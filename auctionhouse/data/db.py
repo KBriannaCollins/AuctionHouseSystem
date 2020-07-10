@@ -74,21 +74,48 @@ def create_bid(new_bid: Bid, auction_id):
     ''' Create a Bid in the database '''
     query_string = {'_id': auction_id}
     auct = Auction.from_dict(read_auction_by_id(auction_id))
-    bid_list = auct.get_bids()
-    if any (d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
-        for bid in bid_list:
-            if bid['bidder_id'] == new_bid.get_bidder_id():
-                ind = bid_list.index(bid)
-                bid_list[ind] = new_bid.to_dict()
+    prod = read_product_by_id(auct.get_item_id())
+    if new_bid['amount'] >= prod.get_start_bid():
+        bid_list = auct.get_bids()
+        if any (d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
+            for bid in bid_list:
+                if bid['bidder_id'] == new_bid.get_bidder_id():
+                    x = bid_list.index(bid)
+                    bid_list[x] = new_bid.to_dict()
+        else:
+            bid_list.append(new_bid.to_dict())
+        try:
+            auctions.update_one(query_string, {'$set': {'bids': bid_list}})
+            op_success = new_bid
+            _log.info('Added new bid to auction %s', auction_id)
+        except:
+            op_success = None
+        _log.info('Could not add new bid to auction %s', auction_id)
     else:
-        bid_list.append(new_bid.to_dict())
+        op_success = None
+        _log.info('Could not add new bid to auction %s', auction_id)
+    return op_success
+
+def update_product_status(product_id: int, status: str):
+    '''Takes in a product and changes the status while optionally creating an auction'''
+    _log.debug('Product Id %s', product_id)
+    _log.debug('status string %s', status)
+    product_id = int(product_id)
+    query_string = {"_id": product_id}
     try:
-        auctions.update_one(query_string, {'$set': {'bids': bid_list}})
-        op_success = new_bid
+        products.update_one(query_string, {'$set': {'status': status}})
+        if status == 'Approved':
+            _log.info('changing status to approved')
+            auct = Auction(product_id)
+            create_auction(auct)
+        op_success = status
+        _log.info('Status updated for product ID %s', product_id)
     except:
         op_success = None
-    _log.info('Added new bid to auction %s', auction_id)
+        _log.info('Status not updated for product ID %s', product_id)
     return op_success
+
+
 
 # Read operations
 def read_all_users():
@@ -120,15 +147,7 @@ def read_product_by_id(product_id: int):
 
 def read_all_products():
     ''' Retrieve all products '''
-    prod_list = []
-    for prod in products.find({}):
-        _log.debug(prod)
-        newer = Product(prod['name'], prod['description'], prod['start_bid'])
-        newer.set_id(prod['_id'])
-        newer.set_status(prod['status'])
-        _log.debug(newer)
-        prod_list.append(newer.to_dict())
-    return prod_list
+    return list(products.find({}))
 
 def read_auction_by_id(auction_id: int):
     ''' Retireve an auction or bid by id '''
@@ -138,6 +157,16 @@ def read_auction_by_id(auction_id: int):
 def read_all_auctions():
     ''' Retrieves all auctions '''
     return list(auctions.find({}))
+
+def read_products_from_query(query_dict):
+    returned_products = list(products.find(query_dict))
+    return_struct = []
+    for product in returned_products:
+        product_doc = read_product_by_id( int(product['_id']) )
+        print(product)
+        product['id'] = product_doc
+        return_struct.append(product)
+    return return_struct
 
 def read_auctions_from_query(query_dict):
     ''' This function will take in a dict of query arguments and return the matching auctions '''
@@ -168,6 +197,30 @@ def login(username: str):
         return_user = None
     return return_user
     # return Bidder.from_dict(user_dict) or Employee.from_dict(user_dict) if user_dict else None
+
+def check_auction_expirations():
+    ''' This function will check through all Active auctions to see if they should be expired '''
+    active_auctions = list( auctions.find({'status': 'Active', 'expiration_type': 'Automatic'}) )
+    for auction in active_auctions:
+        if auction['date_end'] < datetime.datetime.now():
+            expire_auction(auction['_id'])
+        else:
+            _log.debug('Auction %s not expired yet', auction['_id'])
+
+def expire_auction(auction_id):
+    ''' This function will expire an auction '''
+    auction_id = int(auction_id)
+    this_auction = read_auction_by_id(auction_id)
+    
+    if len(this_auction['bids']) > 0:
+        highest_bid = max(this_auction['bids'], key=lambda x:x['amount'])
+        auction_end(auction_id, highest_bid['bidder_id'])
+        _log.info('Auction expired with winner')
+    
+    else:
+        auctions.update_one({'_id': auction_id}, {'$set': {'status': 'Listed'}})
+        _log.info('Auction expired with no winner')
+
 
 #Update Functions
 def auction_start(auction_id, duration): 
