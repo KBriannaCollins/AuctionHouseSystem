@@ -35,8 +35,14 @@ def route_login():
             return jsonify(read_user_by_username(User.decode_auth_token(auth_token))), 200
         else:
             return {}, 401
+    
+    elif request.method == 'DELETE':
+        empty = make_response({})
+        empty.set_cookie('authorization', '')
+        return empty, 204
+    
     else:
-        pass
+        return '', 501
 
 @users.route('/register', methods=['GET','POST'])
 def create_user():

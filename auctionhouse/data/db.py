@@ -198,6 +198,30 @@ def login(username: str):
     return return_user
     # return Bidder.from_dict(user_dict) or Employee.from_dict(user_dict) if user_dict else None
 
+def check_auction_expirations():
+    ''' This function will check through all Active auctions to see if they should be expired '''
+    active_auctions = list( auctions.find({'status': 'Active', 'expiration_type': 'Automatic'}) )
+    for auction in active_auctions:
+        if auction['date_end'] < datetime.datetime.now():
+            expire_auction(auction['_id'])
+        else:
+            _log.debug('Auction %s not expired yet', auction['_id'])
+
+def expire_auction(auction_id):
+    ''' This function will expire an auction '''
+    auction_id = int(auction_id)
+    this_auction = read_auction_by_id(auction_id)
+    
+    if len(this_auction['bids']) > 0:
+        highest_bid = max(this_auction['bids'], key=lambda x:x['amount'])
+        auction_end(auction_id, highest_bid['bidder_id'])
+        _log.info('Auction expired with winner')
+    
+    else:
+        auctions.update_one({'_id': auction_id}, {'$set': {'status': 'Listed'}})
+        _log.info('Auction expired with no winner')
+
+
 #Update Functions
 def auction_start(auction_id, duration): 
     ''' This function will change the status of an auction with the given status '''

@@ -38,7 +38,6 @@ class Routing extends Component{
                     <UserNav user={this.props.user}></UserNav>
                     <Nav className="mr-auto"><Link to='/products' className='nav_link'><h3>Product Proposal</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/productlist' className='nav_link'><h3>View Products</h3></Link></Nav>
-                    <Nav className="mr-auto"><Link to='/login' className='nav_link'><h3>Login</h3></Link></Nav>
                     <Nav className="mr-auto"><Link to='/managelist' className='nav_link'><h3>Manage Auction</h3></Link></Nav>
                     <Login></Login>
                 </Navbar>
