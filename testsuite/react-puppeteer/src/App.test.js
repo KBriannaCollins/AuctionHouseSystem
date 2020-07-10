@@ -7,7 +7,7 @@ let page;
 beforeAll(async () => {
   browser = await puppeteer.launch({
     headless: false,
-    slowMo: 250
+    slowMo: 100
   })
   page = await browser.newPage();
   page.emulate({
@@ -28,6 +28,8 @@ describe('Login Test', () => {
     await page.click('#username')
     await page.type('#username', 'bidder')
     await page.click('#login')
+
+    await page.waitForSelector('#userDisplay')
 
     const html = await page.$eval('#userDisplay', e => e.innerHTML);
     expect(html).toBe('Welcome : bidder');
