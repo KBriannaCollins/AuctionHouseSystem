@@ -58,7 +58,7 @@ class UpdateUserInfo extends Component {
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h5>Current Username:</h5>
+                            <h5>Account ID:</h5>
                         </div>
                         <div class="col">
                         <input type="text" class="form-control" name='Id' onChange={this.currentUserSearch}/>

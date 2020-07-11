@@ -119,3 +119,92 @@ TypeError: The view function did not return a valid response. The function eithe
 2020-07-11 12:46:08,597 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 12:46:08] "[37mGET /users HTTP/1.1[0m" 200 -
 2020-07-11 12:49:03,723 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 12:49:03] "[37mGET /users HTTP/1.1[0m" 200 -
 2020-07-11 12:49:11,192 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 12:49:11] "[33mOPTIONS /users/ HTTP/1.1[0m" 404 -
+2020-07-11 18:45:27,511 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2020-07-11 18:48:58,775 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:48:58] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:50:01,031 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:01] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:50:14,919 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:14] "[37mOPTIONS /users HTTP/1.1[0m" 200 -
+2020-07-11 18:50:14,944 - auctionhouse.app - ERROR - Exception on /users [DELETE]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-07-11 18:50:14,993 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:14] "[35m[1mDELETE /users HTTP/1.1[0m" 500 -
+2020-07-11 18:50:17,507 - auctionhouse.app - ERROR - Exception on /users [DELETE]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-07-11 18:50:17,508 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:17] "[35m[1mDELETE /users HTTP/1.1[0m" 500 -
+2020-07-11 18:50:17,705 - auctionhouse.app - ERROR - Exception on /users [DELETE]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-07-11 18:50:17,706 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:17] "[35m[1mDELETE /users HTTP/1.1[0m" 500 -
+2020-07-11 18:50:17,945 - auctionhouse.app - ERROR - Exception on /users [DELETE]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-07-11 18:50:17,946 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:17] "[35m[1mDELETE /users HTTP/1.1[0m" 500 -
+2020-07-11 18:50:18,109 - auctionhouse.app - ERROR - Exception on /users [DELETE]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2020-07-11 18:50:18,111 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:18] "[35m[1mDELETE /users HTTP/1.1[0m" 500 -
+2020-07-11 18:50:20,477 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:20] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:50:28,959 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:28] "[31m[1mPOST /users HTTP/1.1[0m" 401 -
+2020-07-11 18:50:35,970 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:50:35] "[37mPOST /users HTTP/1.1[0m" 200 -
+2020-07-11 18:51:45,473 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:51:45] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:51:45,572 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:51:45] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:52:10,346 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:52:10] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:52:10,486 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:52:10] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:52:40,306 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:52:40] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:52:40,445 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:52:40] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:53:09,611 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:53:09] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:53:09,693 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:53:09] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:53:31,198 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:53:31] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:53:31,303 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:53:31] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:53:52,320 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:53:52] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:53:52,424 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:53:52] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:55:11,482 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:55:11] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:55:11,575 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:55:11] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 18:55:24,399 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 18:55:24] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-11 19:00:56,967 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 19:00:56] "[33mOPTIONS /users/ HTTP/1.1[0m" 404 -
+2020-07-11 19:02:53,919 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 19:02:53] "[37mGET /products HTTP/1.1[0m" 200 -
+2020-07-11 19:03:05,209 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 19:03:05] "[33mOPTIONS /users/ HTTP/1.1[0m" 404 -
+2020-07-11 19:03:28,033 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 19:03:28] "[33mGET /users/ HTTP/1.1[0m" 404 -
+2020-07-11 19:03:32,304 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 19:03:32] "[37mGET /users HTTP/1.1[0m" 200 -
+2020-07-11 19:04:03,455 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 19:04:03] "[33mOPTIONS /users/ HTTP/1.1[0m" 404 -
+2020-07-11 19:04:19,785 - werkzeug - INFO - 127.0.0.1 - - [11/Jul/2020 19:04:19] "[33mOPTIONS /users/ HTTP/1.1[0m" 404 -

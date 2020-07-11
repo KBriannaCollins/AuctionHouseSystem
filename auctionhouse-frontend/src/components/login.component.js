@@ -86,7 +86,7 @@ class Login extends Component {
             <div>
                 <div className = 'nav'>
                     <div className = 'nav-item'>
-                        Welcome{this.props.user.role}: {this.props.user.username}
+                        Welcome{this.props.user.role}: {this.props.user.username} / Account ID:{this.props.user._id}
                     </div>
                     <div className = 'nav-item'>
                         <button onClick={ this.logout }>Logout</button>

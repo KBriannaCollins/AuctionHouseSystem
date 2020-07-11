@@ -68,7 +68,7 @@ def get_user(user_id):
             return jsonify(db.read_user_by_id(user_id)), 200
     elif request.method == 'PUT':
         input_dict = request.get_json(force=True)
-        if db.update_user_username(input_dict['_id'], input_dict['username'], inputdict['password']):
+        if db.update_user_info(input_dict['_id'], input_dict['username'], inputdict['password']):
             return request.json, 204
         else:
             return request.json, 400
