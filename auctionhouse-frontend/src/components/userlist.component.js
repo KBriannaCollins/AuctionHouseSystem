@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UserService from '../services/user.service'
 import { Table, Button } from 'react-bootstrap'
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+
 
 function UserTable(props) {
 

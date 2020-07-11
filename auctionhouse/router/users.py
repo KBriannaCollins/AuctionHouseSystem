@@ -17,7 +17,7 @@ def route_login():
         # getting the user information from the form and getting the information from the db
         _log.debug(request.form['user'])
         user_username = request.form['user']
-        user = login(request)
+        user = login(user_username)
         if user:
             # Generate our token
             auth_token = user.encode_auth_token()

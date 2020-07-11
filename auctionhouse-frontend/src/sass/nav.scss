@@ -2,6 +2,8 @@
 
 .nav_link {
     @extend %titles;
+    padding-left: 8px;
+    padding-right: 8px;
     h1 {
         color: $ah-offblack;
         font-weight: bold;
@@ -66,6 +68,7 @@ td {
         color: $ah-red;
     }
 }
+
 
 .nav-item{
     padding-right: 8px;

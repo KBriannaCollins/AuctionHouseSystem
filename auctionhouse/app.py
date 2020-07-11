@@ -19,7 +19,7 @@ app = Flask(__name__)
 scheduler = BackgroundScheduler()
 
 #This adds a scheduled job to the scheduler
-scheduler.add_job(func=check_auction_expirations, trigger="interval", seconds=10)
+scheduler.add_job(func=check_auction_expirations, trigger="interval", hours=10)
 
 #This starts the scheduler
 scheduler.start()

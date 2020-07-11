@@ -8,7 +8,7 @@ function AuctionCard(props) {
     const history = useHistory();
 
     let auctionId = props.auctionInfo._id
-    let numBids = props.auctionInfo.bids.length
+    let numBids = props.bidAmount
 
     function handleClick() {
         history.push(`/manage/${auctionId}`)
@@ -18,7 +18,7 @@ function AuctionCard(props) {
         <>
             <Card style={{width: '18rem'}}>
                 <Card.Title>Auction ID {auctionId}</Card.Title>
-                <Card.Body>There are {numBids} bids on this auction</Card.Body>
+                <Card.Body>{numBids}</Card.Body>
                 <Button onClick={handleClick}>Manage this auction</Button>
             </Card>
         </>
@@ -43,7 +43,16 @@ class ManageList extends Component {
             <>
                 {
                     auctions.map((auction) => {
-                        return <AuctionCard key={auction._id} auctionInfo={auction} />
+                        let bidAmount = null;
+                        if (auction.status === 'Closed'){
+                            bidAmount = 'This auction is closed.'
+                        }
+                        else if (auction.status === 'Active' && auction.bids.length === 0){
+                            bidAmount = 'There are currently no bids.';
+                        } else {
+                            bidAmount = 'There are ' + String(auction.bids.length) + ' bids.';
+                        }
+                        return <AuctionCard key={auction._id} bidAmount={bidAmount}auctionInfo={auction} />
                     })
                 }
             </>

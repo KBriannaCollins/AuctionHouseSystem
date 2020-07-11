@@ -16,6 +16,10 @@ class ProductService{
         console.log('sending axios get')
         return axios.get(this.URI, {withCredentials: true});
     }
+    getProductsByAuctionIDArr(auctIdArr){
+        return axios.get('http://localhost:5000/bidderhistory', auctIdArr,{withCredentials: true})
+
+    }
 
 }
 

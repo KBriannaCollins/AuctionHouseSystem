@@ -4,6 +4,7 @@ const initialState = {
     user: null, //username and password?
     userList: [],
     role: '',
+    bidHistory: [],
     auction: {},
     auctions: [],
     products: [],
