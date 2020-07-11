@@ -2,6 +2,8 @@
 
 .nav_link {
     @extend %titles;
+    padding-left: 8px;
+    padding-right: 8px;
     h1 {
         color: $ah-offblack;
         font-weight: bold;
@@ -67,6 +69,7 @@ td {
     }
 }
 
+
 .nav-item{
     padding-right: 8px;
     font-size: large;
@@ -96,3 +99,30 @@ td {
         color: $ah-red;
     }
 }
+
+.button{
+    background-color: $ah-red;
+    color: $ah-offwhite;
+    border-radius: 8px;
+    font-size: medium;
+    outline-color: $ah-offwhite;;
+}
+.button:hover{
+    background-color: $ah-offwhite;
+    color: $ah-red;
+    outline-color: $ah-offwhite;;
+}
+// tbody{
+//     .button{
+//         background-color: $ah-red;
+//         color: $ah-offwhite;
+//         border-radius: 8px;
+//         font-size: medium;
+//         outline-color: $ah-offwhite;;
+//     }
+//     .button:hover{
+//         background-color: $ah-offwhite;
+//         color: $ah-red;
+//         outline-color: $ah-offwhite;;
+//     }
+// }

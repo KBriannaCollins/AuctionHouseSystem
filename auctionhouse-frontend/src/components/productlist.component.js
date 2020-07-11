@@ -20,7 +20,7 @@ function ProductCard(props) {
     
     return(
         <>
-            <Card style={{width: '18rem'}}>
+            <Card style={{width: '18rem', alignContent: 'center'}}>
                 <Card.Title>
                     <div>
                         {productName}
@@ -28,7 +28,7 @@ function ProductCard(props) {
                 </Card.Title>
                 <Card.Body>
                     <div>
-                        Description: {productDescription}
+                        <p>{productDescription}</p>
                     </div>
                     <div>
                         Starting bid: {productStartingBid}
@@ -37,8 +37,17 @@ function ProductCard(props) {
                         Status: {productStatus}
                     </div>
                 </Card.Body>
-                <Button onClick={handleClickApprove} name={productId}>Approve Product</Button>
-                <Button onClick={handleClickDecline} name={productId}>Decline Product</Button>
+                <div class='row'>
+                    <div class='col'>
+                        <Button onClick={handleClickApprove} name={productId}>Approve Product</Button>
+                    </div>
+                    <div class='col'>
+                        <Button onClick={handleClickDecline} name={productId}>Decline Product</Button>
+                    </div>
+                </div>
+
+                
+                
             </Card>
         </>
     )
@@ -101,7 +110,7 @@ class ProductList extends Component {
         else {
             return(
                 <>
-                    <h1>Loading...</h1>
+                    <h1>Nothing to show</h1>
                 </>
             )
         }

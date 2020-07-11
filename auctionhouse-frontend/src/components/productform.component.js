@@ -43,38 +43,38 @@ class ProductForm extends Component{
     render(){
         // const FIELDS = ['name', 'description', 'start_bid']
         return( 
-            <div class="form-group w-50">
+            <div className="form-group w-50">
                 <form>
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                            <h3 class="form-group">Product Proposal Form</h3>
+                    <div className="row">
+                        <div className="col"></div>
+                        <div className="col">
+                            <h3 className="form-group">Product Proposal Form</h3>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
+                    <div className="row">
+                        <div className="col">
                             <h5>Product Name:</h5>
                         </div>
-                        <div class="col">
-                        <input type="text" class="form-control" name='name' onChange={this.handleProductChange}/>
+                        <div className="col">
+                        <input type="text" className="form-control" name='name' onChange={this.handleProductChange}/>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col"><h5>Product Description:</h5></div>
-                        <div class="col">
-                            <textarea class="form-control" name='description' rows="10" onChange={this.handleProductChange}/>
+                    <div className="row">
+                        <div className="col"><h5>Product Description:</h5></div>
+                        <div className="col">
+                            <textarea className="form-control" name='description' rows="10" onChange={this.handleProductChange}/>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col"><h5>Starting Bid:</h5></div>
-                        <div class="col">
-                            <input class="form-control" type="number" name='start_bid' onChange={this.handleProductAmountChange} min='1'/>
+                    <div className="row">
+                        <div className="col"><h5>Starting Bid:</h5></div>
+                        <div className="col">
+                            <input className="form-control" type="number" name='start_bid' onChange={this.handleProductAmountChange} min='1'/>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                        <button class="form-control" onClick={(e) => this.proposeProduct(e)}>Submit</button>
+                    <div className="row">
+                        <div className="col"></div>
+                        <div className="col">
+                        <button className="form-control" onClick={(e) => this.proposeProduct(e)}>Submit</button>
                         </div>
                     </div>
                 </form>

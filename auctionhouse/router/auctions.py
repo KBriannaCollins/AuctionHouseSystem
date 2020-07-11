@@ -1,5 +1,6 @@
 ''' This is the Auctions router. It will handle HTTP requests for Auctions. '''
 
+import datetime
 from flask import Flask, Blueprint, jsonify, request, make_response
 from auctionhouse.data.db import create_bid, create_auction, auction_start, \
                                  read_auctions_from_query, auction_end
@@ -37,6 +38,11 @@ def auctions_main():
             for query in query_dict:
                 try:
                     query_dict[query] = int(query_dict[query])
+                    if query == 'date_end':
+                        num_of_days = query_dict[query]
+                        query_dict[query] = { '$lt': datetime.datetime.now() + datetime.timedelta(days=num_of_days)}
+                        _log.debug(query_dict[query])
+                        _log.debug(datetime.datetime.now() + datetime.timedelta(days=num_of_days))
                 except ValueError as err:
                     _log.error('Could not cast value to int, moving on...')
             _log.debug(query_dict)
@@ -85,3 +91,7 @@ def auctions_with_id(auction_id):
             return 'Invalid Request', 400
     else:
         pass
+
+
+
+
