@@ -15,7 +15,6 @@ import UpdateUserInfo from './updateuserinfo.component'
 import '../sass/nav.scss';
 
 
-
 function UserNav(props) {
     const UserLoggedIn = props.user
     if (UserLoggedIn) {

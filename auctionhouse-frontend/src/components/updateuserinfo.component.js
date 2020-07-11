@@ -7,38 +7,40 @@ class UpdateUserInfo extends Component {
     userService = new UserService();
     constructor(props) {
         super(props)
+        this.currentUserSearch = this.currentUserSearch.bind(this);
         this.handlePasswordUpdate = this.handlePasswordUpdate.bind(this);
         this.handleUsernameUpdate = this.handleUsernameUpdate.bind(this);
         this.updateUserInfo = this.updateUserInfo.bind(this);
     }
     
     currentUserSearch(e){
-        let currentUsername = Object.assign({}, this.props.user.username);
-        currentUsername[e.target.name] = e.target.value;
-        this.props.dispatch({type: 'currentUserSearch', user: currentUsername})
-        console.log('Current Username:', this.props.user.username)
+        let infoObject = Object.assign({}, this.props.user);
+        const value = e.target.value.replace(/[^\d]/,'');
+        infoObject['_id'] = parseInt(value);
+        this.props.dispatch({type: 'handleUserFieldChange', user: infoObject})
+        console.log('User', this.props.user)
     }    
     handleUsernameUpdate(e){
-        let newUsername = Object.assign({}, this.props.user.username);
-        newUsername[e.target.name] = e.target.value;
-        this.props.dispatch({type: 'handleUsernameUpdate', username: newUsername})
-        console.log('Username:', this.props.user.username)
+        let infoObject = Object.assign({}, this.props.user);
+        const value = e.target.value.replace(/[^\d]/,'');
+        infoObject['username'] = (value);
+        this.props.dispatch({type: 'handleUserFieldChange', user: infoObject})
+        console.log('User:', this.props.user)
     }
     handlePasswordUpdate(e){
-        let newPassword = Object.assign({}, this.props.user.password);
-        newPassword[e.target.name] = e.target.value;
-        this.props.dispatch({type: 'handlePasswordUpdate', password: newPassword})
-        console.log('Password:', this.props.user.password)
+        let infoObject = Object.assign({}, this.props.user);
+        const value = e.target.value.replace(/[^\d]/,'');
+        infoObject['password'] = (value);
+        this.props.dispatch({type: 'handleUserFieldChange', user: infoObject})
+        console.log('User:', this.props.user)
     }
     updateUserInfo(e){
         e.preventDefault()
         console.log("In handle update user")
-        let currentUsername = {user: currentUsername}
-        let newUsername = {username: newUsername}
-        let newPassword = {password: newPassword}
-        this.productService.updateUser(currentUsername, newUsername, newPassword).then(
+        let infoObject = {_id: e.target.name, user: e.target.name, password: e.target.name}
+        this.userService.updateUserInfo(infoObject).then(
             (resp) => {
-                this.props.dispatch({type: 'updatUserInfo', user: {}})
+                this.props.dispatch({type: 'updateUserInfo', user: {}})
             }
         )
     }
@@ -59,7 +61,7 @@ class UpdateUserInfo extends Component {
                             <h5>Current Username:</h5>
                         </div>
                         <div class="col">
-                        <input type="text" class="form-control" name='username' onChange={this.currentUserSearch}/>
+                        <input type="text" class="form-control" name='Id' onChange={this.currentUserSearch}/>
                         </div>
                     </div>
                     <div class="row">

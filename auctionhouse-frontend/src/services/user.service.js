@@ -14,9 +14,9 @@ class UserService {
     logout() {
         return axios.delete(this.URI, {withCredentials: true})
     }
-    updateUser(infoObject) {
+    updateUserInfo(infoObject) {
         console.log(infoObject)
-        return axios.put(this.URI + '/' + infoObject.username, infoObject, infoObject, {withCredentials: true})
+        return axios.put(this.URI + '/' + infoObject._id, infoObject, {withCredentials: true})
     }
 
 }
