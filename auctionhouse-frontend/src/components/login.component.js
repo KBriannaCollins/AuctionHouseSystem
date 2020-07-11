@@ -14,7 +14,7 @@ function RegisterButton() {
         <>
             <button className="form-control" onClick={ handleClick }>Register</button>
         </>
-        )
+    )
 }
 
 class Login extends Component {

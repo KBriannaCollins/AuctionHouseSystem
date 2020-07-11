@@ -12,7 +12,8 @@ const initialState = {
     product: {'name': '', 'description': '', 'start_bid': 0},
     auctionList: [],
     productList: [],
-    bidder: {}
+    bidder: {},
+    employee: {}
 }
 
 
@@ -50,6 +51,12 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {bidder: action.bidder})
         case 'handlePasswordChange':
             return Object.assign({}, state, {bidder: action.bidder})
+        case 'handleEmpUsernameChange':
+            return Object.assign({}, state, {employee: action.employee})
+        case 'handleEmpPasswordChange':
+            return Object.assign({}, state, {employee: action.employee})
+        case 'handleRole':
+            return Object.assign({}, state, {employee: action.employee})
         default:
             return state;
     }
