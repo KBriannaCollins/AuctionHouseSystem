@@ -1,7 +1,7 @@
 '''Defines the model for users'''
 import json
-import jwt
 import datetime
+import jwt
 
 from auctionhouse.logging.logger import get_logger
 
@@ -14,31 +14,29 @@ class User():
         self._id = -1
         self.username = username
         self.password = password
-    
+
     def get_id(self):
         '''Gets users ID'''
-        return self._id    
-    
+        return self._id
     def get_username(self):
         '''Gets users username'''
         return self.username
-    
     def get_password(self):
         '''Gets users password'''
         return self.password
 
     def set_id(self, user_id):
+        '''Takes in new user id and updates it.'''
         self._id = user_id
-    
     def set_username(self, user_name):
         self.username = user_name
-    
+
     def login(self, username, password):
         '''Confirms users username and password are a match'''
         if(self.username == username) and (self.password == password):
             return True
         return False
-    
+
     def to_dict(self):
         '''Creates an instance of a user from a dictionary input'''
         return self.__dict__
@@ -78,8 +76,9 @@ class Bidder(User):
     def get_history(self):
         '''Gets bidders history'''
         return self.history
-    
+
     def create_history(self, auction_id, amount, bid_status):
+        '''Takes in an auction id and the amount and status of a bid and appends it to history.'''
         add_dict = {'auction_id': auction_id, 'amount': amount, 'bid_status': bid_status}
         self.history.append(add_dict)
 
@@ -96,12 +95,13 @@ class Employee(User):
     def __init__(self, username='', password='', role='Curator'):
         super().__init__(username, password)
         self.role = role
-    
+
     def get_role(self):
         '''Gets users role'''
         return self.role
-    
+
     def set_role(self, new_role):
+        '''Takes in a new role and updates the current role.'''
         self.role = new_role
 
     @classmethod

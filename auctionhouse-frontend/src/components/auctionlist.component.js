@@ -10,7 +10,7 @@ function FilterAuctions(props) {
     const auctionService = props.auctionService
     const getAuctionList = props.getAuctionList
 
-    function dayValueChange(e) {
+    function endDayValueChange(e) {
         if (e.target.value !== '' || e.target.value !== '0') {
             auctionService.getOpenAuctions({status: 'Active', date_end: e.target.value}).then(res => {
                 getAuctionList(res.data.auctions)
@@ -28,7 +28,7 @@ function FilterAuctions(props) {
             <Form>
                 <Form.Group>
                     <Form.Label>Filter auctions by days remaining...</Form.Label>
-                    <input type="number" onChange={dayValueChange} />
+                    <input type="number" onChange={endDayValueChange} />
                 </Form.Group>
             </Form>
         </>

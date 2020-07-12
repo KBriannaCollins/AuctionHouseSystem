@@ -112,17 +112,43 @@ td {
     color: $ah-red;
     outline-color: $ah-offwhite;;
 }
-// tbody{
-//     .button{
-//         background-color: $ah-red;
-//         color: $ah-offwhite;
-//         border-radius: 8px;
-//         font-size: medium;
-//         outline-color: $ah-offwhite;;
-//     }
-//     .button:hover{
-//         background-color: $ah-offwhite;
-//         color: $ah-red;
-//         outline-color: $ah-offwhite;;
-//     }
-// }
+
+
+Table{
+    outline-style: auto;
+    outline-color: $ah-red;
+    
+    
+    thead{
+        background-color: $ah-red;
+        font-weight: bold;
+        font-size: larger;
+        color: #dbc5a9;
+        th{
+            outline-style: auto;
+            outline-color: $ah-offwhite;
+        }
+
+
+    }
+    tbody{
+        tr{
+            outline-style: auto;
+            outline-color: $ah-red;
+        }
+
+
+    }
+    .button{
+        background-color: $ah-red;
+        color: $ah-offwhite;
+        border-radius: 8px;
+        font-size: medium;
+        outline-color: $ah-offwhite;;
+    }
+    .button:hover{
+        background-color: $ah-offwhite;
+        color: $ah-red;
+        outline-color: $ah-offwhite;;
+    }
+}
