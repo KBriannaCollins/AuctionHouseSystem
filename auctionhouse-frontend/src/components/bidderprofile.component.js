@@ -2,19 +2,30 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import AuctionService from '../services/auction.service';
+import UserService from '../services/user.service';
 
 
-function HistoryTable(bid) {
-    console.log(bid)
-    // let item = user.username
-    // let description = user.username
-    let amount = bid.bid.amount
-    let result = bid.bid.bid_status
+function HistoryTable(props) {
+    console.log(props)
+    console.log(props.prod)
+    let name = null
+    let description = null
+    for (let item of props.prod){
+        console.log(item)
+        if (item.auction_id === props.bid.auction_id){
+            name = item.name
+            description = item.description
+            console.log(name, description)
+        }
+    }
+    let amount = props.bid.amount
+    let result = props.bid.bid_status
 
     return(
         <tr>
-            <td>item</td>
-            <td>description</td>
+            <td>{name}</td>
+            <td>{description}</td>
             <td>{amount}</td>
             <td>{result}</td>
         </tr>
@@ -24,6 +35,8 @@ function HistoryTable(bid) {
 
 class BidderProfile extends Component {
     
+    userService = new UserService
+
     constructor(props) {
         super(props)
     }
@@ -31,15 +44,19 @@ class BidderProfile extends Component {
     componentDidMount(){
         let auctionIdArr = []
         for (let i = 0; i < this.props.user.history.length; i++){
-            console.log(this.props.user.history[i])
             auctionIdArr.push(this.props.user.history[i].auction_id)
         }
+        this.userService.getProdInfoByUserID(this.props.user._id).then(resp =>
+            {
+                this.props.dispatch({type: 'loadProdHistory', prodHistory: resp.data})
+            }
+        )
     }
 
 
     fullbidList(user) {
         return (
-            <Table>
+            <Table striped bordered hover variant= "light">
                 <thead>
                     <tr>
                         <th>Item</th>
@@ -51,7 +68,7 @@ class BidderProfile extends Component {
                 <tbody>
                     {
                         user.history.map((bid) => {
-                            return <HistoryTable bid={bid}/>
+                            return <HistoryTable prod={this.props.prodHistory} bid={bid}/>
                         })
                     }
                 </tbody>
@@ -75,15 +92,8 @@ class BidderProfile extends Component {
 }
 
 function mapStateToProps(state) {
-    const { user } = state;
-    return { user: user }
+    const { user, prodHistory } = state;
+    return { user: user, prodHistory: prodHistory }
 }
-
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         getUsers: (list) => dispatch({type: 'loadUserList', userList: list}),
-//         dispatch
-//     }
-// }
 
 export default connect(mapStateToProps)(BidderProfile);

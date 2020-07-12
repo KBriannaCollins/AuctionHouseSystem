@@ -21,6 +21,9 @@ class UserService {
     removeUser(userID){
         return axios.delete(this.URI+'list', {data: {'_id': userID}});
     }
+    getProdInfoByUserID(userID){
+        return axios.get(this.URI + '/history', {params: {_id: userID }, withCredentials: true})
+    }
 }
 
 export default UserService;
