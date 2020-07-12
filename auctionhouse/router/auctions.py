@@ -1,7 +1,7 @@
-''' This is the Auctions router. It will handle HTTP requests for Auctions. '''
+'''This is the Auctions router. It will handle HTTP requests for Auctions.'''
 
 import datetime
-from flask import Flask, Blueprint, jsonify, request, make_response
+from flask import Blueprint, jsonify, request
 from auctionhouse.data.db import create_bid, create_auction, auction_start, \
                                  read_auctions_from_query, auction_end
 from auctionhouse.models.auctions import Bid, Auction
@@ -15,7 +15,7 @@ auctions = Blueprint('auctions', __name__)
 
 @auctions.route('/auctions', methods=['GET', 'POST'])
 def auctions_main():
-    ''' This is the main /auctions route '''
+    '''This is the main /auctions route'''
     if request.method == 'POST':
         # POST request body should contain...
         # ID of the item (item_id)
@@ -40,8 +40,8 @@ def auctions_main():
                     query_dict[query] = int(query_dict[query])
                     if query == 'date_end':
                         num_of_days = query_dict[query]
-                        query_dict[query] = { '$gt': datetime.datetime.now() + 
-                                             datetime.timedelta(days=num_of_days)}
+                        query_dict[query] = {'$gt': datetime.datetime.now() +
+                                                    datetime.timedelta(days=num_of_days)}
                         _log.debug(query_dict[query])
                         _log.debug(datetime.datetime.now() + datetime.timedelta(days=num_of_days))
                 except ValueError as err:
@@ -52,14 +52,10 @@ def auctions_main():
     else:
         return 'Not implemented', 501
 
-@auctions.route('/auctions/<auction_id>',  methods=['GET', 'POST', 'PUT'])
+@auctions.route('/auctions/<auction_id>', methods=['GET', 'POST', 'PUT'])
 def auctions_with_id(auction_id):
-    ''' This is for requests associated with an Auction ID '''
-    if request.method == 'POST': 
-        # POST Request body should countain...
-        # ID Of the bidder
-        # ID of the item being bid on
-        # Amount of the bid
+    '''This is for requests associated with an Auction ID'''
+    if request.method == 'POST':
         required_fields = ['bidder_id', 'item_id', 'amount']
         input_dict = request.get_json(force=True)
         _log.info('POST request recieved with body %s', input_dict)
@@ -92,7 +88,3 @@ def auctions_with_id(auction_id):
             return 'Invalid Request', 400
     else:
         pass
-
-
-
-
