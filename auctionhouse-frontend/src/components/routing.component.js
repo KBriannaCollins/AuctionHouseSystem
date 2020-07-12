@@ -49,7 +49,7 @@ function UserNav(props) {
     else if (UserLoggedIn && 'history' in UserLoggedIn){
         return <Nav className="mr-auto">
                     <Link to='/bidderprofile' className='nav_link'><h3>View History</h3></Link><h4>|</h4>
-                    <Link to='/auctionlist' className='nav_link'><h3>Auctions</h3></Link>
+                    <Link to='/auctionlist' className='nav_link'><h3>Auctions</h3></Link><h4>|</h4>
                     <Nav className="mr-auto"><Link to='/updateuserinfo' className='nav_link'><h3>Manage User Info</h3></Link></Nav>
                 </Nav>
     } 
@@ -73,7 +73,6 @@ class Routing extends Component{
                     <Login></Login>
                 </Navbar>
                 
-                <Route path='/updateuserinfo' component={UpdateUserInfo}/>
                 <Route path='/auctions/:id' component={BidForm}/>
                 <Route path='/auctionlist' component={AuctionList}/>
                 <Route path='/products' component={ProductForm}/>
