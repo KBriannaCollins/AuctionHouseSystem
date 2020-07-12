@@ -1,4 +1,4 @@
-''' This file will handle database functionality '''
+'''This file will handle database functionality'''
 
 import os
 import datetime
@@ -23,7 +23,7 @@ products = db["products"]
 
 # Creation Operations
 def create_bidder(new_bidder: Bidder):
-    ''' Create a Bidder in the database '''
+    '''Create a Bidder in the database'''
     new_bidder.set_id(_get_user_id_counter())
     try:
         users.insert_one(new_bidder.to_dict())
@@ -69,19 +69,19 @@ def create_auction(new_auction: Auction):
         op_success = None
     _log.info('Added auction %s', new_auction.get_id())
     return op_success
-      
+
 def create_bid(new_bid: Bid, auction_id):
-    ''' Create a Bid in the database '''
+    '''Create a Bid in the database'''
     query_string = {'_id': auction_id}
     auct = Auction.from_dict(read_auction_by_id(auction_id))
     prod = read_product_by_id(auct.get_item_id())
     if new_bid['amount'] >= prod.get_start_bid():
         bid_list = auct.get_bids()
-        if any (d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
+        if any(d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
             for bid in bid_list:
                 if bid['bidder_id'] == new_bid.get_bidder_id():
-                    x = bid_list.index(bid)
-                    bid_list[x] = new_bid.to_dict()
+                    ind = bid_list.index(bid)
+                    bid_list[ind] = new_bid.to_dict()
         else:
             bid_list.append(new_bid.to_dict())
         try:
@@ -116,64 +116,64 @@ def update_product_status(product_id: int, status: str):
     return op_success
 
 
-
 # Read operations
 def read_all_users():
-    ''' Retrieve all users '''
+    '''Retrieve all users'''
     return list(users.find({}))
 
 def read_all_bidders():
-    ''' Retrieve all bidders '''
+    '''Retrieve all bidders'''
     return users.find({'history': {'$exists': True}})
 
 def read_all_employees():
-    ''' Retrieve all employees '''
+    '''Retrieve all employees'''
     return users.find({'role': {'$exists': True}})
 
 def read_user_by_id(user_id: int):
-    ''' Retrieve a User by their id in the database '''
+    '''Retrieve a User by their id in the database'''
     query_string = {'_id': int(user_id)}
     return users.find_one(query_string)
 
 def read_user_by_username(username: str):
-    ''' Retrieve a user by their username '''
-    query_string = {'username': username }
+    '''Retrieve a user by their username'''
+    query_string = {'username': username}
     return users.find_one(query_string)
 
 def read_product_by_id(product_id: int):
-    ''' Retrieve a product by ID '''
+    '''Retrieve a product by ID'''
     query_string = {"_id": product_id}
     return products.find_one(query_string)
 
 def read_all_products():
-    ''' Retrieve all products '''
+    '''Retrieve all products'''
     return list(products.find({}))
 
 def read_auction_by_id(auction_id: int):
-    ''' Retireve an auction or bid by id '''
+    '''Retireve an auction or bid by id'''
     query_string = {"_id": auction_id}
     return auctions.find_one(query_string)
 
 def read_all_auctions():
-    ''' Retrieves all auctions '''
+    '''Retrieves all auctions'''
     return list(auctions.find({}))
 
 def read_products_from_query(query_dict):
+    '''Retrieves specified products based on query_dict'''
     returned_products = list(products.find(query_dict))
     return_struct = []
     for product in returned_products:
-        product_doc = read_product_by_id( int(product['_id']) )
+        product_doc = read_product_by_id(int(product['_id']))
         print(product)
         product['id'] = product_doc
         return_struct.append(product)
     return return_struct
 
 def read_auctions_from_query(query_dict):
-    ''' This function will take in a dict of query arguments and return the matching auctions '''
+    '''This function will take in a dict of query arguments and return the matching auctions'''
     returned_auctions = list(auctions.find(query_dict))
     return_struct = []
     for auction in returned_auctions:
-        product_doc = read_product_by_id( int(auction['item_id']) )
+        product_doc = read_product_by_id(int(auction['item_id']))
         print(auction)
         auction['item'] = product_doc
         return_struct.append(auction)
@@ -211,8 +211,8 @@ def login(username: str, password: str):
     # return Bidder.from_dict(user_dict) or Employee.from_dict(user_dict) if user_dict else None
 
 def check_auction_expirations():
-    ''' This function will check through all Active auctions to see if they should be expired '''
-    active_auctions = list( auctions.find({'status': 'Active', 'expiration_type': 'Automatic'}) )
+    '''This function will check through all Active auctions to see if they should be expired'''
+    active_auctions = list(auctions.find({'status': 'Active', 'expiration_type': 'Automatic'}))
     for auction in active_auctions:
         if auction['date_end'] < datetime.datetime.now():
             expire_auction(auction['_id'])
@@ -220,23 +220,20 @@ def check_auction_expirations():
             _log.debug('Auction %s not expired yet', auction['_id'])
 
 def expire_auction(auction_id):
-    ''' This function will expire an auction '''
+    '''This function will expire an auction'''
     auction_id = int(auction_id)
     this_auction = read_auction_by_id(auction_id)
-    
     if len(this_auction['bids']) > 0:
-        highest_bid = max(this_auction['bids'], key=lambda x:x['amount'])
+        highest_bid = max(this_auction['bids'], key=lambda x: x['amount'])
         auction_end(auction_id, highest_bid['bidder_id'])
         _log.info('Auction expired with winner')
-    
     else:
         auctions.update_one({'_id': auction_id}, {'$set': {'status': 'Listed'}})
         _log.info('Auction expired with no winner')
 
-
 #Update Functions
-def auction_start(auction_id, duration): 
-    ''' This function will change the status of an auction with the given status '''
+def auction_start(auction_id, duration):
+    '''This function will change the status of an auction with the given status'''
     query_string = {'_id': auction_id}
     date_now = datetime.datetime.now()
     date_end = date_now + datetime.timedelta(days=duration)
@@ -244,7 +241,7 @@ def auction_start(auction_id, duration):
         expiration_type = 'Manual'
     else:
         expiration_type = 'Automatic'
-    update_string = {'$set': {'date_start': date_now, 'date_end': date_end, 
+    update_string = {'$set': {'date_start': date_now, 'date_end': date_end,
                               'expiration_type': expiration_type, 'status': 'Active'}}
     updated_auction = auctions.find_one_and_update(query_string, update_string,
                                                    return_document=pymongo.ReturnDocument.AFTER)
@@ -292,7 +289,7 @@ def auction_end(auction_id, bidder_id):
 def update_user_info(user_id: int, user_info: dict):
     '''Updates user information'''
     query_string = {'_id': int(user_id)}
-    update_string = {'username': user_info['username'] , 'password': user_info['password']}
+    update_string = {'username': user_info['username'], 'password': user_info['password']}
     try:
         users.update_one(query_string, {'$set': update_string})
         op_success = user_info
@@ -303,6 +300,8 @@ def update_user_info(user_id: int, user_info: dict):
     return op_success
 
 def delete_user(user_id):
+    '''Deletes a user with specified id. Rejects deletion if they are a manager.
+    Also removes any active bids with connected to user.'''
     user_query_string = {'_id': int(user_id)}
     query_string = {'status': 'Active', 'bids.bidder_id': user_id}
     try:
@@ -345,38 +344,36 @@ def _get_product_id_counter():
 
 
 if __name__ == "__main__":
-    print(delete_user(99))
-    ''' This is the database initialization functionality '''
-    # util.drop()
-    # products.drop()
-    # users.drop()
-    # auctions.drop()
+    util.drop()
+    products.drop()
+    users.drop()
+    auctions.drop()
 
-    # util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
-    # util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
-    # util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
+    util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
 
-    # users.create_index('username', unique=True)
+    users.create_index('username', unique=True)
 
-    # # Bidder
-    # bidder = Bidder('bidder', 'password')
-    # bidder = create_bidder(bidder)
-    # # manager
-    # manager = Employee('manager', 'password', 'Manager')
-    # create_employee(manager)
-    # # curator
-    # curator = Employee('curator', 'password', 'Curator')
-    # create_employee(curator)
-    # # auctioneer
-    # auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
-    # create_employee(auctioneer)
+    # Bidder
+    bidder = Bidder('bidder', 'password')
+    bidder = create_bidder(bidder)
+    # manager
+    manager = Employee('manager', 'password', 'Manager')
+    create_employee(manager)
+    # curator
+    curator = Employee('curator', 'password', 'Curator')
+    create_employee(curator)
+    # auctioneer
+    auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
+    create_employee(auctioneer)
 
-    # # product
-    # product = Product('Product1', 'Much expensive. Very product.', 10)
-    # create_product(product)
-    # # Bid
-    # bid = Bid(bidder.get_id(), product.get_id(), 100)
-    # # auction
-    # auction = Auction(product.get_id())
-    # create_auction(auction)
-    # create_bid(bid, auction.get_id())
+    # product
+    product = Product('Product1', 'Much expensive. Very product.', 10)
+    create_product(product)
+    # Bid
+    bid = Bid(bidder.get_id(), product.get_id(), 100)
+    # auction
+    auction = Auction(product.get_id())
+    create_auction(auction)
+    create_bid(bid, auction.get_id())

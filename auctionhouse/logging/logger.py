@@ -9,5 +9,5 @@ log_file_path = path.join(path.dirname(path.abspath(__file__)), 'log.conf')
 logging.config.fileConfig(log_file_path)
 
 def get_logger(logger_name):
-    ''' Returns a logger for the module that called it '''
+    '''Returns a logger for the module that called it'''
     return logging.getLogger(logger_name)
