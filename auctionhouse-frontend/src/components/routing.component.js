@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import BidForm from './bidform.component';
 import ProductForm from './productform.component';
+import ProductList from './productlist.component';
 import RegisterForm from './register.component';
 import Login from './login.component';
 import AuctionForm from './auctioneer.managment.component';
@@ -13,6 +14,7 @@ import ManageList from './managelist.component';
 import UserList from './userlist.component';
 import BidderProfile from './bidderprofile.component';
 import UpdateUserInfo from './updateuserinfo.component';
+import EmployeeForm from './employeeform.component';
 import '../sass/nav.scss';
 
 
