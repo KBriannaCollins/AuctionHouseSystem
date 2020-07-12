@@ -40,7 +40,8 @@ def auctions_main():
                     query_dict[query] = int(query_dict[query])
                     if query == 'date_end':
                         num_of_days = query_dict[query]
-                        query_dict[query] = { '$lt': datetime.datetime.now() + datetime.timedelta(days=num_of_days)}
+                        query_dict[query] = { '$gt': datetime.datetime.now() + 
+                                             datetime.timedelta(days=num_of_days)}
                         _log.debug(query_dict[query])
                         _log.debug(datetime.datetime.now() + datetime.timedelta(days=num_of_days))
                 except ValueError as err:
