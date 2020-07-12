@@ -98,8 +98,6 @@ def create_bid(new_bid: Bid, auction_id):
 
 def update_product_status(product_id: int, status: str):
     '''Takes in a product and changes the status while optionally creating an auction'''
-    _log.debug('Product Id %s', product_id)
-    _log.debug('status string %s', status)
     product_id = int(product_id)
     query_string = {"_id": product_id}
     try:
@@ -114,6 +112,23 @@ def update_product_status(product_id: int, status: str):
         op_success = None
         _log.info('Status not updated for product ID %s', product_id)
     return op_success
+
+def update_user_info(user_id: int, username: str, password: str):
+    '''Takes in a user and changes the username '''
+    user_id = int(user_id)
+    query_string = {"_id": user_id}
+    try:
+        users.update_one(query_string, {'$set': {'username': username, 'password': password}})
+        if username and password:
+            _log.info("Changing user's username and password")
+        op_success = username, password
+        _log.info('Username and Password updated for User ID %s', user_id)
+    except:
+        op_success = None
+        _log.info('Username and Password not updated for User ID %s', user_id)
+    return op_success
+
+
 
 
 # Read operations
@@ -179,6 +194,15 @@ def read_auctions_from_query(query_dict):
         return_struct.append(auction)
     return return_struct
 
+def read_product_info_by_user_history(user_id):
+    bidder = Bidder.from_dict(read_user_by_id(int(user_id)))
+    product_history = []
+    for bid in bidder.get_history():
+        auct = read_auction_by_id(bid['auction_id'])
+        _log.debug(auct)
+        prod = read_product_by_id(auct['item_id'])
+        product_history.append({'auction_id': bid['auction_id'], 'name': prod['name'], 'description': prod['description']})
+    return product_history
 
 def login(username: str, password: str):
     '''A function that takes in a username and returns a user object with that username'''

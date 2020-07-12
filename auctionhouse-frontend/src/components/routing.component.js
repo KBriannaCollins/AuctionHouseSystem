@@ -7,16 +7,13 @@ import BidForm from './bidform.component';
 import ProductForm from './productform.component';
 import RegisterForm from './register.component';
 import Login from './login.component';
-import AuctionForm from './auctioneer.managment.component'
-import AuctionList from './auctionlist.component'
-import UserList from './userlist.component'
-import ProductList from './productlist.component'
-import ManageList from './managelist.component'
-import EmployeeForm from './employeeform.component';
+import AuctionForm from './auctioneer.managment.component';
+import AuctionList from './auctionlist.component';
+import ManageList from './managelist.component';
+import UserList from './userlist.component';
 import BidderProfile from './bidderprofile.component';
 import UpdateUserInfo from './updateuserinfo.component';
 import '../sass/nav.scss';
-
 
 
 function UserNav(props) {
@@ -74,6 +71,7 @@ class Routing extends Component{
                     <Login></Login>
                 </Navbar>
                 
+                <Route path='/updateuserinfo' component={UpdateUserInfo}/>
                 <Route path='/auctions/:id' component={BidForm}/>
                 <Route path='/auctionlist' component={AuctionList}/>
                 <Route path='/products' component={ProductForm}/>
