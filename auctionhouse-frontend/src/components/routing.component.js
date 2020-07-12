@@ -30,8 +30,7 @@ function UserNav(props) {
             return <Nav className="mr-auto">
                         <Link to='/userlist' className='nav_link'><h3>Users List</h3></Link><h4>|</h4>
                         <Link to='/managelist' className='nav_link'><h3>Manage Auctions</h3></Link><h4>|</h4>
-                        <Link to='/auctionlist' className='nav_link'><h3>Auctions</h3></Link>
-                        <Link to='/productlist' className='nav_link'><h3>View Products</h3></Link>
+                        <Link to='/productlist' className='nav_link'><h3>View Products</h3></Link><h4>|</h4>
                         <Nav className="mr-auto"><Link to='/updateuserinfo' className='nav_link'><h3>Manage User Info</h3></Link></Nav>
                     </Nav>
         } else if (role === 'AUCTIONEER'){
@@ -43,7 +42,7 @@ function UserNav(props) {
             /*Need to see a list of products without the accept/deny buttons*/
             return <Nav className="mr-auto">
                         <Link to='/products' className='nav_link'><h3>Product Proposal</h3></Link><h4>|</h4>
-                        <Link to='/productlist' className='nav_link'><h3>View Products</h3></Link><h4>|</h4>
+                        {/* <Link to='/productlist' className='nav_link'><h3>View Products</h3></Link><h4>|</h4> */}
                         <Nav className="mr-auto"><Link to='/updateuserinfo' className='nav_link'><h3>Manage User Info</h3></Link></Nav>
                     </Nav>     
         }
