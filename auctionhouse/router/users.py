@@ -67,6 +67,23 @@ def create_user():
         empty.set_cookie('authorization', '')
         return empty, 204
 
+
+@users.route('/users/<int:user_id>', methods=['GET','PUT'])
+def get_user(user_id):
+    if request.method == 'GET':
+        _log.debug('GET request for users by ID')
+        user = db.read_user_by_id(user_id)
+        if user:
+            return jsonify(db.read_user_by_id(user_id)), 200
+    elif request.method == 'PUT':
+        input_dict = request.get_json(force=True)
+        if db.update_user_info(input_dict['_id'], {'username': input_dict['username'], 'password': input_dict['password']}):
+            return request.json, 204
+        else:
+            return request.json, 400
+    else:
+        pass
+
 @users.route('/userslist', methods=['GET', 'DELETE'])
 def route_users():
     '''This is the user route for retrieving and deleting from the user collection.'''
@@ -98,6 +115,7 @@ def route_user_history():
             return {}, 404
     else:
         return {}, 400
+
 
 
 @users.route('/employee', methods=['GET','POST'])

@@ -28,6 +28,8 @@ class User():
     def set_id(self, user_id):
         '''Takes in new user id and updates it.'''
         self._id = user_id
+    def set_username(self, user_name):
+        self.username = user_name
 
     def login(self, username, password):
         '''Confirms users username and password are a match'''
