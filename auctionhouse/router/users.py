@@ -5,7 +5,7 @@ from auctionhouse.models.users import User, Bidder, Employee
 import werkzeug
 from auctionhouse.logging.logger import get_logger
 from auctionhouse.data.db import login, read_user_by_username, read_all_users, delete_user, create_bidder, create_employee
-
+import auctionhouse.data.db as db
 
 users = Blueprint('users', __name__)
 
@@ -76,17 +76,13 @@ def get_user(user_id):
             return jsonify(db.read_user_by_id(user_id)), 200
     elif request.method == 'PUT':
         input_dict = request.get_json(force=True)
-        if db.update_user_info(input_dict['_id'], input_dict['username'], inputdict['password']):
+        if db.update_user_info(input_dict['_id'], {'username': input_dict['username'], 'password': input_dict['password']}):
             return request.json, 204
         else:
             return request.json, 400
     else:
         pass
 
-
-
-
-=======
 @users.route('/userslist', methods=['GET', 'DELETE'])
 def route_users():
     if request.method == 'GET':
@@ -101,6 +97,7 @@ def route_users():
         return {}, 400
     else:
         return {}, 400
+
 @users.route('/employee', methods=['GET','POST'])
 def create_new_employee():
     _log.debug('Creating employee')

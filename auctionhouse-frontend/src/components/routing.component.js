@@ -44,11 +44,12 @@ function UserNav(props) {
                     </Nav>     
         }
     }
-    else if (UserLoggedIn && 'history' in UserLoggedIn){
-        return <Nav className="mr-auto">
-                    <Link to='/bidderprofile' className='nav_link'><h3>View History</h3></Link>
-                </Nav>
-    } else
+    //else if (UserLoggedIn && 'history' in UserLoggedIn){
+        //return <Nav className="mr-auto">
+                    //<Link to='/bidderprofile' className='nav_link'><h3>View History</h3></Link>
+                //</Nav>
+    //} 
+    else
         return <Nav className="mr-auto"></Nav>
 }
 

@@ -15,21 +15,21 @@ class UpdateUserInfo extends Component {
     
     currentUserSearch(e){
         let infoObject = Object.assign({}, this.props.user);
-        const value = e.target.value.replace(/[^\d]/,'');
+        const value = e.target.value;
         infoObject['_id'] = parseInt(value);
         this.props.dispatch({type: 'handleUserFieldChange', user: infoObject})
         console.log('User', this.props.user)
     }    
     handleUsernameUpdate(e){
         let infoObject = Object.assign({}, this.props.user);
-        const value = e.target.value.replace(/[^\d]/,'');
+        const value = e.target.value;
         infoObject['username'] = (value);
         this.props.dispatch({type: 'handleUserFieldChange', user: infoObject})
         console.log('User:', this.props.user)
     }
     handlePasswordUpdate(e){
         let infoObject = Object.assign({}, this.props.user);
-        const value = e.target.value.replace(/[^\d]/,'');
+        const value = e.target.value;
         infoObject['password'] = (value);
         this.props.dispatch({type: 'handleUserFieldChange', user: infoObject})
         console.log('User:', this.props.user)
@@ -37,7 +37,7 @@ class UpdateUserInfo extends Component {
     updateUserInfo(e){
         e.preventDefault()
         console.log("In handle update user")
-        let infoObject = {_id: e.target.name, user: e.target.name, password: e.target.name}
+        let infoObject = {_id: this.props.user._id, username: this.props.user.username, password: this.props.user.password}
         this.userService.updateUserInfo(infoObject).then(
             (resp) => {
                 this.props.dispatch({type: 'updateUserInfo', user: {}})
@@ -54,14 +54,6 @@ class UpdateUserInfo extends Component {
                         <div class="col"></div>
                         <div class="col">
                             <h3 class="form-group">Update User Information</h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h5>Account ID:</h5>
-                        </div>
-                        <div class="col">
-                        <input type="text" class="form-control" name='Id' onChange={this.currentUserSearch}/>
                         </div>
                     </div>
                     <div class="row">
