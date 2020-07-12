@@ -36,6 +36,10 @@ class UserTestSuite(unittest.TestCase):
         '''Test for the set_id function.'''
         UserTestSuite.user.set_id(10)
         self.assertEqual(10, UserTestSuite.user._id)
+    def test_set_username(self):
+        '''Test for the set_username funciton.'''
+        UserTestSuite.user.set_username('hello')
+        self.assertEqual('hello', UserTestSuite.user.username)
 
     def test_login(self):
         '''Test for the login function.'''
