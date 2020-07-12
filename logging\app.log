@@ -464,3 +464,27 @@ TypeError: update_user_info() takes 2 positional arguments but 3 were given
 2020-07-11 20:25:24,738 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:26:24 EDT)" executed successfully
 2020-07-11 20:26:24,643 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:27:24 EDT)" (scheduled at 2020-07-11 20:26:24.639433-04:00)
 2020-07-11 20:26:24,697 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:27:24 EDT)" executed successfully
+2020-07-11 20:27:24,640 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:28:24 EDT)" (scheduled at 2020-07-11 20:27:24.639433-04:00)
+2020-07-11 20:27:24,710 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:28:24 EDT)" executed successfully
+2020-07-11 20:28:24,643 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:29:24 EDT)" (scheduled at 2020-07-11 20:28:24.639433-04:00)
+2020-07-11 20:28:24,715 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:29:24 EDT)" executed successfully
+2020-07-11 20:29:24,642 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:30:24 EDT)" (scheduled at 2020-07-11 20:29:24.639433-04:00)
+2020-07-11 20:29:24,720 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:30:24 EDT)" executed successfully
+2020-07-11 20:30:24,641 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:31:24 EDT)" (scheduled at 2020-07-11 20:30:24.639433-04:00)
+2020-07-11 20:30:24,741 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:31:24 EDT)" executed successfully
+2020-07-11 20:31:24,641 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:32:24 EDT)" (scheduled at 2020-07-11 20:31:24.639433-04:00)
+2020-07-11 20:31:24,717 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:32:24 EDT)" executed successfully
+2020-07-11 20:32:24,643 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:33:24 EDT)" (scheduled at 2020-07-11 20:32:24.639433-04:00)
+2020-07-11 20:32:24,727 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:33:24 EDT)" executed successfully
+2020-07-11 20:33:24,643 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:34:24 EDT)" (scheduled at 2020-07-11 20:33:24.639433-04:00)
+2020-07-11 20:33:24,740 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:34:24 EDT)" executed successfully
+2020-07-11 20:34:24,640 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:35:24 EDT)" (scheduled at 2020-07-11 20:34:24.639433-04:00)
+2020-07-11 20:34:24,702 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:35:24 EDT)" executed successfully
+2020-07-11 20:35:24,643 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:36:24 EDT)" (scheduled at 2020-07-11 20:35:24.639433-04:00)
+2020-07-11 20:35:24,757 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:36:24 EDT)" executed successfully
+2020-07-11 20:36:24,642 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:37:24 EDT)" (scheduled at 2020-07-11 20:36:24.639433-04:00)
+2020-07-11 20:36:24,722 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:37:24 EDT)" executed successfully
+2020-07-11 20:37:24,642 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:38:24 EDT)" (scheduled at 2020-07-11 20:37:24.639433-04:00)
+2020-07-11 20:37:24,708 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:38:24 EDT)" executed successfully
+2020-07-11 20:38:24,642 - apscheduler.executors.default - INFO - Running job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:39:24 EDT)" (scheduled at 2020-07-11 20:38:24.639433-04:00)
+2020-07-11 20:38:24,723 - apscheduler.executors.default - INFO - Job "check_auction_expirations (trigger: interval[0:01:00], next run at: 2020-07-11 20:39:24 EDT)" executed successfully
