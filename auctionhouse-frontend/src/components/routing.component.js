@@ -30,11 +30,11 @@ function UserNav(props) {
                         <Link to='/userlist' className='nav_link'><h3>Users List</h3></Link><h4>|</h4>
                         <Link to='/managelist' className='nav_link'><h3>Manage Auctions</h3></Link><h4>|</h4>
                         <Link to='/auctionlist' className='nav_link'><h3>Auctions</h3></Link>
+                        <Link to='/productlist' className='nav_link'><h3>View Products</h3></Link>
                     </Nav>
         } else if (role === 'AUCTIONEER'){
             return <Nav className="mr-auto">
                         <Link to='/managelist' className='nav_link'><h3>Manage Auction</h3></Link><h4>|</h4>
-                        <Link to='/productlist' className='nav_link'><h3>View Products</h3></Link>
                     </Nav>
         } else {//(UserLoggedIn.role.toUpper() === 'CURATOR'){
             return <Nav className="mr-auto">
@@ -48,13 +48,7 @@ function UserNav(props) {
         return <Nav className="mr-auto">
                     <Link to='/bidderprofile' className='nav_link'><h3>View History</h3></Link>
                 </Nav>
-    } else
-    if (UserLoggedIn && !UserLoggedIn.role) {
-        return <Nav className="mr-auto"><Link to='/auctionlist' className='nav_link'><h3>Auctions</h3></Link></Nav>
-    }
-    else if (UserLoggedIn && UserLoggedIn.role === "Manager") {
-        return <Nav className="mr-auto"><Link to='/productlist' className='nav_link'><h3>View Products</h3></Link></Nav>
-    }
+    } 
     else {
         return <Nav className="mr-auto"></Nav>
     }

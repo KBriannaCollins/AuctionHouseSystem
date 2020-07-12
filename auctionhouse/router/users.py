@@ -4,7 +4,8 @@ from flask_cors import CORS
 from auctionhouse.models.users import User, Bidder, Employee
 import werkzeug
 from auctionhouse.logging.logger import get_logger
-from auctionhouse.data.db import login, read_user_by_username, create_bidder, create_employee
+from auctionhouse.data.db import login, read_user_by_username, create_bidder, create_employee, \
+                                 read_all_users, delete_user
 
 users = Blueprint('users', __name__)
 
