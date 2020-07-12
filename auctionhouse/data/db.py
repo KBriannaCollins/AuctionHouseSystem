@@ -189,22 +189,25 @@ def read_product_info_by_user_history(user_id):
         product_history.append({'auction_id': bid['auction_id'], 'name': prod['name'], 'description': prod['description']})
     return product_history
 
-def login(username: str):
+def login(username: str, password: str):
     '''A function that takes in a username and returns a user object with that username'''
     _log.debug('Attempting to retrieve user from database')
     query_dict = {'username': username}
     user_dict = users.find_one(query_dict)
-    _log.debug(user_dict)
-    _log.debug(type(user_dict))
-    # Ternary is "True value" if <condition> else "False Value"
-    if user_dict:
-        if 'role' in user_dict:
-            return_user = Employee.from_dict(user_dict)
+    if user_dict['password'] == password:
+        _log.debug(user_dict)
+        _log.debug(type(user_dict))
+        # Ternary is "True value" if <condition> else "False Value"
+        if user_dict:
+            if 'role' in user_dict:
+                return_user = Employee.from_dict(user_dict)
+            else:
+                return_user = Bidder.from_dict(user_dict)
         else:
-            return_user = Bidder.from_dict(user_dict)
+            return_user = None
+        return return_user
     else:
-        return_user = None
-    return return_user
+        return None
     # return Bidder.from_dict(user_dict) or Employee.from_dict(user_dict) if user_dict else None
 
 def check_auction_expirations():

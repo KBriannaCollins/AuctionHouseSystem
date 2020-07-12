@@ -49,7 +49,14 @@ class ManageList extends Component {
                         }
                         else if (auction.status === 'Active' && auction.bids.length === 0){
                             bidAmount = 'There are currently no bids.';
-                        } else {
+                        } 
+                        else if (auction.status === 'Active' && auction.bids.length === 1){
+                            bidAmount = 'There is 1 bid.';
+                        } 
+                        else if (auction.status === 'Listed'){
+                            bidAmount = 'This auction is not yet active.';
+                        } 
+                        else {
                             bidAmount = 'There are ' + String(auction.bids.length) + ' bids.';
                         }
                         return <AuctionCard key={auction._id} bidAmount={bidAmount}auctionInfo={auction} />
@@ -67,7 +74,7 @@ class ManageList extends Component {
         else {
             return(
                 <>
-                    <h1>Loading...</h1>
+                    <h1>Nothing to show</h1>
                 </>
             )
         }
