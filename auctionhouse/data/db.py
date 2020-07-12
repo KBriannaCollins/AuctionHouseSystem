@@ -179,6 +179,15 @@ def read_auctions_from_query(query_dict):
         return_struct.append(auction)
     return return_struct
 
+def read_product_info_by_user_history(user_id):
+    bidder = Bidder.from_dict(read_user_by_id(int(user_id)))
+    product_history = []
+    for bid in bidder.get_history():
+        auct = read_auction_by_id(bid['auction_id'])
+        _log.debug(auct)
+        prod = read_product_by_id(auct['item_id'])
+        product_history.append({'auction_id': bid['auction_id'], 'name': prod['name'], 'description': prod['description']})
+    return product_history
 
 def login(username: str):
     '''A function that takes in a username and returns a user object with that username'''

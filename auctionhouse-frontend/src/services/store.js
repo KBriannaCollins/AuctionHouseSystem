@@ -4,7 +4,7 @@ const initialState = {
     user: null, //username and password?
     userList: [],
     role: '',
-    bidHistory: [],
+    prodHistory: [],
     auction: {},
     auctions: [],
     products: [],
@@ -50,6 +50,8 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {bidder: action.bidder})
         case 'handlePasswordChange':
             return Object.assign({}, state, {bidder: action.bidder})
+        case 'loadProdHistory':
+            return Object.assign({}, state, {prodHistory: action.prodHistory})
         default:
             return state;
     }

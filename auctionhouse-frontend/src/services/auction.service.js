@@ -17,7 +17,6 @@ class AuctionService {
         if (queryString.length <= 2) return axios.get(this.URI, {withCredentials: true})
         else return axios.get(this.URI+queryString, {withCredentials: true})
     }
-
 }
 
 export default AuctionService
