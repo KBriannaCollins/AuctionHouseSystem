@@ -4,11 +4,8 @@ from flask_cors import CORS
 from auctionhouse.models.users import User, Bidder, Employee
 import werkzeug
 from auctionhouse.logging.logger import get_logger
-<<<<<<< HEAD
-from auctionhouse.data.db import login, read_user_by_username, read_all_users, delete_user
-=======
-from auctionhouse.data.db import login, read_user_by_username, create_bidder, create_employee
->>>>>>> a7cdb655abc8d79ff473123acbe583caea125587
+from auctionhouse.data.db import login, read_user_by_username, create_bidder, create_employee, \
+                                 read_all_users, delete_user
 
 users = Blueprint('users', __name__)
 
@@ -19,9 +16,10 @@ _log = get_logger(__name__)
 def route_login():
     if request.method == 'POST':
         # getting the user information from the form and getting the information from the db
-        _log.debug(request.form['user'])
-        user_username = request.form['user']
-        user = login(user_username)
+        input_dict = request.get_json(force=True)
+        user_username = input_dict['user']
+        user_password = input_dict['password']
+        user = login(user_username, user_password)
         if user:
             # Generate our token
             auth_token = user.encode_auth_token()
@@ -70,7 +68,6 @@ def create_user():
         empty.set_cookie('authorization', '')
         return empty, 204
 
-<<<<<<< HEAD
 @users.route('/userslist', methods=['GET', 'DELETE'])
 def route_users():
     if request.method == 'GET':
@@ -85,7 +82,7 @@ def route_users():
         return {}, 400
     else:
         return {}, 400
-=======
+
 @users.route('/employee', methods=['GET','POST'])
 def create_new_employee():
     _log.debug('Creating employee')
@@ -108,4 +105,3 @@ def create_new_employee():
         empty = make_response({})
         empty.set_cookie('authorization', '')
         return empty, 204
->>>>>>> a7cdb655abc8d79ff473123acbe583caea125587

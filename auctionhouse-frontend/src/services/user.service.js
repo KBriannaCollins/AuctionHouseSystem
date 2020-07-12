@@ -8,8 +8,9 @@ class UserService {
     checkLogin() {
         return axios.get(this.URI, {withCredentials: true})
     }
-    login(username) {
-        return axios.post(this.URI, 'user='+username, {withCredentials: true})
+    login(username, password) {
+        let req_data = {user: username, password: password}
+        return axios.post(this.URI, req_data, {withCredentials: true})
     }
     logout() {
         return axios.delete(this.URI, {withCredentials: true})
