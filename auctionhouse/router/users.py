@@ -4,7 +4,11 @@ from flask_cors import CORS
 from auctionhouse.models.users import User, Bidder, Employee
 import werkzeug
 from auctionhouse.logging.logger import get_logger
+<<<<<<< HEAD
+from auctionhouse.data.db import login, read_user_by_username, read_all_users, delete_user
+=======
 from auctionhouse.data.db import login, read_user_by_username, create_bidder, create_employee
+>>>>>>> a7cdb655abc8d79ff473123acbe583caea125587
 
 users = Blueprint('users', __name__)
 
@@ -66,6 +70,22 @@ def create_user():
         empty.set_cookie('authorization', '')
         return empty, 204
 
+<<<<<<< HEAD
+@users.route('/userslist', methods=['GET', 'DELETE'])
+def route_users():
+    if request.method == 'GET':
+        return_users = read_all_users()
+        return {'userList': return_users}, 200
+    elif request.method == 'DELETE':
+        del_dict = request.get_json(force=True)
+        if '_id' in del_dict:
+            result = delete_user(del_dict['_id'])
+            if result not in [None, 'Cannot delete a manager.']:
+                return request.json, 200
+        return {}, 400
+    else:
+        return {}, 400
+=======
 @users.route('/employee', methods=['GET','POST'])
 def create_new_employee():
     _log.debug('Creating employee')
@@ -88,3 +108,4 @@ def create_new_employee():
         empty = make_response({})
         empty.set_cookie('authorization', '')
         return empty, 204
+>>>>>>> a7cdb655abc8d79ff473123acbe583caea125587

@@ -120,7 +120,7 @@ def update_product_status(product_id: int, status: str):
 # Read operations
 def read_all_users():
     ''' Retrieve all users '''
-    return users.find({})
+    return list(users.find({}))
 
 def read_all_bidders():
     ''' Retrieve all bidders '''
@@ -132,7 +132,7 @@ def read_all_employees():
 
 def read_user_by_id(user_id: int):
     ''' Retrieve a User by their id in the database '''
-    query_string = {'_id': user_id}
+    query_string = {'_id': int(user_id)}
     return users.find_one(query_string)
 
 def read_user_by_username(username: str):
@@ -241,7 +241,8 @@ def auction_start(auction_id, duration):
     return updated_auction
 
 def auction_end(auction_id, bidder_id):
-    '''find the auction'''
+    '''Find and end the specified auction. Sets the auction winner, and updates bid history
+    of bidders involved.'''
     bidder_id = int(bidder_id)
     auction_id = int(auction_id)
     query_string = {'_id': auction_id}
@@ -276,6 +277,36 @@ def auction_end(auction_id, bidder_id):
     _log.info(' to auction %s', auction_id)
     return op_success
 
+def update_user_info(user_id: int, user_info: dict):
+    '''Updates user information'''
+    query_string = {'_id': int(user_id)}
+    update_string = {'username': user_info['username'] , 'password': user_info['password']}
+    try:
+        users.update_one(query_string, {'$set': update_string})
+        op_success = user_info
+        _log.info('Updated information for user ID %s', user_id)
+    except:
+        op_success = None
+        _log.info('Could not update information for user ID %s', user_id)
+    return op_success
+
+def delete_user(user_id):
+    user_query_string = {'_id': int(user_id)}
+    query_string = {'status': 'Active', 'bids.bidder_id': user_id}
+    try:
+        user = read_user_by_id(user_id)
+        if 'role' in user and user['role'].upper() == 'MANAGER':
+            return 'Cannot delete a manager.'
+        users.delete_one(user_query_string)
+        auctions.update_many(query_string, {'$pull': {'bids': {'bidder_id': user_id}}})
+        op_success = user_id
+        _log.info('Deleted user ID %s', user_id)
+    except:
+        op_success = None
+        _log.info('Could not delete user ID %s', user_id)
+    return op_success
+
+
 
 #Delete Functions
 
@@ -302,37 +333,38 @@ def _get_product_id_counter():
 
 
 if __name__ == "__main__":
+    print(delete_user(99))
     ''' This is the database initialization functionality '''
-    util.drop()
-    products.drop()
-    users.drop()
-    auctions.drop()
+    # util.drop()
+    # products.drop()
+    # users.drop()
+    # auctions.drop()
 
-    util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
-    util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
-    util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'USERID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'AUCTIONID_COUNTER', 'count': 0})
+    # util.insert_one({'_id': 'PRODUCTID_COUNTER', 'count': 0})
 
-    users.create_index('username', unique=True)
+    # users.create_index('username', unique=True)
 
-    # Bidder
-    bidder = Bidder('bidder', 'password')
-    bidder = create_bidder(bidder)
-    # manager
-    manager = Employee('manager', 'password', 'Manager')
-    create_employee(manager)
-    # curator
-    curator = Employee('curator', 'password', 'Curator')
-    create_employee(curator)
-    # auctioneer
-    auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
-    create_employee(auctioneer)
+    # # Bidder
+    # bidder = Bidder('bidder', 'password')
+    # bidder = create_bidder(bidder)
+    # # manager
+    # manager = Employee('manager', 'password', 'Manager')
+    # create_employee(manager)
+    # # curator
+    # curator = Employee('curator', 'password', 'Curator')
+    # create_employee(curator)
+    # # auctioneer
+    # auctioneer = Employee('auctioneer', 'password', 'Auctioneer')
+    # create_employee(auctioneer)
 
-    # product
-    product = Product('Product1', 'Much expensive. Very product.', 10)
-    create_product(product)
-    # Bid
-    bid = Bid(bidder.get_id(), product.get_id(), 100)
-    # auction
-    auction = Auction(product.get_id())
-    create_auction(auction)
-    create_bid(bid, auction.get_id())
+    # # product
+    # product = Product('Product1', 'Much expensive. Very product.', 10)
+    # create_product(product)
+    # # Bid
+    # bid = Bid(bidder.get_id(), product.get_id(), 100)
+    # # auction
+    # auction = Auction(product.get_id())
+    # create_auction(auction)
+    # create_bid(bid, auction.get_id())

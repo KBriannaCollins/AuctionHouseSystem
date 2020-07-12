@@ -2,7 +2,9 @@ import { createStore } from 'redux';
 
 const initialState = {
     user: null, //username and password?
+    userList: [],
     role: '',
+    bidHistory: [],
     auction: {},
     auctions: [],
     products: [],
@@ -41,6 +43,10 @@ function auctionReducer(state = initialState, action){
             return Object.assign({}, state, {auctionList: action.auctionList})
         case 'setHighestBidder':
             return Object.assign({}, state, {bidder: action.bidder})
+        case 'removeUser':
+            return Object.assign({}, state, {userList: action.userList})
+        case 'loadUserList':
+            return Object.assign({}, state, {userList: action.userList})
         case 'handleUsernameChange':
             return Object.assign({}, state, {bidder: action.bidder})
         case 'handlePasswordChange':

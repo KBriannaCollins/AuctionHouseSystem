@@ -68,8 +68,8 @@ class BidderTestSuite(unittest.TestCase):
         self.assertIs(type(BidderTestSuite.bidder.get_history()), list)
 
     def test_create_history(self):
-        BidderTestSuite.bidder.create_history('name', 0, 'win')
-        self.assertEqual([{'product_name': 'name', 'amount': 0, 'bid_status': 'win'}],
+        BidderTestSuite.bidder.create_history(1, 0, 'Win')
+        self.assertEqual([{'auction_id': 1, 'amount': 0, 'bid_status': 'Win'}],
                          BidderTestSuite.bidder.get_history()) 
 
     def test_from_dict(self):
