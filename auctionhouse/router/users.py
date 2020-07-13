@@ -4,7 +4,8 @@ from flask import request, make_response, jsonify, Blueprint
 from auctionhouse.models.users import User, Bidder, Employee
 from auctionhouse.logging.logger import get_logger
 from auctionhouse.data.db import login, read_user_by_username, create_bidder, create_employee, \
-                                 read_all_users, delete_user, read_product_info_by_user_history
+                                 read_all_users, delete_user, read_product_info_by_user_history, \
+                                 update_user_info
 
 users = Blueprint('users', __name__)
 
@@ -77,7 +78,7 @@ def get_user(user_id):
             return jsonify(db.read_user_by_id(user_id)), 200
     elif request.method == 'PUT':
         input_dict = request.get_json(force=True)
-        if db.update_user_info(input_dict['_id'], {'username': input_dict['username'], 'password': input_dict['password']}):
+        if update_user_info(input_dict['_id'], {'username': input_dict['username'], 'password': input_dict['password']}):
             return request.json, 204
         else:
             return request.json, 400

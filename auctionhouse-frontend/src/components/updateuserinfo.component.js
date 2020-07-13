@@ -53,10 +53,9 @@ class UpdateUserInfo extends Component {
     render(){
         // const FIELDS = ['name', 'description', 'start_bid']
         return( 
-            <div class="form-group w-50">
+            <div class="form-group w-25">
                 <form>
                     <div class="row">
-                        <div class="col"></div>
                         <div class="col">
                             <h3 class="form-group">Update User Information</h3>
                         </div>
