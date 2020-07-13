@@ -2,6 +2,8 @@
 
 .nav_link {
     @extend %titles;
+    padding-left: 8px;
+    padding-right: 8px;
     h1 {
         color: $ah-offblack;
         font-weight: bold;
@@ -35,6 +37,9 @@ td {
     .row{
         padding: 5px;
     }
+    h3{
+        text-align: center;
+    }
     h5{
         text-align: right;
     }
@@ -67,6 +72,7 @@ td {
     }
 }
 
+
 .nav-item{
     padding-right: 8px;
     font-size: large;
@@ -94,5 +100,58 @@ td {
     button:hover{
         background-color: $ah-offwhite;
         color: $ah-red;
+    }
+}
+
+.button{
+    background-color: $ah-red;
+    color: $ah-offwhite;
+    border-radius: 8px;
+    font-size: medium;
+    outline-color: $ah-offwhite;;
+}
+.button:hover{
+    background-color: $ah-offwhite;
+    color: $ah-red;
+    outline-color: $ah-offwhite;;
+}
+
+
+Table{
+    outline-style: auto;
+    outline-color: $ah-red;
+    
+    
+    thead{
+        background-color: $ah-red;
+        font-weight: bold;
+        font-size: larger;
+        color: #dbc5a9;
+        th{
+            outline-style: auto;
+            outline-color: $ah-offwhite;
+        }
+
+
+    }
+    tbody{
+        tr{
+            outline-style: auto;
+            outline-color: $ah-red;
+        }
+
+
+    }
+    .button{
+        background-color: $ah-red;
+        color: $ah-offwhite;
+        border-radius: 8px;
+        font-size: medium;
+        outline-color: $ah-offwhite;;
+    }
+    .button:hover{
+        background-color: $ah-offwhite;
+        color: $ah-red;
+        outline-color: $ah-offwhite;;
     }
 }

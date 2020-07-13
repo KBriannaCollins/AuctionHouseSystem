@@ -8,7 +8,8 @@ function AuctionCard(props) {
     const history = useHistory();
 
     let auctionId = props.auctionInfo._id
-    let numBids = props.auctionInfo.bids.length
+    let productName = props.auctionInfo.item.name
+    let numBids = props.bidAmount
 
     function handleClick() {
         history.push(`/manage/${auctionId}`)
@@ -18,7 +19,8 @@ function AuctionCard(props) {
         <>
             <Card style={{width: '18rem'}}>
                 <Card.Title>Auction ID {auctionId}</Card.Title>
-                <Card.Body>There are {numBids} bids on this auction</Card.Body>
+                <Card.Body>{productName}</Card.Body>
+                <Card.Body>{numBids}</Card.Body>
                 <Button onClick={handleClick}>Manage this auction</Button>
             </Card>
         </>
@@ -43,7 +45,24 @@ class ManageList extends Component {
             <>
                 {
                     auctions.map((auction) => {
-                        return <AuctionCard key={auction._id} auctionInfo={auction} />
+                        let bidAmount = null;
+                        if (auction.status === 'Closed'){
+                            bidAmount = 'This auction is closed.'
+                        }
+                        else if (auction.status === 'Active' && auction.bids.length === 0){
+                            bidAmount = 'There are currently no bids.';
+                        } 
+                        else if (auction.status === 'Active' && auction.bids.length === 1){
+                            bidAmount = 'There is 1 bid.';
+                        } 
+                        else if (auction.status === 'Listed'){
+                            bidAmount = 'This auction is not yet active.';
+                        } 
+                        else {
+                            bidAmount = 'There are ' + String(auction.bids.length) + ' bids.';
+                        }
+                        console.log(this.props)
+                        return <AuctionCard key={auction._id} bidAmount={bidAmount} auctionInfo={auction} />
                     })
                 }
             </>
@@ -58,7 +77,7 @@ class ManageList extends Component {
         else {
             return(
                 <>
-                    <h1>Loading...</h1>
+                    <h1>Nothing to show</h1>
                 </>
             )
         }
