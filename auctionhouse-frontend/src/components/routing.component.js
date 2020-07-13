@@ -30,6 +30,7 @@ function UserNav(props) {
                         <Link to='/userlist' className='nav_link'><h3>Users List</h3></Link><h4>|</h4>
                         <Link to='/managelist' className='nav_link'><h3>Manage Auctions</h3></Link><h4>|</h4>
                         <Link to='/productlist' className='nav_link'><h3>View Products</h3></Link><h4>|</h4>
+                        <Link to='/employee' className='nav_link'><h3>Create Employee</h3></Link><h4>|</h4>
                         <Nav className="mr-auto"><Link to='/updateuserinfo' className='nav_link'><h3>Manage User Info</h3></Link></Nav>
                     </Nav>
         } else if (role === 'AUCTIONEER'){

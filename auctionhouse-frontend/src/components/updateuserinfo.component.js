@@ -41,6 +41,11 @@ class UpdateUserInfo extends Component {
         this.userService.updateUserInfo(infoObject).then(
             (resp) => {
                 this.props.dispatch({type: 'updateUserInfo', user: {}})
+                if (resp.status === 204){
+                    alert("Successfully updated information.")
+                } else {
+                    alert("Could not update information.")
+                }
             }
         )
     }

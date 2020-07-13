@@ -19,7 +19,6 @@ class UserService {
         console.log(infoObject)
         return axios.put(this.URI + '/' + infoObject._id, infoObject, {withCredentials: true})
     }
-
     getUsers(){
         return axios.get(this.URI+'list', {withCredentials: true})
     }

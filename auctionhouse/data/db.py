@@ -74,8 +74,8 @@ def create_bid(new_bid: Bid, auction_id):
     '''Create a Bid in the database'''
     query_string = {'_id': auction_id}
     auct = Auction.from_dict(read_auction_by_id(auction_id))
-    prod = read_product_by_id(auct.get_item_id())
-    if new_bid['amount'] >= prod.get_start_bid():
+    prod = Product.from_dict(read_product_by_id(auct.get_item_id()))
+    if new_bid.amount >= prod.get_start_bid():
         bid_list = auct.get_bids()
         if any(d['bidder_id'] == new_bid.get_bidder_id() for d in bid_list):
             for bid in bid_list:
@@ -90,7 +90,7 @@ def create_bid(new_bid: Bid, auction_id):
             _log.info('Added new bid to auction %s', auction_id)
         except:
             op_success = None
-        _log.info('Could not add new bid to auction %s', auction_id)
+            _log.info('Could not add new bid to auction %s', auction_id)
     else:
         op_success = None
         _log.info('Could not add new bid to auction %s', auction_id)
@@ -384,10 +384,10 @@ if __name__ == "__main__":
     create_employee(auctioneer)
 
     # product
-    product = Product('Product1', 'Much expensive. Very product.', 10)
+    product = Product('Egyptian Sarcophagus', 'Egyptian funeral receptacle for a corpse.', 1000)
     create_product(product)
     # Bid
-    bid = Bid(bidder.get_id(), product.get_id(), 100)
+    bid = Bid(bidder.get_id(), product.get_id(), 2000)
     # auction
     auction = Auction(product.get_id())
     create_auction(auction)

@@ -46,18 +46,49 @@ class EmployeeForm extends Component{
     }
     render(){
         return(
-            <form onSubmit={this.handleSubmit}><p></p>
-                <p><label>Enter the employee username:</label></p>
-                <p><input type="text"  onChange={this.handleEmpUsernameChange}/></p>
-                <p><label>Enter the employee password:</label></p>
-                <p><input type="text" onChange={this.handleEmpPasswordChange}/></p>
-                <p><label>Select the type of employee:</label></p>
-                <p><select name="Role" id="Role" onClick={this.handleRole}>
-                    <option value ="Curator">Curator</option>
-                    <option value ="Auctioneer">Auctioneer</option>
-                    </select></p>
-                <p><input type="submit" value="Submit" onClick={this.handleSubmit}/></p>
+            <form className="form-group w-25">
+                <form onSubmit={this.handleSubmit}>
+                    <div className="row">
+                        <div className="col">
+                            <h3 className="form-group">New Employee Creation Form</h3>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col">
+                            <h5 className="form-group">Employee username:</h5>
+                        </div>
+                        <div className="col">
+                            <input type="text" className="form-control" onChange={this.handleEmpUsernameChange}/>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col">
+                            <h5 className="form-group">Employee password:</h5>
+                        </div>
+                        <div className="col">
+                            <input type="text" className="form-control" onChange={this.handleEmpPasswordChange}/>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col">
+                            <h5 className="form-group">Employee role:</h5>
+                        </div>
+                        <div className="col">
+                        <select className="form-control" name="Role" id="Role" onClick={this.handleRole}>
+                            <option value ="Curator">Curator</option>
+                            <option value ="Auctioneer">Auctioneer</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col"></div>
+                        <div className="col">
+                            <button className="form-control" type="submit" value="Submit" onClick={this.handleSubmit}>Submit</button>
+                        </div>
+                    </div>
             </form>
+            </form>
+
         );
     }
 }

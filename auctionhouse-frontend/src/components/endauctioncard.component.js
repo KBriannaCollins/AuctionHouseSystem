@@ -25,6 +25,11 @@ function EndAuctionCard(props) {
         }
         auctionService.updateAuctionStatus(winningBidData).then(res => {
             console.log(res)
+            if (res.status === 204){
+                alert("Successfully ended the auction.")
+            } else {
+                alert("Could not end the auction.")
+            }
         })
     }
 
@@ -36,7 +41,7 @@ function EndAuctionCard(props) {
                 <select onChange={updateBidder}>
                     {
                         sortedBids.map(bid => {
-                            return <option key={bid._id} value={bid.bidder_id}>Bid ID {bid._id}: ${bid.amount}</option>
+                            return <option key={bid._id} value={bid.bidder_id}>Bidder ID {bid.bidder_id}: ${bid.amount}</option>
                         })
                     }
                 </select>

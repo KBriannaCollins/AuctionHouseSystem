@@ -29,6 +29,11 @@ class RegisterForm extends Component{
         this.registerService.addBidder(this.props.bidder).then(
             (resp) => {
                 this.props.dispatch({type: 'addBidder', bidder: {'username': '', 'password': ''}})
+                if (resp.status === 201){
+                    alert("Successfully registered.")
+                } else {
+                    alert("Could not register user.")
+                }
             }
         )
     }
